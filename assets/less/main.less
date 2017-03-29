@@ -3,6 +3,15 @@
 
 @import "reset";
 @import "sidebar";
+@import "loader";
+@import "station-item";
+@import "station-page";
+@import "artist-info";
+
+* {
+	outline: none;
+	box-sizing: border-box;
+}
 
 html,
 body,
@@ -13,12 +22,29 @@ body,
 
 body {
 	font-family: 'Fira Sans Condensed', sans-serif;
+	color: #345;
+	font-size: 15px;
+}
+
+p {
+	line-height: 20px;
+	margin-bottom: 20px;
+}
+
+h1 {
+	text-transform: uppercase;
+	font-size: 26px;
+	font-weight: bold;
+	color: #656c7a;
+	margin-bottom: 20px;
 }
 
 #app {
 	width: 960px;
 	margin: 0 auto;
 	height: initial;
+	border-left: 1px solid #dbdfe4;
+	border-right: 1px solid #dbdfe4;
 }
 
 #wrapper {
@@ -35,15 +61,58 @@ body {
 
 nav {
 	background: #f3fef3;
+	border-bottom: 1px solid #dbdfe4;
 }
 
 #content {
 	flex-grow: 1;
-	background: #f2f2f2;
 	max-width: 960px;
+	padding: 20px 25px 0;
+}
+
+ul.list-items-horizontal > li {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	font-size: 14px;
 }
 
 #audio {
 	width: 100%;
-	border-top: 1px solid white;
+	height: 100%;
+}
+
+#playerWrapper {
+	width: 100%;
+	border-top: 1px solid #dbdfe4;
+	height: 33px;
+	top: 0;
+	left: 0;
+	position: relative;
+}
+
+#playerWrapper:before {
+	content: "";
+	display: none;
+	width: 100%;
+	position: absolute;
+	background: rgba(255, 255, 255, 0.8);
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.station-list > div {
+	float: left;
+	margin-right: 9px;
+	margin-bottom: 9px;
+}
+
+#disqus_thread {
+	border-top: 1px solid #dbdfe4;
+	margin-left: -25px;
+	margin-right: -25px;
+	padding: 10px 20px;
+	background: #fdfdfd;
 }

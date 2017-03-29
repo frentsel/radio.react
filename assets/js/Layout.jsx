@@ -22,6 +22,9 @@ const Layout = ({src, children}) => {
 				</div>
 			</div>
 			<AudioPlayer></AudioPlayer>
+			<div className="linear-activity">
+				<div className="indeterminate"></div>
+			</div>
 		</div>
 	);
 };

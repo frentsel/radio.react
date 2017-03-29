@@ -1112,18 +1112,6 @@
 	},
 	{
 		"type": "mp3",
-		"img": "damusicchillout_100.jpg",
-		"title": "DaMusic Chillout",
-		"genre": "relax",
-		"radio": "http:\/\/91.239.65.100:8003\/chillout",
-		"text": "DaMusic Chillout - вибрации, наполненные душой и приятным настроением. Отвлекитесь от повседневных забот и погрузитесь в океан чувств и эмоций.",
-		"radioLink": "http:\/\/damusic.info",
-		"genreRu": "Relax",
-		"country": "Казахстан",
-		"city": "Алма-Ата"
-	},
-	{
-		"type": "mp3",
 		"img": "mirobyte_100.jpg",
 		"title": "Mirobyte Radio",
 		"genre": "relax",
@@ -2451,18 +2439,6 @@
 		"genreRu": "Рок",
 		"country": "Россия",
 		"city": "Волгоград"
-	},
-	{
-		"type": "mp3",
-		"img": "damusictrance_100.jpg",
-		"title": "DaMusic Trance",
-		"genre": "trance",
-		"radio": "http:\/\/damusic.info:8001\/trance",
-		"text": "На радио DaMusic вас ждет музыка разных направлений, от эмбиента до дарк псай-транса, от лоунжа до хардкора. ",
-		"radioLink": "http:\/\/damusic.info",
-		"genreRu": "Транс",
-		"country": "Казахстан",
-		"city": "Алма-Ата"
 	},
 	{
 		"type": "mp3",

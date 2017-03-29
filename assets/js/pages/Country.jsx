@@ -1,5 +1,5 @@
 import React from 'react';
-import stations from '../../data/stations.json';
+import stations from '../../../data/stations.json';
 import StationItem from '../partials/StationItem.jsx';
 
 const Country = ({ params }) => {

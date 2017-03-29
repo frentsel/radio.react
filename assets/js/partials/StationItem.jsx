@@ -4,7 +4,7 @@ import {Router, Route, hashHistory, Link} from 'react-router';
 const StationItem = ({ station, index }) => {
 
 	return (
-		<div>
+		<div className="station-item">
 			<b>{station.title}</b>
 			<Link  to={'/radio-station/'+index}>
 				<img src={'/images/'+station.img} alt="" />

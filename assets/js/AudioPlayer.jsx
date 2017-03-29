@@ -1,12 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import $ from 'jquery';
+
+const hideLoader = () => {
+	$('body').toggleClass('streamLoading', false);
+};
 
 const AudioPlayer = ({ src }) => {
 
-	console.info("AudioPlayer: ", src);
+	$('body').toggleClass('streamLoading', true);
 
 	return (
-		<audio id="audio" src={src} controls autoPlay></audio>
+		<div id="playerWrapper">
+			<div className="spinner">
+				<div className="bounce1"></div>
+				<div className="bounce2"></div>
+				<div className="bounce3"></div>
+			</div>
+			<audio id="audio" src={src} controls autoPlay onCanPlayThrough={hideLoader}></audio>
+		</div>
 	);
 };
 
