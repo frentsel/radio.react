@@ -37,7 +37,7 @@ if(!empty($_GET['id'])){
 
     $id = (int) $_GET['id'];
     $fileName = $id.'.json';
-    $cachePath = __DIR__.'/cache';
+    $cachePath = __DIR__.'/../data/cache';
     $cachefile = $cachePath.'/'.$fileName;
     $cachetime = 15;
 

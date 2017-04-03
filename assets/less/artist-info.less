@@ -2,17 +2,24 @@
 	border-top: 1px solid #dbdfe4;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	display: flex;
-	flex-direction: row;
+	overflow: hidden;
 	> a {
 		margin-right: 20px;
-		> img {
-			background: #eee;
-			width: 174px;
-			height: 174px;
-		}
+		overflow: hidden;
+		float: left;
+	}
+	img {
+		background: #eee;
 	}
 }
 
-.artist-info__description {
+.artist-info__image--small {
+	width: 174px;
+	height: 174px;
+}
+
+.artist-info__image--medium {
+	width: 100%;
+	max-width: 300px;
+	height: auto;
 }

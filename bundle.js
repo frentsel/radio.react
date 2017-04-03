@@ -70,41 +70,45 @@
 
 	var _LayoutJsx2 = _interopRequireDefault(_LayoutJsx);
 
-	var _pagesHomeJsx = __webpack_require__(293);
+	var _pagesHomeJsx = __webpack_require__(297);
 
 	var _pagesHomeJsx2 = _interopRequireDefault(_pagesHomeJsx);
 
-	var _pagesStationJsx = __webpack_require__(294);
+	var _pagesStationJsx = __webpack_require__(298);
 
 	var _pagesStationJsx2 = _interopRequireDefault(_pagesStationJsx);
 
-	var _pagesCityJsx = __webpack_require__(306);
+	var _pagesCityJsx = __webpack_require__(303);
 
 	var _pagesCityJsx2 = _interopRequireDefault(_pagesCityJsx);
 
-	var _pagesCitiesJsx = __webpack_require__(307);
+	var _pagesCitiesJsx = __webpack_require__(305);
 
 	var _pagesCitiesJsx2 = _interopRequireDefault(_pagesCitiesJsx);
 
-	var _pagesCountriesJsx = __webpack_require__(308);
+	var _pagesCountriesJsx = __webpack_require__(306);
 
 	var _pagesCountriesJsx2 = _interopRequireDefault(_pagesCountriesJsx);
 
-	var _pagesCountryJsx = __webpack_require__(309);
+	var _pagesCountryJsx = __webpack_require__(307);
 
 	var _pagesCountryJsx2 = _interopRequireDefault(_pagesCountryJsx);
 
-	var _pagesGenreJsx = __webpack_require__(310);
+	var _pagesGenreJsx = __webpack_require__(308);
 
 	var _pagesGenreJsx2 = _interopRequireDefault(_pagesGenreJsx);
 
-	var _pagesNotFoundJsx = __webpack_require__(295);
+	var _pagesArtistJsx = __webpack_require__(309);
+
+	var _pagesArtistJsx2 = _interopRequireDefault(_pagesArtistJsx);
+
+	var _pagesNotFoundJsx = __webpack_require__(310);
 
 	var _pagesNotFoundJsx2 = _interopRequireDefault(_pagesNotFoundJsx);
 
-	__webpack_require__(296);
+	__webpack_require__(311);
 
-	var _reducers = __webpack_require__(300);
+	var _reducers = __webpack_require__(315);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -127,6 +131,7 @@
 				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-countries', component: _pagesCountriesJsx2['default'] }),
 				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-country/:countryId', component: _pagesCountryJsx2['default'] }),
 				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-station/:stationId', component: _pagesStationJsx2['default'] }),
+				_react2['default'].createElement(_reactRouter.Route, { path: '/artist-info/:artistName', component: _pagesArtistJsx2['default'] }),
 				_react2['default'].createElement(_reactRouter.Route, { path: '*', component: _pagesNotFoundJsx2['default'] })
 			)
 		)
@@ -30155,11 +30160,11 @@
 
 	var _reactRouter = __webpack_require__(183);
 
-	var _partialsSidebarJsx = __webpack_require__(305);
+	var _partialsSidebarJsx = __webpack_require__(293);
 
 	var _partialsSidebarJsx2 = _interopRequireDefault(_partialsSidebarJsx);
 
-	var _AudioPlayerJsx = __webpack_require__(302);
+	var _AudioPlayerJsx = __webpack_require__(295);
 
 	var _AudioPlayerJsx2 = _interopRequireDefault(_AudioPlayerJsx);
 
@@ -30243,692 +30248,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var Home = function Home() {
-
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'Home page'
-			),
-			_react2['default'].createElement(
-				'p',
-				null,
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur dignissimos doloribus enim illum, itaque maiores obcaecati perferendis quasi soluta. Accusamus consequuntur cum debitis deserunt eaque exercitationem expedita minima, nulla, quae sequi sint, soluta suscipit tenetur totam unde! Deserunt impedit laudantium nemo officiis sequi. Autem dolor maxime modi nesciunt voluptate!'
-			)
-		);
-	};
-
-	exports['default'] = Home;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 294 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(260);
-
 	var _reactRouter = __webpack_require__(183);
 
-	var _dataStationsJson = __webpack_require__(313);
-
-	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
-
-	var _partialsDisqusBlockJsx = __webpack_require__(320);
-
-	var _partialsDisqusBlockJsx2 = _interopRequireDefault(_partialsDisqusBlockJsx);
-
-	var _partialsArtistInfoJsx = __webpack_require__(322);
-
-	var _partialsArtistInfoJsx2 = _interopRequireDefault(_partialsArtistInfoJsx);
-
-	var _meta = __webpack_require__(316);
-
-	var _meta2 = _interopRequireDefault(_meta);
-
-	var Station = _react2['default'].createClass({
-		displayName: 'Station',
-
-		getInitialState: function getInitialState() {
-			return {
-				station: _dataStationsJson2['default'][this.props.params.stationId],
-				artist: {}
-			};
-		},
-
-		componentWillMount: function componentWillMount() {
-
-			var _this = this;
-
-			this.props.setTrack(this.state.station.radio);
-
-			_meta2['default'].getTrackInfo(this.props.params.stationId).then(function (res) {
-				_this.setState({
-					station: _this.state.station,
-					artist: res.artist
-				});
-			});
-		},
-
-		componentWillUnmount: function componentWillUnmount() {
-			this.props.setTrack(this.state.station.radio);
-		},
-
-		render: function render() {
-
-			var station = this.state.station;
-			var artist = this.state.artist;
-
-			return _react2['default'].createElement(
-				'div',
-				null,
-				_react2['default'].createElement(
-					'div',
-					{ className: 'station-page' },
-					_react2['default'].createElement('img', { src: '/images/' + station.img, alt: '' }),
-					_react2['default'].createElement(
-						'div',
-						{ className: 'station-info__description' },
-						_react2['default'].createElement(
-							'b',
-							null,
-							station.title
-						),
-						_react2['default'].createElement(
-							'p',
-							null,
-							station.text
-						),
-						_react2['default'].createElement(
-							'p',
-							null,
-							'Жанр: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-genre/' + station.genre },
-								station.genre
-							),
-							', Страна: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-country/' + station.country },
-								station.country
-							),
-							', Город: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-city/' + station.city },
-								station.city
-							)
-						)
-					)
-				),
-				artist.name ? _react2['default'].createElement(_partialsArtistInfoJsx2['default'], { artist: artist }) : '',
-				_react2['default'].createElement(_partialsDisqusBlockJsx2['default'], {
-					url: window.location.href,
-					identifier: this.state.station.title,
-					title: this.state.station.title
-				})
-			);
-		}
-	});
-
-	exports['default'] = (0, _reactRedux.connect)(function (state) {
-		return {
-			url: state.player
-		};
-	}, function (dispatch) {
-		return {
-			setTrack: function setTrack(url) {
-				dispatch({
-					type: 'SET',
-					url: url
-				});
-			}
-		};
-	})(Station);
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Station.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 295 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var NotFound = function NotFound() {
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'Error 404'
-			),
-			_react2['default'].createElement(
-				'p',
-				null,
-				'Page not found!'
-			)
-		);
-	};
-
-	exports['default'] = NotFound;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "NotFound.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 296 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(297);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(299)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/less-loader/dist/index.js!./main.less", function() {
-				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/less-loader/dist/index.js!./main.less");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 297 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(298)();
-	// imports
-	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,500&subset=cyrillic);", ""]);
-
-	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nq:before,\nblockquote:after,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n#sidebar {\n  max-width: 250px;\n  background: #f3fdfe;\n  width: 100%;\n  padding: 15px 20px;\n  border-right: 1px solid #dbdfe4;\n}\nul.sidebar-list {\n  clear: both;\n  float: none;\n  overflow: hidden;\n  margin-bottom: 20px;\n}\nul.sidebar-list > li {\n  float: left;\n  margin-right: 12px;\n  font-size: 14px;\n}\n.spinner {\n  display: none;\n  margin: auto;\n  width: 70px;\n  height: 14px;\n  right: 0;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  text-align: center;\n  position: absolute;\n  z-index: 1;\n}\nbody.streamLoading .spinner {\n  display: block;\n}\n.spinner > div {\n  width: 12px;\n  height: 12px;\n  margin: 0 2px;\n  background-color: #4285f4;\n  border-radius: 100%;\n  display: inline-block;\n  -webkit-animation: sk-bouncedelay 1.2s infinite ease-in-out both;\n  animation: sk-bouncedelay 1.2s infinite ease-in-out both;\n}\n.spinner .bounce1 {\n  -webkit-animation-delay: -0.32s;\n  animation-delay: -0.32s;\n}\n.spinner .bounce2 {\n  -webkit-animation-delay: -0.16s;\n  animation-delay: -0.16s;\n}\n@-webkit-keyframes sk-bouncedelay {\n  0%,\n  80%,\n  100% {\n    -webkit-transform: scale(0);\n  }\n  40% {\n    -webkit-transform: scale(1);\n  }\n}\n@keyframes sk-bouncedelay {\n  0%,\n  80%,\n  100% {\n    -webkit-transform: scale(0);\n    transform: scale(0);\n  }\n  40% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n  }\n}\nbody.streamLoading #playerWrapper:before {\n  display: block;\n}\nbody.loading .linear-activity {\n  display: block;\n}\n.linear-activity {\n  display: none;\n  margin: auto;\n  overflow: hidden;\n  width: 100%;\n  max-width: 960px;\n  height: 2px;\n  background-color: #B3E5FC;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.indeterminate {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.indeterminate:before {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #03A9F4;\n  animation: indeterminate_first 1.5s infinite ease-out;\n}\n.indeterminate:after {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #4FC3F7;\n  animation: indeterminate_second 1.5s infinite ease-in;\n}\n@keyframes indeterminate_first {\n  0% {\n    left: -100%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n@keyframes indeterminate_second {\n  0% {\n    left: -150%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n.station-item {\n  position: relative;\n}\n.station-item > b {\n  position: absolute;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  height: 20px;\n  font-size: 13px;\n  line-height: 20px;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  text-align: center;\n  padding: 0 2px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.station-item img {\n  float: left;\n}\n.station-page {\n  margin-bottom: 20px;\n  overflow: hidden;\n}\n.station-page > img {\n  float: left;\n  margin-right: 20px;\n}\n.artist-info {\n  border-top: 1px solid #dbdfe4;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  display: flex;\n  flex-direction: row;\n}\n.artist-info > a {\n  margin-right: 20px;\n}\n.artist-info > a > img {\n  background: #eee;\n  width: 174px;\n  height: 174px;\n}\n* {\n  outline: none;\n  box-sizing: border-box;\n}\nhtml,\nbody,\n#app,\n#wrapper {\n  height: 100%;\n}\nbody {\n  font-family: 'Fira Sans Condensed', sans-serif;\n  color: #345;\n  font-size: 15px;\n}\np {\n  line-height: 20px;\n  margin-bottom: 20px;\n}\nh1 {\n  text-transform: uppercase;\n  font-size: 26px;\n  font-weight: bold;\n  color: #656c7a;\n  margin-bottom: 20px;\n}\n#app {\n  width: 960px;\n  margin: 0 auto;\n  height: initial;\n  border-left: 1px solid #dbdfe4;\n  border-right: 1px solid #dbdfe4;\n}\n#wrapper {\n  display: flex;\n  flex-direction: column;\n}\n#container {\n  display: flex;\n  flex-direction: row;\n  align-content: center;\n  flex-grow: 1;\n}\nnav {\n  background: #f3fef3;\n  border-bottom: 1px solid #dbdfe4;\n}\n#content {\n  flex-grow: 1;\n  max-width: 960px;\n  padding: 20px 25px 0;\n}\nul.list-items-horizontal > li {\n  float: left;\n  margin-right: 20px;\n  margin-bottom: 10px;\n  font-size: 14px;\n}\n#audio {\n  width: 100%;\n  height: 100%;\n}\n#playerWrapper {\n  width: 100%;\n  border-top: 1px solid #dbdfe4;\n  height: 33px;\n  top: 0;\n  left: 0;\n  position: relative;\n}\n#playerWrapper:before {\n  content: \"\";\n  display: none;\n  width: 100%;\n  position: absolute;\n  background: rgba(255, 255, 255, 0.8);\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n.station-list > div {\n  float: left;\n  margin-right: 9px;\n  margin-bottom: 9px;\n}\n#disqus_thread {\n  border-top: 1px solid #dbdfe4;\n  margin-left: -25px;\n  margin-right: -25px;\n  padding: 10px 20px;\n  background: #fdfdfd;\n}\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 298 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	"use strict";
-
-	module.exports = function () {
-		var list = [];
-
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for (var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if (item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-
-		// import a list of modules into the list
-		list.i = function (modules, mediaQuery) {
-			if (typeof modules === "string") modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for (var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if (typeof id === "number") alreadyImportedModules[id] = true;
-			}
-			for (i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if (mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if (mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-/***/ },
-/* 299 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-
-	module.exports = function(list, options) {
-		if(true) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	var replaceText = (function () {
-		var textStore = [];
-
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-
-		var blob = new Blob([css], { type: "text/css" });
-
-		var oldSrc = linkElement.href;
-
-		linkElement.href = URL.createObjectURL(blob);
-
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _redux = __webpack_require__(239);
-
-	var _reactRouterRedux = __webpack_require__(287);
-
-	var _stations = __webpack_require__(301);
-
-	var _stations2 = _interopRequireDefault(_stations);
-
-	var _player = __webpack_require__(312);
-
-	var _player2 = _interopRequireDefault(_player);
-
-	exports['default'] = (0, _redux.combineReducers)({
-		routing: _reactRouterRedux.routerReducer,
-		stations: _stations2['default'],
-		player: _player2['default']
-	});
-	module.exports = exports['default'];
-
-/***/ },
-/* 301 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-	exports['default'] = stations;
-
-	function stations(state, action) {
-		if (state === undefined) state = [];
-
-		if (action.type === 'GET_ALL') {
-			return [];
-		}
-
-		return state;
-	}
-
-	module.exports = exports['default'];
-
-/***/ },
-/* 302 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(260);
-
-	var _jquery = __webpack_require__(315);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var hideLoader = function hideLoader() {
-		(0, _jquery2['default'])('body').toggleClass('streamLoading', false);
-	};
-
-	var AudioPlayer = function AudioPlayer(_ref) {
-		var src = _ref.src;
-
-		(0, _jquery2['default'])('body').toggleClass('streamLoading', true);
-
-		return _react2['default'].createElement(
-			'div',
-			{ id: 'playerWrapper' },
-			_react2['default'].createElement(
-				'div',
-				{ className: 'spinner' },
-				_react2['default'].createElement('div', { className: 'bounce1' }),
-				_react2['default'].createElement('div', { className: 'bounce2' }),
-				_react2['default'].createElement('div', { className: 'bounce3' })
-			),
-			_react2['default'].createElement('audio', { id: 'audio', src: src, controls: true, autoPlay: true, onCanPlayThrough: hideLoader })
-		);
-	};
-
-	exports['default'] = (0, _reactRedux.connect)(function (state) {
-		return {
-			src: state.player
-		};
-	})(AudioPlayer);
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "AudioPlayer.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 303 */,
-/* 304 */,
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(183);
-
-	var _dataStationsJson = __webpack_require__(313);
+	var _dataStationsJson = __webpack_require__(294);
 
 	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
 
@@ -31048,363 +30370,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Sidebar.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _dataStationsJson = __webpack_require__(313);
-
-	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
-
-	var _partialsStationItemJsx = __webpack_require__(311);
-
-	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
-
-	var City = function City(_ref) {
-		var params = _ref.params;
-
-		var data = _dataStationsJson2['default'].map(function (station, n) {
-			if (station.city === params.cityId) return _react2['default'].createElement(_partialsStationItemJsx2['default'], { station: station, index: n, key: n });
-		});
-
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'City'
-			),
-			_react2['default'].createElement(
-				'div',
-				{ className: 'station-list' },
-				data
-			)
-		);
-	};
-
-	exports['default'] = City;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "City.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 307 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(183);
-
-	var _dataStationsJson = __webpack_require__(313);
-
-	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
-
-	var Cities = function Cities() {
-
-		var keys = [];
-		var data = _dataStationsJson2['default'].map(function (station, n) {
-			if (keys.indexOf(station.city) === -1) {
-				keys.push(station.city);
-				return _react2['default'].createElement(
-					'li',
-					{ key: n },
-					_react2['default'].createElement(
-						_reactRouter.Link,
-						{ to: '/radio-city/' + station.city },
-						station.city
-					)
-				);
-			}
-		});
-
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'Cities'
-			),
-			_react2['default'].createElement(
-				'ul',
-				{ className: 'list-items-horizontal' },
-				data
-			)
-		);
-	};
-
-	exports['default'] = Cities;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Cities.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 308 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(183);
-
-	var _dataStationsJson = __webpack_require__(313);
-
-	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
-
-	var Countries = function Countries() {
-
-		var keys = [];
-		var data = _dataStationsJson2['default'].map(function (station, n) {
-			if (keys.indexOf(station.country) === -1) {
-				keys.push(station.country);
-				return _react2['default'].createElement(
-					'li',
-					{ key: n },
-					_react2['default'].createElement(
-						_reactRouter.Link,
-						{ to: '/radio-country/' + station.country },
-						station.country
-					)
-				);
-			}
-		});
-
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'Countries'
-			),
-			_react2['default'].createElement(
-				'ul',
-				{ className: 'list-items-horizontal' },
-				data
-			)
-		);
-	};
-
-	exports['default'] = Countries;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Countries.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 309 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _dataStationsJson = __webpack_require__(313);
-
-	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
-
-	var _partialsStationItemJsx = __webpack_require__(311);
-
-	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
-
-	var Country = function Country(_ref) {
-		var params = _ref.params;
-
-		var data = _dataStationsJson2['default'].map(function (station, n) {
-			if (station.country === params.countryId) return _react2['default'].createElement(_partialsStationItemJsx2['default'], { station: station, index: n, key: n });
-		});
-
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'Country'
-			),
-			_react2['default'].createElement(
-				'div',
-				{ className: 'station-list' },
-				data
-			)
-		);
-	};
-
-	exports['default'] = Country;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Country.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 310 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _dataStationsJson = __webpack_require__(313);
-
-	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
-
-	var _partialsStationItemJsx = __webpack_require__(311);
-
-	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
-
-	var Genre = function Genre(_ref) {
-		var params = _ref.params;
-
-		var data = _dataStationsJson2['default'].map(function (station, n) {
-			if (station.genre === params.genreId) return _react2['default'].createElement(_partialsStationItemJsx2['default'], { station: station, index: n, key: n });
-		});
-
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'Genre'
-			),
-			_react2['default'].createElement(
-				'div',
-				{ className: 'station-list' },
-				data
-			)
-		);
-	};
-
-	exports['default'] = Genre;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Genre.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 311 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(183);
-
-	var StationItem = function StationItem(_ref) {
-		var station = _ref.station;
-		var index = _ref.index;
-
-		return _react2['default'].createElement(
-			'div',
-			{ className: 'station-item' },
-			_react2['default'].createElement(
-				'b',
-				null,
-				station.title
-			),
-			_react2['default'].createElement(
-				_reactRouter.Link,
-				{ to: '/radio-station/' + index },
-				_react2['default'].createElement('img', { src: '/images/' + station.img, alt: '' })
-			)
-		);
-	};
-
-	exports['default'] = StationItem;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "StationItem.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 312 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports["default"] = player;
-
-	function player(state, action) {
-		if (state === undefined) state = "http://stream.deep1.ru:8000/deep1mp3";
-
-		if (action.type === 'SET') {
-			return state = action.url;
-		}
-
-		return state;
-	}
-
-	module.exports = exports["default"];
-
-/***/ },
-/* 313 */
+/* 294 */
 /***/ function(module, exports) {
 
 	module.exports = [
@@ -39151,8 +38117,10 @@
 	];
 
 /***/ },
-/* 314 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
 	'use strict';
 
@@ -39162,60 +38130,48 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _jquery = __webpack_require__(315);
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(260);
+
+	var _jquery = __webpack_require__(296);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var http = {
-		ajaxSpinner: function ajaxSpinner(status) {
-			(0, _jquery2['default'])('body').toggleClass('loading', status);
-		},
-		cache: {},
-		getJSON: function getJSON(path, params) {
-			return this.get(path, params, 'json');
-		},
-		get: function get(path, _params, type) {
-
-			var _this = this,
-			    params = _params || {},
-			    cacheKey = path + _jquery2['default'].param(params);
-
-			return new Promise(function (resolve, reject) {
-
-				if (_this.cache[cacheKey] !== undefined) {
-					resolve(_this.cache[cacheKey]);
-					return false;
-				}
-
-				_jquery2['default'].ajax({
-					url: path,
-					type: 'get',
-					dataType: type || 'text',
-					data: params,
-					beforeSend: function beforeSend() {
-						_this.ajaxSpinner(true);
-					},
-					complete: function complete() {
-						_this.ajaxSpinner(false);
-					},
-					success: function success(response) {
-						_this.cache[cacheKey] = response;
-						resolve(response);
-					},
-					error: function error(e) {
-						reject(e);
-						console.error(arguments);
-					}
-				});
-			});
-		}
+	var hideLoader = function hideLoader() {
+		(0, _jquery2['default'])('body').toggleClass('streamLoading', false);
 	};
 
-	exports['default'] = http;
+	var AudioPlayer = function AudioPlayer(_ref) {
+		var src = _ref.src;
+
+		(0, _jquery2['default'])('body').toggleClass('streamLoading', true);
+
+		return _react2['default'].createElement(
+			'div',
+			{ id: 'playerWrapper' },
+			_react2['default'].createElement(
+				'div',
+				{ className: 'meter' },
+				_react2['default'].createElement('span', null)
+			),
+			_react2['default'].createElement('audio', { id: 'audio', src: src, controls: true, autoPlay: true, onCanPlayThrough: hideLoader })
+		);
+	};
+
+	exports['default'] = (0, _reactRedux.connect)(function (state) {
+		return {
+			src: state.player
+		};
+	})(AudioPlayer);
 	module.exports = exports['default'];
 
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "AudioPlayer.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
 /***/ },
-/* 315 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -40876,7 +39832,313 @@
 	if(!noGlobal){window.jQuery = window.$ = jQuery;}return jQuery;}); // Otherwise append directly
 
 /***/ },
-/* 316 */
+/* 297 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Home = function Home() {
+
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'Home page'
+			),
+			_react2['default'].createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur dignissimos doloribus enim illum, itaque maiores obcaecati perferendis quasi soluta. Accusamus consequuntur cum debitis deserunt eaque exercitationem expedita minima, nulla, quae sequi sint, soluta suscipit tenetur totam unde! Deserunt impedit laudantium nemo officiis sequi. Autem dolor maxime modi nesciunt voluptate!'
+			),
+			_react2['default'].createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error ipsum molestiae totam, vero vitae. Assumenda beatae blanditiis delectus enim expedita fugit incidunt itaque provident tempore vitae.'
+			)
+		);
+	};
+
+	exports['default'] = Home;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 298 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(260);
+
+	var _reactRouter = __webpack_require__(183);
+
+	var _dataStationsJson = __webpack_require__(294);
+
+	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
+
+	var _partialsDisqusBlockJsx = __webpack_require__(299);
+
+	var _partialsDisqusBlockJsx2 = _interopRequireDefault(_partialsDisqusBlockJsx);
+
+	var _partialsArtistInfoJsx = __webpack_require__(300);
+
+	var _partialsArtistInfoJsx2 = _interopRequireDefault(_partialsArtistInfoJsx);
+
+	var _meta = __webpack_require__(301);
+
+	var _meta2 = _interopRequireDefault(_meta);
+
+	var Station = _react2['default'].createClass({
+		displayName: 'Station',
+
+		getInitialState: function getInitialState() {
+			return {
+				station: _dataStationsJson2['default'][this.props.params.stationId],
+				artist: {}
+			};
+		},
+
+		componentWillMount: function componentWillMount() {
+
+			var _this = this;
+
+			this.props.setTrack(this.state.station.radio);
+
+			_meta2['default'].getTrackInfo(this.props.params.stationId).then(function (res) {
+				_this.setState({
+					station: _this.state.station,
+					artist: res.artist
+				});
+			});
+		},
+
+		componentWillUnmount: function componentWillUnmount() {
+			this.props.setTrack(this.state.station.radio);
+		},
+
+		render: function render() {
+
+			var station = this.state.station;
+			var artist = this.state.artist;
+
+			return _react2['default'].createElement(
+				'div',
+				null,
+				_react2['default'].createElement(
+					'div',
+					{ className: 'station-page' },
+					_react2['default'].createElement('img', { src: '/images/' + station.img, alt: '' }),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'station-info__description' },
+						_react2['default'].createElement(
+							'h1',
+							null,
+							station.title
+						),
+						_react2['default'].createElement(
+							'p',
+							null,
+							station.text
+						),
+						_react2['default'].createElement(
+							'p',
+							null,
+							'Жанр: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-genre/' + station.genre },
+								station.genre
+							),
+							', Страна: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-country/' + station.country },
+								station.country
+							),
+							', Город: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-city/' + station.city },
+								station.city
+							)
+						)
+					)
+				),
+				artist.name ? _react2['default'].createElement(_partialsArtistInfoJsx2['default'], { artist: artist }) : '',
+				_react2['default'].createElement(_partialsDisqusBlockJsx2['default'], {
+					url: window.location.href,
+					identifier: this.state.station.title,
+					title: this.state.station.title
+				})
+			);
+		}
+	});
+
+	exports['default'] = (0, _reactRedux.connect)(function (state) {
+		return {
+			url: state.player
+		};
+	}, function (dispatch) {
+		return {
+			setTrack: function setTrack(url) {
+				dispatch({
+					type: 'SET',
+					url: url
+				});
+			}
+		};
+	})(Station);
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Station.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 299 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var DisqusBlock = function DisqusBlock(_ref) {
+		var url = _ref.url;
+		var identifier = _ref.identifier;
+		var title = _ref.title;
+
+		window.disqus_config = function () {
+			this.page.url = url;
+			this.page.identifier = identifier;
+			this.page.title = title;
+		};
+
+		(function () {
+
+			var d = document,
+			    s = d.createElement('script');
+
+			s.src = '//cishophostenkocom.disqus.com/embed.js';
+
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+		})();
+
+		return _react2['default'].createElement('div', { id: 'disqus_thread' });
+	};
+
+	exports['default'] = DisqusBlock;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "DisqusBlock.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 300 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(183);
+
+	String.prototype.removeLinks = function () {
+		return this.replace(/<a[^\>]+>[^\<]+<\/a>/ig, '');
+	};
+
+	var setDefaultImage = function setDefaultImage(e) {
+		e.target.src = "/img/placeholder-image.png";
+	};
+
+	var ArtistInfo = function ArtistInfo(_ref) {
+		var artist = _ref.artist;
+
+		console.info("ArtistInfo: ", artist);
+
+		return _react2['default'].createElement(
+			'section',
+			{ className: 'artist-info' },
+			_react2['default'].createElement(
+				_reactRouter.Link,
+				{ to: '/artist-info/' + encodeURIComponent(artist.name), title: artist.name },
+				_react2['default'].createElement('img', { src: artist.image[2]['#text'], onError: setDefaultImage, className: 'artist-info__image--small' })
+			),
+			_react2['default'].createElement(
+				'div',
+				{ className: 'artist-info__description' },
+				_react2['default'].createElement(
+					'h2',
+					null,
+					artist.name
+				),
+				_react2['default'].createElement(
+					'p',
+					null,
+					artist.bio.summary.removeLinks(),
+					_react2['default'].createElement('br', null),
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ to: '/artist-info/' + encodeURIComponent(artist.name) },
+						'подробнее'
+					)
+				)
+			)
+		);
+	};
+
+	exports['default'] = ArtistInfo;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ArtistInfo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40887,11 +40149,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _http = __webpack_require__(314);
+	var _http = __webpack_require__(302);
 
 	var _http2 = _interopRequireDefault(_http);
 
-	var _jquery = __webpack_require__(315);
+	var _jquery = __webpack_require__(296);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -41037,10 +40299,71 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 317 */,
-/* 318 */,
-/* 319 */,
-/* 320 */
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _jquery = __webpack_require__(296);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var http = {
+		ajaxSpinner: function ajaxSpinner(status) {
+			(0, _jquery2['default'])('body').toggleClass('loading', status);
+		},
+		cache: {},
+		getJSON: function getJSON(path, params) {
+			return this.get(path, params, 'json');
+		},
+		get: function get(path, _params, type) {
+
+			var _this = this,
+			    params = _params || {},
+			    cacheKey = path + _jquery2['default'].param(params);
+
+			return new Promise(function (resolve, reject) {
+
+				if (_this.cache[cacheKey] !== undefined) {
+					resolve(_this.cache[cacheKey]);
+					return false;
+				}
+
+				_jquery2['default'].ajax({
+					url: path,
+					type: 'get',
+					dataType: type || 'text',
+					data: params,
+					beforeSend: function beforeSend() {
+						_this.ajaxSpinner(true);
+					},
+					complete: function complete() {
+						_this.ajaxSpinner(false);
+					},
+					success: function success(response) {
+						_this.cache[cacheKey] = response;
+						resolve(response);
+					},
+					error: function error(e) {
+						reject(e);
+						console.error(arguments);
+					}
+				});
+			});
+		}
+	};
+
+	exports['default'] = http;
+	module.exports = exports['default'];
+
+/***/ },
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -41057,39 +40380,44 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var DisqusBlock = function DisqusBlock(_ref) {
-		var url = _ref.url;
-		var identifier = _ref.identifier;
-		var title = _ref.title;
+	var _dataStationsJson = __webpack_require__(294);
 
-		window.disqus_config = function () {
-			this.page.url = url;
-			this.page.identifier = identifier;
-			this.page.title = title;
-		};
+	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
 
-		(function () {
+	var _partialsStationItemJsx = __webpack_require__(304);
 
-			var d = document,
-			    s = d.createElement('script');
+	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
 
-			s.src = '//cishophostenkocom.disqus.com/embed.js';
+	var City = function City(_ref) {
+		var params = _ref.params;
 
-			s.setAttribute('data-timestamp', +new Date());
-			(d.head || d.body).appendChild(s);
-		})();
+		var data = _dataStationsJson2['default'].map(function (station, n) {
+			if (station.city === params.cityId) return _react2['default'].createElement(_partialsStationItemJsx2['default'], { station: station, index: n, key: n });
+		});
 
-		return _react2['default'].createElement('div', { id: 'disqus_thread' });
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'City'
+			),
+			_react2['default'].createElement(
+				'div',
+				{ className: 'station-list' },
+				data
+			)
+		);
 	};
 
-	exports['default'] = DisqusBlock;
+	exports['default'] = City;
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "DisqusBlock.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "City.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 321 */,
-/* 322 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -41108,55 +40436,829 @@
 
 	var _reactRouter = __webpack_require__(183);
 
-	String.prototype.removeLinks = function () {
-		return this.replace(/<a[^\>]+>[^\<]+<\/a>/ig, '');
+	var StationItem = function StationItem(_ref) {
+		var station = _ref.station;
+		var index = _ref.index;
+
+		return _react2['default'].createElement(
+			'div',
+			{ className: 'station-item' },
+			_react2['default'].createElement(
+				'b',
+				null,
+				station.title
+			),
+			_react2['default'].createElement(
+				_reactRouter.Link,
+				{ to: '/radio-station/' + index },
+				_react2['default'].createElement('img', { src: '/images/' + station.img, alt: '' })
+			)
+		);
+	};
+
+	exports['default'] = StationItem;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "StationItem.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 305 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(183);
+
+	var _dataStationsJson = __webpack_require__(294);
+
+	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
+
+	var Cities = function Cities() {
+
+		var keys = [];
+		var data = _dataStationsJson2['default'].map(function (station, n) {
+			if (keys.indexOf(station.city) === -1) {
+				keys.push(station.city);
+				return _react2['default'].createElement(
+					'li',
+					{ key: n },
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ to: '/radio-city/' + station.city },
+						station.city
+					)
+				);
+			}
+		});
+
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'Cities'
+			),
+			_react2['default'].createElement(
+				'ul',
+				{ className: 'list-items-horizontal' },
+				data
+			)
+		);
+	};
+
+	exports['default'] = Cities;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Cities.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 306 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(183);
+
+	var _dataStationsJson = __webpack_require__(294);
+
+	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
+
+	var Countries = function Countries() {
+
+		var keys = [];
+		var data = _dataStationsJson2['default'].map(function (station, n) {
+			if (keys.indexOf(station.country) === -1) {
+				keys.push(station.country);
+				return _react2['default'].createElement(
+					'li',
+					{ key: n },
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ to: '/radio-country/' + station.country },
+						station.country
+					)
+				);
+			}
+		});
+
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'Countries'
+			),
+			_react2['default'].createElement(
+				'ul',
+				{ className: 'list-items-horizontal' },
+				data
+			)
+		);
+	};
+
+	exports['default'] = Countries;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Countries.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 307 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _dataStationsJson = __webpack_require__(294);
+
+	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
+
+	var _partialsStationItemJsx = __webpack_require__(304);
+
+	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
+
+	var Country = function Country(_ref) {
+		var params = _ref.params;
+
+		var data = _dataStationsJson2['default'].map(function (station, n) {
+			if (station.country === params.countryId) return _react2['default'].createElement(_partialsStationItemJsx2['default'], { station: station, index: n, key: n });
+		});
+
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'Country'
+			),
+			_react2['default'].createElement(
+				'div',
+				{ className: 'station-list' },
+				data
+			)
+		);
+	};
+
+	exports['default'] = Country;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Country.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _dataStationsJson = __webpack_require__(294);
+
+	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
+
+	var _partialsStationItemJsx = __webpack_require__(304);
+
+	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
+
+	var Genre = function Genre(_ref) {
+		var params = _ref.params;
+
+		var data = _dataStationsJson2['default'].map(function (station, n) {
+			if (station.genre === params.genreId) return _react2['default'].createElement(_partialsStationItemJsx2['default'], { station: station, index: n, key: n });
+		});
+
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'Genre'
+			),
+			_react2['default'].createElement(
+				'div',
+				{ className: 'station-list' },
+				data
+			)
+		);
+	};
+
+	exports['default'] = Genre;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Genre.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(183);
+
+	var _meta = __webpack_require__(301);
+
+	var _meta2 = _interopRequireDefault(_meta);
+
+	String.prototype.stripTags = function () {
+		return this.replace(/<\/?[^>]+(>|$)/g, '').replace(/[\n]+/g, "<br />").replace(/(Read more on Last\.fm.*)/g, "");
 	};
 
 	var setDefaultImage = function setDefaultImage(e) {
 		e.target.src = "/img/placeholder-image.png";
-		console.info("error: ", e.target);
 	};
 
-	var ArtistInfo = function ArtistInfo(_ref) {
-		var artist = _ref.artist;
+	var Artist = _react2['default'].createClass({
+		displayName: 'Artist',
 
-		console.info("artist: ", artist);
+		getInitialState: function getInitialState() {
+			return {
+				artist: {}
+			};
+		},
 
-		return _react2['default'].createElement(
-			'div',
-			{ className: 'artist-info' },
-			_react2['default'].createElement(
-				_reactRouter.Link,
-				{ to: '/artist-info/' + artist.name, title: artist.name },
-				_react2['default'].createElement('img', { src: artist.image[2]['#text'], onError: setDefaultImage })
-			),
-			_react2['default'].createElement(
+		componentWillMount: function componentWillMount() {
+
+			var _this = this;
+
+			_meta2['default'].getArtistInfo(this.props.params.artistName, function (data) {
+				_this.setState({
+					artist: data.artist
+				});
+			});
+		},
+
+		render: function render() {
+
+			if (!this.state.artist.name) return _react2['default'].createElement(
 				'div',
-				{ className: 'artist-info__description' },
+				null,
+				'!'
+			);
+
+			var artist = this.state.artist;
+			var content = _react2['default'].createElement(
+				'section',
+				null,
 				_react2['default'].createElement(
 					'h1',
 					null,
 					artist.name
 				),
 				_react2['default'].createElement(
-					'p',
-					null,
-					artist.bio.summary.removeLinks(),
-					_react2['default'].createElement('br', null),
+					'div',
+					{ className: 'artist-info' },
 					_react2['default'].createElement(
-						_reactRouter.Link,
-						{ to: '/artist-info/' + artist.name },
-						'подробнее'
+						'a',
+						{ href: '#', title: artist.name },
+						_react2['default'].createElement('img', { src: artist.image[3]['#text'], onError: setDefaultImage, className: 'artist-info__image--medium' })
+					),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'artist-info__description' },
+						_react2['default'].createElement('p', { dangerouslySetInnerHTML: {
+								__html: artist.bio.content.stripTags()
+							} })
 					)
 				)
+			);
+
+			return this.state.artist.name ? content : '12312';
+		}
+	});
+
+	exports['default'] = Artist;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Artist.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var NotFound = function NotFound() {
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'Error 404! Page not found.'
+			),
+			_react2['default'].createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur dignissimos doloribus enim illum, itaque maiores obcaecati perferendis quasi soluta. Accusamus consequuntur cum debitis deserunt eaque exercitationem expedita minima, nulla, quae sequi sint, soluta suscipit tenetur totam unde! Deserunt impedit laudantium nemo officiis sequi. Autem dolor maxime modi nesciunt voluptate!'
+			),
+			_react2['default'].createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error ipsum molestiae totam, vero vitae. Assumenda beatae blanditiis delectus enim expedita fugit incidunt itaque provident tempore vitae.'
 			)
 		);
 	};
 
-	exports['default'] = ArtistInfo;
+	exports['default'] = NotFound;
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ArtistInfo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "NotFound.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 311 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(312);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(314)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/less-loader/dist/index.js!./main.less", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/less-loader/dist/index.js!./main.less");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 312 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(313)();
+	// imports
+	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,500&subset=cyrillic);", ""]);
+
+	// module
+	exports.push([module.id, "@charset \"UTF-8\";\n/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nq:before,\nblockquote:after,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n#sidebar {\n  max-width: 250px;\n  background: #fdfdfd;\n  width: 100%;\n  padding: 15px 20px;\n  border-right: 1px solid #dbdfe4;\n}\nul.sidebar-list {\n  clear: both;\n  float: none;\n  overflow: hidden;\n  margin-bottom: 20px;\n}\nul.sidebar-list > li {\n  float: left;\n  margin-right: 12px;\n  font-size: 14px;\n}\nbody.streamLoading .meter {\n  display: block;\n}\n.meter {\n  display: none;\n  height: 100%;\n  position: relative;\n}\n.meter > span {\n  display: block;\n  height: 100%;\n  width: 100%;\n  background-color: #03A9F4;\n  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #03A9F4), color-stop(1, #B3E5FC));\n  background-image: -moz-linear-gradient(center bottom, #03A9F4 37%, #B3E5FC 69%);\n  position: relative;\n  overflow: hidden;\n}\n.meter > span:after,\n.animate > span > span {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));\n  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);\n  z-index: 1;\n  -webkit-background-size: 50px 50px;\n  -moz-background-size: 50px 50px;\n  -webkit-animation: move 2s linear infinite;\n  overflow: hidden;\n}\n.animate > span:after {\n  display: none;\n}\n@-webkit-keyframes move {\n  0% {\n    background-position: 0 0;\n  }\n  100% {\n    background-position: 50px 50px;\n  }\n}\n.nostripes > span > span,\n.nostripes > span:after {\n  -webkit-animation: none;\n  background-image: none;\n}\nbody.streamLoading #playerWrapper:before {\n  display: block;\n}\nbody.loading .linear-activity {\n  display: block;\n}\n.linear-activity {\n  display: none;\n  margin: auto;\n  overflow: hidden;\n  width: 100%;\n  max-width: 960px;\n  height: 2px;\n  background-color: #B3E5FC;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.indeterminate {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.indeterminate:before {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #03A9F4;\n  animation: indeterminate_first 1.5s infinite ease-out;\n}\n.indeterminate:after {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #4FC3F7;\n  animation: indeterminate_second 1.5s infinite ease-in;\n}\n@keyframes indeterminate_first {\n  0% {\n    left: -100%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n@keyframes indeterminate_second {\n  0% {\n    left: -150%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n.station-list > div {\n  float: left;\n  margin-right: 9px;\n  margin-bottom: 9px;\n  width: 100px;\n  height: 100px;\n  background: #fdfdfd;\n  box-shadow: 0 0 0 1px #eee;\n}\n.station-item {\n  position: relative;\n}\n.station-item > b {\n  position: absolute;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  height: 20px;\n  font-size: 13px;\n  line-height: 20px;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  text-align: center;\n  padding: 0 2px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.station-item img {\n  float: left;\n}\n.station-page {\n  margin-bottom: 20px;\n  overflow: hidden;\n}\n.station-page > img {\n  box-shadow: 0 0 0 1px #eee;\n  float: left;\n  margin-right: 20px;\n}\n.artist-info {\n  border-top: 1px solid #dbdfe4;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  overflow: hidden;\n}\n.artist-info > a {\n  margin-right: 20px;\n  overflow: hidden;\n  float: left;\n}\n.artist-info img {\n  background: #eee;\n}\n.artist-info__image--small {\n  width: 174px;\n  height: 174px;\n}\n.artist-info__image--medium {\n  width: 100%;\n  max-width: 300px;\n  height: auto;\n}\n* {\n  outline: none;\n  box-sizing: border-box;\n}\nhtml,\nbody,\n#app,\n#wrapper {\n  height: 100%;\n}\nbody {\n  font-family: 'Fira Sans Condensed', sans-serif;\n  color: #345;\n  font-size: 15px;\n  background: #e1e7ed;\n}\np {\n  line-height: 20px;\n  margin-bottom: 20px;\n}\nh1,\nh2,\nh3,\nh4,\nh5 {\n  text-transform: uppercase;\n  font-weight: bold;\n  color: #656c7a;\n}\nh1 {\n  font-size: 26px;\n  margin-bottom: 20px;\n}\nh2 {\n  font-size: 22px;\n  margin-bottom: 18px;\n}\nh3 {\n  font-size: 18px;\n  margin-bottom: 18px;\n}\n#app {\n  width: 100%;\n  max-width: 960px;\n  min-height: 100%;\n  height: initial;\n  margin: 0 auto;\n  border-left: 1px solid #c3cbd4;\n  border-right: 1px solid #c3cbd4;\n}\n#wrapper {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n}\n#container {\n  display: flex;\n  flex-direction: row;\n  align-content: center;\n  flex-grow: 1;\n}\nnav {\n  background: #fdfdfd;\n  border-bottom: 1px solid #c3cbd4;\n}\n#content {\n  flex-grow: 1;\n  max-width: 960px;\n  padding: 20px 25px 0;\n  background: white;\n}\nul.list-items-horizontal > li {\n  float: left;\n  margin-right: 20px;\n  margin-bottom: 10px;\n  font-size: 14px;\n}\n#audio {\n  width: 100%;\n  height: 100%;\n}\n#playerWrapper {\n  width: 100%;\n  border-top: 1px solid #c3cbd4;\n  height: 33px;\n  top: 0;\n  left: 0;\n  position: relative;\n  overflow: hidden;\n}\n#playerWrapper:before {\n  content: \"\";\n  display: none;\n  width: 100%;\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n#disqus_thread {\n  border-top: 1px solid #c3cbd4;\n  margin-left: -25px;\n  margin-right: -25px;\n  padding: 10px 25px 15px;\n  background: #fdfdfd;\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 313 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	"use strict";
+
+	module.exports = function () {
+		var list = [];
+
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for (var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if (item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+
+		// import a list of modules into the list
+		list.i = function (modules, mediaQuery) {
+			if (typeof modules === "string") modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for (var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if (typeof id === "number") alreadyImportedModules[id] = true;
+			}
+			for (i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if (mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if (mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+/***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(self.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+
+	module.exports = function(list, options) {
+		if(true) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+
+		update(obj);
+
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+
+	var replaceText = (function () {
+		var textStore = [];
+
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var sourceMap = obj.sourceMap;
+
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+
+		var blob = new Blob([css], { type: "text/css" });
+
+		var oldSrc = linkElement.href;
+
+		linkElement.href = URL.createObjectURL(blob);
+
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 315 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _redux = __webpack_require__(239);
+
+	var _reactRouterRedux = __webpack_require__(287);
+
+	var _stations = __webpack_require__(316);
+
+	var _stations2 = _interopRequireDefault(_stations);
+
+	var _player = __webpack_require__(317);
+
+	var _player2 = _interopRequireDefault(_player);
+
+	exports['default'] = (0, _redux.combineReducers)({
+		routing: _reactRouterRedux.routerReducer,
+		stations: _stations2['default'],
+		player: _player2['default']
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 316 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	exports['default'] = stations;
+
+	function stations(state, action) {
+		if (state === undefined) state = [];
+
+		if (action.type === 'GET_ALL') {
+			return [];
+		}
+
+		return state;
+	}
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 317 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports["default"] = player;
+
+	function player(state, action) {
+		if (state === undefined) state = "http://stream.deep1.ru:8000/deep1mp3";
+
+		if (action.type === 'SET') {
+			return state = action.url;
+		}
+
+		return state;
+	}
+
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);

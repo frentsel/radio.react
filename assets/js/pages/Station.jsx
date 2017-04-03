@@ -44,7 +44,7 @@ const Station = React.createClass({
 				<div className="station-page">
 					<img src={'/images/' + station.img} alt=""/>
 					<div className="station-info__description">
-						<b>{station.title}</b>
+						<h1>{station.title}</h1>
 						<p>{station.text}</p>
 						<p>Жанр: <Link to={'/radio-genre/' + station.genre}>{station.genre}</Link>,
 							Страна: <Link to={'/radio-country/' + station.country}>{station.country}</Link>,

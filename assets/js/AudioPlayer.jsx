@@ -12,10 +12,8 @@ const AudioPlayer = ({ src }) => {
 
 	return (
 		<div id="playerWrapper">
-			<div className="spinner">
-				<div className="bounce1"></div>
-				<div className="bounce2"></div>
-				<div className="bounce3"></div>
+			<div className="meter">
+				<span></span>
 			</div>
 			<audio id="audio" src={src} controls autoPlay onCanPlayThrough={hideLoader}></audio>
 		</div>

@@ -13,6 +13,7 @@ import Cities from './pages/Cities.jsx';
 import Countries from './pages/Countries.jsx';
 import Country from './pages/Country.jsx';
 import Genre from './pages/Genre.jsx';
+import Artist from './pages/Artist.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 import '../less/main.less';
@@ -32,6 +33,7 @@ ReactDOM.render(
 				<Route path="/radio-countries" component={Countries}></Route>
 				<Route path="/radio-country/:countryId" component={Country}></Route>
 				<Route path="/radio-station/:stationId" component={Station}></Route>
+				<Route path="/artist-info/:artistName" component={Artist}></Route>
 				<Route path="*" component={NotFound}></Route>
 			</Route>
 		</Router>

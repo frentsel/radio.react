@@ -8,25 +8,24 @@ String.prototype.removeLinks = function() {
 
 const setDefaultImage = (e) => {
 	e.target.src = "/img/placeholder-image.png";
-	console.info("error: ", e.target);
 };
 
 const ArtistInfo = ({ artist }) => {
 
-	console.info("artist: ", artist);
+	console.info("ArtistInfo: ", artist);
 
 	return (
-		<div className="artist-info">
-			<Link to={'/artist-info/'+artist.name} title={artist.name}>
-				<img src={artist.image[2]['#text']} onError={setDefaultImage} />
+		<section className="artist-info">
+			<Link to={'/artist-info/'+encodeURIComponent(artist.name)} title={artist.name}>
+				<img src={artist.image[2]['#text']} onError={setDefaultImage} className="artist-info__image--small" />
 			</Link>
 			<div className="artist-info__description">
-				<h1>{artist.name}</h1>
+				<h2>{artist.name}</h2>
 				<p>{artist.bio.summary.removeLinks()}<br/>
-					<Link to={'/artist-info/'+artist.name}>подробнее</Link>
+					<Link to={'/artist-info/'+encodeURIComponent(artist.name)}>подробнее</Link>
 				</p>
 			</div>
-		</div>
+		</section>
 	);
 };
 
