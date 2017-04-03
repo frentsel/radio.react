@@ -34,7 +34,7 @@ const Artist = React.createClass({
 	render(){
 
 		if (!this.state.artist.name)
-			return <div>!</div>;
+			return <div className="loader"></div>;
 
 		const artist = this.state.artist;
 		const content = (
