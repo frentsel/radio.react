@@ -40451,7 +40451,7 @@
 			_react2['default'].createElement(
 				_reactRouter.Link,
 				{ to: '/radio-station/' + index },
-				_react2['default'].createElement('img', { src: '/images/' + station.img, alt: '' })
+				_react2['default'].createElement('img', { src: 'images/' + station.img, alt: '' })
 			)
 		);
 	};

@@ -7,7 +7,7 @@ const StationItem = ({ station, index }) => {
 		<div className="station-item">
 			<b>{station.title}</b>
 			<Link  to={'/radio-station/'+index}>
-				<img src={'/images/'+station.img} alt="" />
+				<img src={'images/'+station.img} alt="" />
 			</Link>
 		</div>
 	);
