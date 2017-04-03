@@ -39954,7 +39954,7 @@
 				_react2['default'].createElement(
 					'div',
 					{ className: 'station-page' },
-					_react2['default'].createElement('img', { src: '/images/' + station.img, alt: '' }),
+					_react2['default'].createElement('img', { src: 'images/' + station.img, alt: '' }),
 					_react2['default'].createElement(
 						'div',
 						{ className: 'station-info__description' },

@@ -42,7 +42,7 @@ const Station = React.createClass({
 		return (
 			<div>
 				<div className="station-page">
-					<img src={'/images/' + station.img} alt=""/>
+					<img src={'images/' + station.img} alt=""/>
 					<div className="station-info__description">
 						<h1>{station.title}</h1>
 						<p>{station.text}</p>
