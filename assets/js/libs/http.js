@@ -21,6 +21,10 @@ const http = {
 				return false;
 			}
 
+			if(path.indexOf('http://') === -1){
+				path = window.location.origin + path;
+			}
+
 			$.ajax({
 				url: path,
 				type: 'get',

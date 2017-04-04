@@ -56,3 +56,13 @@ if(!empty($_GET['id'])){
         }
     }
 }
+
+if(!empty($_GET['url']) && filter_var($_GET['url'], FILTER_VALIDATE_URL)){
+
+    $url = $_GET['url'];
+
+	$data = [
+		"track" => getMp3StreamTitle($url, 19200)
+	];
+	die(json_encode($data, JSON_UNESCAPED_UNICODE));
+}

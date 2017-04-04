@@ -1,6 +1,6 @@
 import React from 'react';
 import {Router, Route, hashHistory, Link} from 'react-router';
-import meta from '../meta';
+import meta from '../libs/meta';
 
 String.prototype.stripTags = function () {
 	return this.replace(/<\/?[^>]+(>|$)/g, '')

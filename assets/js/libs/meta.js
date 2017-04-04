@@ -1,4 +1,4 @@
-import Http from './http';
+import http from './http';
 import $ from 'jquery';
 
 const meta = (function () {
@@ -12,14 +12,22 @@ const meta = (function () {
 
 		return new Promise(function (resolve, reject) {
 
-			Http.getJSON('/server/meta.php', {id: stationId})
+			http.getJSON('/server/meta.php', {id: stationId})
 				.then(function (data) {
-
 					const artist = data.track.split('-').shift().trim();
+					getArtistInfo(artist, resolve);
+				})
+				.catch(reject);
+		});
+	};
 
-					console.info("track: ", data.track);
-					console.info("artist: ", artist);
+	var getTrackInfoByURL = function (url) {
 
+		return new Promise(function (resolve, reject) {
+
+			http.getJSON('/server/meta.php', {url})
+				.then(function (data) {
+					const artist = data.track.split('-').shift().trim();
 					getArtistInfo(artist, resolve);
 				})
 				.catch(reject);
@@ -34,9 +42,7 @@ const meta = (function () {
 			method: 'artist.search'
 		});
 
-		get(settings, function (data) {
-			callback(data);
-		});
+		get(settings, callback);
 	};
 
 	var getTopArtists = function (tag, offset, callback) {
@@ -123,7 +129,7 @@ const meta = (function () {
 
 	var get = function (params, callback) {
 
-		Http.getJSON('http://ws.audioscrobbler.com/2.0/', params)
+		http.getJSON('http://ws.audioscrobbler.com/2.0/', params)
 			.then(callback);
 	};
 
@@ -133,6 +139,7 @@ const meta = (function () {
 		},
 		getAlbum: getAlbum,
 		getTrackInfo: getTrackInfo,
+		getTrackInfoByURL: getTrackInfoByURL,
 		getTopAlbums: getTopAlbums,
 		getTopTracks: getTopTracks,
 		getAllTopArtists: getAllTopArtists,

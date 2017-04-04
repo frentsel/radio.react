@@ -1,33 +1,34 @@
 {
-  "name": "radio.react",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "jquery": "*",
-    "less": "^2.6.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.0-alpha.3",
-    "react-router-redux": "4.0.8"
-  },
-  "devDependencies": {
-    "autoprefixer-loader": "*",
-    "babel": "5.x",
-    "babel-loader": "5.*",
-    "babel-preset-react": "^6.23.0",
-    "css-loader": "^0.22.0",
-    "file-loader": "^0.8.5",
-    "json-loader": "^0.5.4",
-    "less-loader": "^2.2.2",
-    "react-hot-loader": "^1.3.0",
-    "react-redux": "^5.0.2",
-    "style-loader": "^0.13.0",
-    "webpack": "^1.12.12"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Alex Frentsel",
-  "license": "ISC"
+	"name": "radio.react",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"dependencies": {
+		"jquery": "*",
+		"less": "^2.6.0",
+		"react": "^15.4.2",
+		"react-dom": "^15.4.2",
+		"react-router": "^3.0.0-alpha.3",
+		"react-router-redux": "4.0.8"
+	},
+	"devDependencies": {
+		"autoprefixer-loader": "*",
+		"extract-text-webpack-plugin": "*",
+		"babel": "5.x",
+		"babel-loader": "5.*",
+		"babel-preset-react": "^6.23.0",
+		"css-loader": "^0.22.0",
+		"file-loader": "^0.8.5",
+		"json-loader": "^0.5.4",
+		"less-loader": "^2.2.2",
+		"react-hot-loader": "^1.3.0",
+		"react-redux": "^5.0.2",
+		"style-loader": "^0.13.0",
+		"webpack": "^1.12.12"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Alex Frentsel",
+	"license": "ISC"
 }

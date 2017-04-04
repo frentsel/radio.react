@@ -4,7 +4,7 @@ import {Router, Route, hashHistory, Link} from 'react-router';
 import stations from '../../../data/stations.json';
 import DisqusBlock from '../partials/DisqusBlock.jsx';
 import ArtistInfo from '../partials/ArtistInfo.jsx';
-import meta from '../meta';
+import meta from '../libs/meta';
 
 const Station = React.createClass({
 
