@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 const http = {
 	ajaxSpinner: function (status) {
-		$('body').toggleClass('loading', status);
+		// $('body').toggleClass('loading', status);
 	},
 	cache: {},
 	getJSON: function (path, params) {
@@ -21,9 +21,9 @@ const http = {
 				return false;
 			}
 
-			if(path.indexOf('http://') === -1){
-				path = window.location.origin + path;
-			}
+			// if(path.indexOf('http://') === -1){
+			// 	path = window.location.origin + path;
+			// }
 
 			params.t = new Date() * 1;
 

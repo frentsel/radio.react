@@ -1,6 +1,7 @@
 import React from 'react';
 import {Router, Route, hashHistory, Link} from 'react-router';
-import meta from '../../libs/meta';
+import SoundCloud from '../../libs/SoundCloud';
+import Track from '../../partials/Track.jsx';
 
 String.prototype.stripTags = function () {
 	const str = this.replace(/<\/?[^>]+(>|$)/g, '')
@@ -17,7 +18,7 @@ const Playlist = React.createClass({
 
 	getInitialState() {
 		return {
-			artist: {}
+			playlist: []
 		}
 	},
 
@@ -25,31 +26,26 @@ const Playlist = React.createClass({
 
 		const _this = this;
 
-		meta.getArtistInfo(this.props.params.artistName, function (data) {
+		SoundCloud.get.tracks({q: this.props.params.artistName, offset: 0}, function(data){
+
+			console.info("SoundCloud: ", data);
+
 			_this.setState({
-				artist: data.artist
+				playlist: data.collection
 			});
 		});
 	},
 
 	render(){
 
-		if (!this.state.artist.name)
+		if (!this.state.playlist.length)
 			return <div className="loader"></div>;
 
-		const artist = this.state.artist;
+		const playlist = this.state.playlist;
 
 		return (
 			<div className="artist-info">
-				<Link to={'/'} title={artist.name}>
-					<img src={artist.image[3]['#text']} onError={setDefaultImage} className="artist-info__image--medium" />
-				</Link>
-				<div className="artist-info__description">
-					<h1>{artist.name}</h1>
-					<div dangerouslySetInnerHTML={{
-						__html: artist.bio.content.stripTags()
-					}}/>
-				</div>
+				{playlist.map((item, n) => <Track item={item} key={n} />)}
 			</div>
 		);
 	}

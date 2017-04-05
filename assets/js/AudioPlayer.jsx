@@ -11,18 +11,18 @@ let timer;
 
 const AudioPlayer = ({ src, meta, setMeta }) => {
 
-	console.info("meta: ", meta);
+	// console.info("meta: ", meta);
 
 	$('body').toggleClass('streamLoading', true);
 
-	clearInterval(timer);
-	timer = setInterval(() => {
-
-		Meta.getTrackInfoByURL(src)
-			// .then(setMeta);
-			.then(console.info);
-
-	}, 5000);
+	// clearInterval(timer);
+	// timer = setInterval(() => {
+	//
+	// 	Meta.getTrackInfoByURL(src)
+	// 		// .then(setMeta);
+	// 		.then(console.info);
+	//
+	// }, 5000);
 
 	return (
 		<div id="playerWrapper">
