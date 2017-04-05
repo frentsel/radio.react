@@ -19,9 +19,10 @@ const AudioPlayer = ({ src, meta, setMeta }) => {
 	timer = setInterval(() => {
 
 		Meta.getTrackInfoByURL(src)
+			// .then(setMeta);
 			.then(console.info);
 
-	}, 2000);
+	}, 5000);
 
 	return (
 		<div id="playerWrapper">

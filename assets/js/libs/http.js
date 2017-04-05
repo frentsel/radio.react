@@ -25,6 +25,8 @@ const http = {
 				path = window.location.origin + path;
 			}
 
+			params.t = new Date() * 1;
+
 			$.ajax({
 				url: path,
 				type: 'get',

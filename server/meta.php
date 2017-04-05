@@ -39,7 +39,7 @@ if(!empty($_GET['id'])){
     $fileName = $id.'.json';
     $cachePath = __DIR__.'/../data/cache';
     $cachefile = $cachePath.'/'.$fileName;
-    $cachetime = 15;
+    $cachetime = 15; // 15 sec
 
     // Обслуживается из файла кеша, если время запроса меньше $cachetime
     if (file_exists($cachefile) && time() - $cachetime < filemtime($cachefile)) {

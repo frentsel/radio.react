@@ -70,11 +70,11 @@
 
 	var _LayoutJsx2 = _interopRequireDefault(_LayoutJsx);
 
-	var _pagesHomeJsx = __webpack_require__(303);
+	var _pagesHomeJsx = __webpack_require__(305);
 
 	var _pagesHomeJsx2 = _interopRequireDefault(_pagesHomeJsx);
 
-	var _pagesStationJsx = __webpack_require__(304);
+	var _pagesStationJsx = __webpack_require__(306);
 
 	var _pagesStationJsx2 = _interopRequireDefault(_pagesStationJsx);
 
@@ -102,13 +102,33 @@
 
 	var _pagesArtistJsx2 = _interopRequireDefault(_pagesArtistJsx);
 
-	var _pagesNotFoundJsx = __webpack_require__(316);
+	var _pagesArtistInfoBioJsx = __webpack_require__(316);
+
+	var _pagesArtistInfoBioJsx2 = _interopRequireDefault(_pagesArtistInfoBioJsx);
+
+	var _pagesArtistInfoPlaylistJsx = __webpack_require__(326);
+
+	var _pagesArtistInfoPlaylistJsx2 = _interopRequireDefault(_pagesArtistInfoPlaylistJsx);
+
+	var _pagesArtistInfoPhotoJsx = __webpack_require__(327);
+
+	var _pagesArtistInfoPhotoJsx2 = _interopRequireDefault(_pagesArtistInfoPhotoJsx);
+
+	var _pagesArtistInfoVideoJsx = __webpack_require__(328);
+
+	var _pagesArtistInfoVideoJsx2 = _interopRequireDefault(_pagesArtistInfoVideoJsx);
+
+	var _pagesArtistInfoAlbumsJsx = __webpack_require__(329);
+
+	var _pagesArtistInfoAlbumsJsx2 = _interopRequireDefault(_pagesArtistInfoAlbumsJsx);
+
+	var _pagesNotFoundJsx = __webpack_require__(317);
 
 	var _pagesNotFoundJsx2 = _interopRequireDefault(_pagesNotFoundJsx);
 
-	__webpack_require__(317);
+	__webpack_require__(318);
 
-	var _reducers = __webpack_require__(321);
+	var _reducers = __webpack_require__(322);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -131,7 +151,15 @@
 				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-countries', component: _pagesCountriesJsx2['default'] }),
 				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-country/:countryId', component: _pagesCountryJsx2['default'] }),
 				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-station/:stationId', component: _pagesStationJsx2['default'] }),
-				_react2['default'].createElement(_reactRouter.Route, { path: '/artist-info/:artistName', component: _pagesArtistJsx2['default'] }),
+				_react2['default'].createElement(
+					_reactRouter.Route,
+					{ component: _pagesArtistJsx2['default'] },
+					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-bio/:artistName', component: _pagesArtistInfoBioJsx2['default'] }),
+					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-playlist/:artistName', component: _pagesArtistInfoPlaylistJsx2['default'] }),
+					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-photo/:artistName', component: _pagesArtistInfoPhotoJsx2['default'] }),
+					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-video/:artistName', component: _pagesArtistInfoVideoJsx2['default'] }),
+					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-albums/:artistName', component: _pagesArtistInfoAlbumsJsx2['default'] })
+				),
 				_react2['default'].createElement(_reactRouter.Route, { path: '*', component: _pagesNotFoundJsx2['default'] })
 			)
 		)
@@ -38124,7 +38152,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _libsMeta = __webpack_require__(307);
+	var _libsMeta = __webpack_require__(303);
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
@@ -38146,8 +38174,10 @@
 		clearInterval(timer);
 		timer = setInterval(function () {
 
-			_libsMeta2['default'].getTrackInfoByURL(src).then(console.info);
-		}, 2000);
+			_libsMeta2['default'].getTrackInfoByURL(src)
+			// .then(setMeta);
+			.then(console.info);
+		}, 5000);
 
 		return _react2['default'].createElement(
 			'div',
@@ -48012,8 +48042,6 @@
 /* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -48022,311 +48050,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _react = __webpack_require__(7);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var Home = function Home() {
-
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'Home page'
-			),
-			_react2['default'].createElement(
-				'p',
-				null,
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur dignissimos doloribus enim illum, itaque maiores obcaecati perferendis quasi soluta. Accusamus consequuntur cum debitis deserunt eaque exercitationem expedita minima, nulla, quae sequi sint, soluta suscipit tenetur totam unde! Deserunt impedit laudantium nemo officiis sequi. Autem dolor maxime modi nesciunt voluptate!'
-			),
-			_react2['default'].createElement(
-				'p',
-				null,
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error ipsum molestiae totam, vero vitae. Assumenda beatae blanditiis delectus enim expedita fugit incidunt itaque provident tempore vitae.'
-			)
-		);
-	};
-
-	exports['default'] = Home;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 304 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(7);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(266);
-
-	var _reactRouter = __webpack_require__(189);
-
-	var _dataStationsJson = __webpack_require__(300);
-
-	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
-
-	var _partialsDisqusBlockJsx = __webpack_require__(305);
-
-	var _partialsDisqusBlockJsx2 = _interopRequireDefault(_partialsDisqusBlockJsx);
-
-	var _partialsArtistInfoJsx = __webpack_require__(306);
-
-	var _partialsArtistInfoJsx2 = _interopRequireDefault(_partialsArtistInfoJsx);
-
-	var _libsMeta = __webpack_require__(307);
-
-	var _libsMeta2 = _interopRequireDefault(_libsMeta);
-
-	var Station = _react2['default'].createClass({
-		displayName: 'Station',
-
-		getInitialState: function getInitialState() {
-			return {
-				station: _dataStationsJson2['default'][this.props.params.stationId],
-				artist: {}
-			};
-		},
-
-		componentWillMount: function componentWillMount() {
-
-			var _this = this;
-
-			this.props.setTrack(this.state.station.radio);
-
-			_libsMeta2['default'].getTrackInfo(this.props.params.stationId).then(function (res) {
-				_this.setState({
-					station: _this.state.station,
-					artist: res.artist
-				});
-			});
-		},
-
-		componentWillUnmount: function componentWillUnmount() {
-			this.props.setTrack(this.state.station.radio);
-		},
-
-		render: function render() {
-
-			var station = this.state.station;
-			var artist = this.state.artist;
-
-			return _react2['default'].createElement(
-				'div',
-				null,
-				_react2['default'].createElement(
-					'div',
-					{ className: 'station-page' },
-					_react2['default'].createElement('img', { src: 'images/' + station.img, alt: '' }),
-					_react2['default'].createElement(
-						'div',
-						{ className: 'station-info__description' },
-						_react2['default'].createElement(
-							'h1',
-							null,
-							station.title
-						),
-						_react2['default'].createElement(
-							'p',
-							null,
-							station.text
-						),
-						_react2['default'].createElement(
-							'p',
-							null,
-							'Жанр: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-genre/' + station.genre },
-								station.genre
-							),
-							', Страна: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-country/' + station.country },
-								station.country
-							),
-							', Город: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-city/' + station.city },
-								station.city
-							)
-						)
-					)
-				),
-				artist.name ? _react2['default'].createElement(_partialsArtistInfoJsx2['default'], { artist: artist }) : '',
-				_react2['default'].createElement(_partialsDisqusBlockJsx2['default'], {
-					url: window.location.href,
-					identifier: this.state.station.title,
-					title: this.state.station.title
-				})
-			);
-		}
-	});
-
-	exports['default'] = (0, _reactRedux.connect)(function (state) {
-		return {
-			url: state.player
-		};
-	}, function (dispatch) {
-		return {
-			setTrack: function setTrack(url) {
-				dispatch({
-					type: 'SET',
-					url: url
-				});
-			}
-		};
-	})(Station);
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Station.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 305 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(7);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var DisqusBlock = function DisqusBlock(_ref) {
-		var url = _ref.url;
-		var identifier = _ref.identifier;
-		var title = _ref.title;
-
-		window.disqus_config = function () {
-			this.page.url = url;
-			this.page.identifier = identifier;
-			this.page.title = title;
-		};
-
-		(function () {
-
-			var d = document,
-			    s = d.createElement('script');
-
-			s.src = '//cishophostenkocom.disqus.com/embed.js';
-
-			s.setAttribute('data-timestamp', +new Date());
-			(d.head || d.body).appendChild(s);
-		})();
-
-		return _react2['default'].createElement('div', { id: 'disqus_thread' });
-	};
-
-	exports['default'] = DisqusBlock;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "DisqusBlock.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(7);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(189);
-
-	String.prototype.removeLinks = function () {
-		return this.replace(/<a[^\>]+>[^\<]+<\/a>/ig, '');
-	};
-
-	var setDefaultImage = function setDefaultImage(e) {
-		e.target.src = "/img/placeholder-image.png";
-	};
-
-	var ArtistInfo = function ArtistInfo(_ref) {
-		var artist = _ref.artist;
-
-		console.info("ArtistInfo: ", artist);
-
-		return _react2['default'].createElement(
-			'section',
-			{ className: 'artist-info' },
-			_react2['default'].createElement(
-				_reactRouter.Link,
-				{ to: '/artist-info/' + encodeURIComponent(artist.name), title: artist.name },
-				_react2['default'].createElement('img', { src: artist.image[2]['#text'], onError: setDefaultImage, className: 'artist-info__image--small' })
-			),
-			_react2['default'].createElement(
-				'div',
-				{ className: 'artist-info__description' },
-				_react2['default'].createElement(
-					'h2',
-					null,
-					artist.name
-				),
-				_react2['default'].createElement(
-					'p',
-					null,
-					artist.bio.summary.removeLinks(),
-					_react2['default'].createElement('br', null),
-					_react2['default'].createElement(
-						_reactRouter.Link,
-						{ to: '/artist-info/' + encodeURIComponent(artist.name) },
-						'подробнее'
-					)
-				)
-			)
-		);
-	};
-
-	exports['default'] = ArtistInfo;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ArtistInfo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 307 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _http = __webpack_require__(308);
+	var _http = __webpack_require__(304);
 
 	var _http2 = _interopRequireDefault(_http);
 
@@ -48356,10 +48080,7 @@
 
 			return new Promise(function (resolve, reject) {
 
-				_http2['default'].getJSON('/server/meta.php', { url: url }).then(function (data) {
-					var artist = data.track.split('-').shift().trim();
-					getArtistInfo(artist, resolve);
-				})['catch'](reject);
+				_http2['default'].getJSON('/server/meta.php', { url: url }).then(resolve)['catch'](reject);
 			});
 		};
 
@@ -48481,7 +48202,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 308 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48521,6 +48242,8 @@
 					path = window.location.origin + path;
 				}
 
+				params.t = new Date() * 1;
+
 				_jquery2['default'].ajax({
 					url: path,
 					type: 'get',
@@ -48547,6 +48270,310 @@
 
 	exports['default'] = http;
 	module.exports = exports['default'];
+
+/***/ },
+/* 305 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Home = function Home() {
+
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'Home page'
+			),
+			_react2['default'].createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur dignissimos doloribus enim illum, itaque maiores obcaecati perferendis quasi soluta. Accusamus consequuntur cum debitis deserunt eaque exercitationem expedita minima, nulla, quae sequi sint, soluta suscipit tenetur totam unde! Deserunt impedit laudantium nemo officiis sequi. Autem dolor maxime modi nesciunt voluptate!'
+			),
+			_react2['default'].createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error ipsum molestiae totam, vero vitae. Assumenda beatae blanditiis delectus enim expedita fugit incidunt itaque provident tempore vitae.'
+			)
+		);
+	};
+
+	exports['default'] = Home;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 306 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(266);
+
+	var _reactRouter = __webpack_require__(189);
+
+	var _dataStationsJson = __webpack_require__(300);
+
+	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
+
+	var _partialsDisqusBlockJsx = __webpack_require__(307);
+
+	var _partialsDisqusBlockJsx2 = _interopRequireDefault(_partialsDisqusBlockJsx);
+
+	var _partialsArtistInfoJsx = __webpack_require__(308);
+
+	var _partialsArtistInfoJsx2 = _interopRequireDefault(_partialsArtistInfoJsx);
+
+	var _libsMeta = __webpack_require__(303);
+
+	var _libsMeta2 = _interopRequireDefault(_libsMeta);
+
+	var Station = _react2['default'].createClass({
+		displayName: 'Station',
+
+		getInitialState: function getInitialState() {
+			return {
+				station: _dataStationsJson2['default'][this.props.params.stationId],
+				artist: {}
+			};
+		},
+
+		componentWillMount: function componentWillMount() {
+
+			var _this = this;
+
+			this.props.setTrack(this.state.station.radio);
+
+			_libsMeta2['default'].getTrackInfo(this.props.params.stationId).then(function (res) {
+				_this.setState({
+					station: _this.state.station,
+					artist: res.artist
+				});
+			});
+		},
+
+		componentWillUnmount: function componentWillUnmount() {
+			this.props.setTrack(this.state.station.radio);
+		},
+
+		render: function render() {
+
+			var station = this.state.station;
+			var artist = this.state.artist;
+
+			return _react2['default'].createElement(
+				'div',
+				null,
+				_react2['default'].createElement(
+					'div',
+					{ className: 'station-page' },
+					_react2['default'].createElement('img', { src: 'images/' + station.img, alt: '' }),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'station-info__description' },
+						_react2['default'].createElement(
+							'h1',
+							null,
+							station.title
+						),
+						_react2['default'].createElement(
+							'p',
+							null,
+							station.text
+						),
+						_react2['default'].createElement(
+							'p',
+							null,
+							'Жанр: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-genre/' + station.genre },
+								station.genre
+							),
+							', Страна: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-country/' + station.country },
+								station.country
+							),
+							', Город: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-city/' + station.city },
+								station.city
+							)
+						)
+					)
+				),
+				artist.name ? _react2['default'].createElement(_partialsArtistInfoJsx2['default'], { artist: artist }) : '',
+				_react2['default'].createElement(_partialsDisqusBlockJsx2['default'], {
+					url: window.location.href,
+					identifier: this.state.station.title,
+					title: this.state.station.title
+				})
+			);
+		}
+	});
+
+	exports['default'] = (0, _reactRedux.connect)(function (state) {
+		return {
+			url: state.player
+		};
+	}, function (dispatch) {
+		return {
+			setTrack: function setTrack(url) {
+				dispatch({
+					type: 'SET',
+					url: url
+				});
+			}
+		};
+	})(Station);
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Station.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 307 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var DisqusBlock = function DisqusBlock(_ref) {
+		var url = _ref.url;
+		var identifier = _ref.identifier;
+		var title = _ref.title;
+
+		window.disqus_config = function () {
+			this.page.url = url;
+			this.page.identifier = identifier;
+			this.page.title = title;
+		};
+
+		(function () {
+
+			var d = document,
+			    s = d.createElement('script');
+
+			s.src = '//cishophostenkocom.disqus.com/embed.js';
+
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+		})();
+
+		return _react2['default'].createElement('div', { id: 'disqus_thread' });
+	};
+
+	exports['default'] = DisqusBlock;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "DisqusBlock.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(189);
+
+	String.prototype.removeLinks = function () {
+		return this.replace(/<a[^\>]+>[^\<]+<\/a>/ig, '');
+	};
+
+	var setDefaultImage = function setDefaultImage(e) {
+		e.target.src = "/img/placeholder-image.png";
+	};
+
+	var ArtistInfo = function ArtistInfo(_ref) {
+		var artist = _ref.artist;
+
+		return _react2['default'].createElement(
+			'section',
+			{ className: 'artist-info short' },
+			_react2['default'].createElement(
+				_reactRouter.Link,
+				{ to: '/artist-bio/' + encodeURIComponent(artist.name), title: artist.name },
+				_react2['default'].createElement('img', { src: artist.image[2]['#text'], onError: setDefaultImage, className: 'artist-info__image--small' })
+			),
+			_react2['default'].createElement(
+				'div',
+				{ className: 'artist-info__description' },
+				_react2['default'].createElement(
+					'h2',
+					null,
+					artist.name
+				),
+				_react2['default'].createElement(
+					'p',
+					null,
+					artist.bio.summary.removeLinks(),
+					_react2['default'].createElement('br', null),
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ to: '/artist-bio/' + encodeURIComponent(artist.name) },
+						'подробнее'
+					)
+				)
+			)
+		);
+	};
+
+	exports['default'] = ArtistInfo;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ArtistInfo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
 /* 309 */
@@ -48901,20 +48928,111 @@
 
 	var _reactRouter = __webpack_require__(189);
 
-	var _libsMeta = __webpack_require__(307);
+	var Artist = function Artist(_ref) {
+		var params = _ref.params;
+		var children = _ref.children;
+
+		var artist = params.artistName;
+
+		console.info("params: ", params);
+		console.info("children: ", children.type.displayName);
+
+		return _react2['default'].createElement(
+			'section',
+			null,
+			_react2['default'].createElement(
+				'ul',
+				{ className: 'artist-info-controls' },
+				_react2['default'].createElement(
+					'li',
+					null,
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ activeClassName: 'active', to: '/artist-bio/' + artist },
+						'Биография'
+					)
+				),
+				_react2['default'].createElement(
+					'li',
+					null,
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ activeClassName: 'active', to: '/artist-playlist/' + artist },
+						'Плейтист'
+					)
+				),
+				_react2['default'].createElement(
+					'li',
+					null,
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ activeClassName: 'active', to: '/artist-photo/' + artist },
+						'Фото'
+					)
+				),
+				_react2['default'].createElement(
+					'li',
+					null,
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ activeClassName: 'active', to: '/artist-video/' + artist },
+						'Видео'
+					)
+				),
+				_react2['default'].createElement(
+					'li',
+					null,
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ activeClassName: 'active', to: '/artist-albums/' + artist },
+						'Альбомы'
+					)
+				)
+			),
+			children
+		);
+	};
+
+	exports['default'] = Artist;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Artist.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(189);
+
+	var _libsMeta = __webpack_require__(303);
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
 	String.prototype.stripTags = function () {
-		return this.replace(/<\/?[^>]+(>|$)/g, '').replace(/[\n]+/g, "<br />").replace(/(Read more on Last\.fm.*)/g, "");
+		var str = this.replace(/<\/?[^>]+(>|$)/g, '').replace(/(Read more on Last\.fm.*)/g, "").replace(/[\n]+/g, "</p><p>");
+		return "<p>" + str + "</p>";
 	};
 
 	var setDefaultImage = function setDefaultImage(e) {
 		e.target.src = "/img/placeholder-image.png";
 	};
 
-	var Artist = _react2['default'].createClass({
-		displayName: 'Artist',
+	var Bio = _react2['default'].createClass({
+		displayName: 'Bio',
 
 		getInitialState: function getInitialState() {
 			return {
@@ -48938,43 +49056,38 @@
 			if (!this.state.artist.name) return _react2['default'].createElement('div', { className: 'loader' });
 
 			var artist = this.state.artist;
-			var content = _react2['default'].createElement(
-				'section',
-				null,
+
+			return _react2['default'].createElement(
+				'div',
+				{ className: 'artist-info' },
 				_react2['default'].createElement(
-					'h1',
-					null,
-					artist.name
+					_reactRouter.Link,
+					{ to: '/', title: artist.name },
+					_react2['default'].createElement('img', { src: artist.image[3]['#text'], onError: setDefaultImage, className: 'artist-info__image--medium' })
 				),
 				_react2['default'].createElement(
 					'div',
-					{ className: 'artist-info' },
+					{ className: 'artist-info__description' },
 					_react2['default'].createElement(
-						'a',
-						{ href: '#', title: artist.name },
-						_react2['default'].createElement('img', { src: artist.image[3]['#text'], onError: setDefaultImage, className: 'artist-info__image--medium' })
+						'h1',
+						null,
+						artist.name
 					),
-					_react2['default'].createElement(
-						'div',
-						{ className: 'artist-info__description' },
-						_react2['default'].createElement('p', { dangerouslySetInnerHTML: {
-								__html: artist.bio.content.stripTags()
-							} })
-					)
+					_react2['default'].createElement('div', { dangerouslySetInnerHTML: {
+							__html: artist.bio.content.stripTags()
+						} })
 				)
 			);
-
-			return this.state.artist.name ? content : '12312';
 		}
 	});
 
-	exports['default'] = Artist;
+	exports['default'] = Bio;
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Artist.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Bio.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49019,16 +49132,16 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "NotFound.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(318);
+	var content = __webpack_require__(319);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(320)(content, {});
+	var update = __webpack_require__(321)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -49045,21 +49158,21 @@
 	}
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(319)();
+	exports = module.exports = __webpack_require__(320)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,500&subset=cyrillic);", ""]);
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nq:before,\nblockquote:after,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n#sidebar {\n  max-width: 250px;\n  background: #fdfdfd;\n  width: 100%;\n  padding: 15px 20px;\n  border-right: 1px solid #dbdfe4;\n}\n#sidebar > b {\n  text-transform: uppercase;\n  font-weight: bold;\n  margin-bottom: 10px;\n  display: block;\n  color: #656c7a;\n}\nul.sidebar-list {\n  clear: both;\n  float: none;\n  overflow: hidden;\n  margin-bottom: 20px;\n}\nul.sidebar-list > li {\n  float: left;\n  margin-right: 12px;\n  font-size: 14px;\n  line-height: 20px;\n}\nul.sidebar-list > li > a {\n  color: #567;\n}\nbody.streamLoading .meter {\n  display: block;\n}\n.meter {\n  display: none;\n  height: 100%;\n  position: relative;\n}\n.meter > span {\n  display: block;\n  height: 100%;\n  width: 100%;\n  background-color: #03A9F4;\n  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #03A9F4), color-stop(1, #B3E5FC));\n  background-image: -moz-linear-gradient(center bottom, #03A9F4 37%, #B3E5FC 69%);\n  position: relative;\n  overflow: hidden;\n}\n.meter > span:after,\n.animate > span > span {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));\n  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);\n  z-index: 1;\n  -webkit-background-size: 50px 50px;\n  -moz-background-size: 50px 50px;\n  -webkit-animation: move 2s linear infinite;\n  overflow: hidden;\n}\n.animate > span:after {\n  display: none;\n}\n@-webkit-keyframes move {\n  0% {\n    background-position: 0 0;\n  }\n  100% {\n    background-position: 50px 50px;\n  }\n}\n.nostripes > span > span,\n.nostripes > span:after {\n  -webkit-animation: none;\n  background-image: none;\n}\nbody.streamLoading #playerWrapper:before {\n  display: block;\n}\nbody.loading .linear-activity {\n  display: block;\n}\n.linear-activity {\n  display: none;\n  margin: auto;\n  overflow: hidden;\n  width: 100%;\n  max-width: 960px;\n  height: 2px;\n  background-color: #B3E5FC;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.indeterminate {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.indeterminate:before {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #03A9F4;\n  animation: indeterminate_first 1.5s infinite ease-out;\n}\n.indeterminate:after {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #4FC3F7;\n  animation: indeterminate_second 1.5s infinite ease-in;\n}\n@keyframes indeterminate_first {\n  0% {\n    left: -100%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n@keyframes indeterminate_second {\n  0% {\n    left: -150%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n/* Page Loader (radial)\n----------------------------------------------------------------------------------------------------------------------*/\n#content {\n  position: relative;\n}\n#content > .loader {\n  border: 8px solid #f3f3f3;\n  border-top: 8px solid #4285f4;\n  border-radius: 50%;\n  width: 60px;\n  height: 60px;\n  animation: spin 2s linear infinite;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  margin: auto;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.station-list > div {\n  float: left;\n  margin-right: 9px;\n  margin-bottom: 9px;\n  width: 100px;\n  height: 100px;\n  background: #fdfdfd;\n  box-shadow: 0 0 0 1px #eee;\n}\n.station-item {\n  position: relative;\n}\n.station-item > b {\n  position: absolute;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  height: 20px;\n  font-size: 13px;\n  line-height: 20px;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  text-align: center;\n  padding: 0 2px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.station-item img {\n  float: left;\n}\n.station-page {\n  margin-bottom: 20px;\n  overflow: hidden;\n}\n.station-page > img {\n  box-shadow: 0 0 0 1px #eee;\n  float: left;\n  margin-right: 20px;\n}\n.artist-info {\n  border-top: 1px solid #dbdfe4;\n  padding-top: 20px;\n  padding-bottom: 20px;\n  overflow: hidden;\n}\n.artist-info > a {\n  margin-right: 20px;\n  overflow: hidden;\n  float: left;\n}\n.artist-info img {\n  background: #eee;\n}\n.artist-info__image--small {\n  width: 174px;\n  height: 174px;\n}\n.artist-info__image--medium {\n  width: 100%;\n  max-width: 300px;\n  height: auto;\n}\n* {\n  outline: none;\n  box-sizing: border-box;\n}\nhtml,\nbody,\n#app,\n#wrapper {\n  height: 100%;\n}\nbody {\n  font-family: 'Fira Sans Condensed', sans-serif;\n  color: #345;\n  font-size: 15px;\n  background: #e1e7ed;\n}\np {\n  line-height: 20px;\n  margin-bottom: 20px;\n}\na {\n  text-decoration: none;\n}\nh1,\nh2,\nh3,\nh4,\nh5 {\n  text-transform: uppercase;\n  font-weight: bold;\n  color: #656c7a;\n}\nh1 {\n  font-size: 26px;\n  margin-bottom: 20px;\n}\nh2 {\n  font-size: 22px;\n  margin-bottom: 18px;\n}\nh3 {\n  font-size: 18px;\n  margin-bottom: 18px;\n}\n#app {\n  width: 100%;\n  max-width: 960px;\n  min-height: 100%;\n  height: initial;\n  margin: 0 auto;\n  border-left: 1px solid #c3cbd4;\n  border-right: 1px solid #c3cbd4;\n}\n#wrapper {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n}\n#container {\n  display: flex;\n  flex-direction: row;\n  align-content: center;\n  flex-grow: 1;\n}\nnav {\n  background: #fdfdfd;\n  border-bottom: 1px solid #c3cbd4;\n  padding: 16px 20px;\n}\nnav > a {\n  float: left;\n}\nnav li {\n  float: left;\n  margin-left: 20px;\n}\n#content {\n  flex-grow: 1;\n  max-width: 960px;\n  padding: 20px 25px 0;\n  background: white;\n}\nul.list-items-horizontal > li {\n  float: left;\n  margin-right: 20px;\n  margin-bottom: 10px;\n  font-size: 14px;\n}\n#audio {\n  width: 100%;\n  height: 100%;\n}\n#playerWrapper {\n  width: 100%;\n  border-top: 1px solid #c3cbd4;\n  height: 33px;\n  top: 0;\n  left: 0;\n  position: relative;\n  overflow: hidden;\n}\n#playerWrapper:before {\n  content: \"\";\n  display: none;\n  width: 100%;\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n#disqus_thread {\n  border-top: 1px solid #dbdfe4;\n  margin-left: -25px;\n  margin-right: -25px;\n  padding: 10px 25px 15px;\n  background: #fdfdfd;\n}\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nq:before,\nblockquote:after,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n#sidebar {\n  max-width: 250px;\n  background: #fdfdfd;\n  width: 100%;\n  padding: 15px 20px;\n  border-right: 1px solid #dbdfe4;\n}\n#sidebar > b {\n  text-transform: uppercase;\n  font-weight: bold;\n  margin-bottom: 10px;\n  display: block;\n  color: #656c7a;\n}\nul.sidebar-list {\n  clear: both;\n  float: none;\n  overflow: hidden;\n  margin-bottom: 20px;\n}\nul.sidebar-list > li {\n  float: left;\n  margin-right: 12px;\n  font-size: 14px;\n  line-height: 20px;\n}\nul.sidebar-list > li > a {\n  color: #567;\n}\nbody.streamLoading .meter {\n  display: block;\n}\n.meter {\n  display: none;\n  height: 100%;\n  position: relative;\n}\n.meter > span {\n  display: block;\n  height: 100%;\n  width: 100%;\n  background-color: #03A9F4;\n  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #03A9F4), color-stop(1, #B3E5FC));\n  background-image: -moz-linear-gradient(center bottom, #03A9F4 37%, #B3E5FC 69%);\n  position: relative;\n  overflow: hidden;\n}\n.meter > span:after,\n.animate > span > span {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));\n  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);\n  z-index: 1;\n  -webkit-background-size: 50px 50px;\n  -moz-background-size: 50px 50px;\n  -webkit-animation: move 2s linear infinite;\n  overflow: hidden;\n}\n.animate > span:after {\n  display: none;\n}\n@-webkit-keyframes move {\n  0% {\n    background-position: 0 0;\n  }\n  100% {\n    background-position: 50px 50px;\n  }\n}\n.nostripes > span > span,\n.nostripes > span:after {\n  -webkit-animation: none;\n  background-image: none;\n}\nbody.streamLoading #playerWrapper:before {\n  display: block;\n}\nbody.loading .linear-activity {\n  display: block;\n}\n.linear-activity {\n  display: none;\n  margin: auto;\n  overflow: hidden;\n  width: 100%;\n  max-width: 960px;\n  height: 2px;\n  background-color: #B3E5FC;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.indeterminate {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.indeterminate:before {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #03A9F4;\n  animation: indeterminate_first 1.5s infinite ease-out;\n}\n.indeterminate:after {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #4FC3F7;\n  animation: indeterminate_second 1.5s infinite ease-in;\n}\n@keyframes indeterminate_first {\n  0% {\n    left: -100%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n@keyframes indeterminate_second {\n  0% {\n    left: -150%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n/* Page Loader (radial)\n----------------------------------------------------------------------------------------------------------------------*/\n#content {\n  position: relative;\n}\n#content .loader {\n  border: 8px solid #f3f3f3;\n  border-top: 8px solid #4285f4;\n  border-radius: 50%;\n  width: 60px;\n  height: 60px;\n  animation: spin 2s linear infinite;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  margin: auto;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.station-list > div {\n  float: left;\n  margin-right: 9px;\n  margin-bottom: 9px;\n  width: 100px;\n  height: 100px;\n  background: #fdfdfd;\n  box-shadow: 0 0 0 1px #eee;\n}\n.station-item {\n  position: relative;\n}\n.station-item > b {\n  position: absolute;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  height: 20px;\n  font-size: 13px;\n  line-height: 20px;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  text-align: center;\n  padding: 0 2px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.station-item img {\n  float: left;\n}\n.station-page {\n  margin-bottom: 20px;\n  overflow: hidden;\n}\n.station-page > img {\n  box-shadow: 0 0 0 1px #eee;\n  float: left;\n  margin-right: 20px;\n}\n.artist-info {\n  padding-top: 20px;\n  padding-bottom: 20px;\n  overflow: hidden;\n}\n.artist-info.short {\n  border-top: 1px solid #dbdfe4;\n}\n.artist-info > a {\n  margin-right: 20px;\n  overflow: hidden;\n  float: left;\n}\n.artist-info img {\n  background: #eee;\n}\n.artist-info__image--small {\n  width: 174px;\n  height: 174px;\n}\n.artist-info__image--medium {\n  width: 100%;\n  max-width: 300px;\n  height: auto;\n}\n.artist-info-controls {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  background: #e1e7ed;\n  height: 26px;\n  border: 1px solid #c3cbd4;\n}\n.artist-info-controls > li {\n  flex-grow: 1;\n  height: 100%;\n  border-right: 1px solid #c3cbd4;\n  transition: all .1s;\n}\n.artist-info-controls > li:last-child {\n  border: 0;\n}\n.artist-info-controls > li:hover a {\n  background: white;\n}\n.artist-info-controls a {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #4d6ca0;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n}\n.artist-info-controls a.active {\n  background: #fdfdfd;\n}\n* {\n  outline: none;\n  box-sizing: border-box;\n}\nhtml,\nbody,\n#app,\n#wrapper {\n  height: 100%;\n}\nbody {\n  font-family: 'Fira Sans Condensed', sans-serif;\n  color: #345;\n  font-size: 15px;\n  background: #e1e7ed;\n}\np {\n  line-height: 20px;\n  margin-bottom: 20px;\n}\na {\n  text-decoration: none;\n}\nh1,\nh2,\nh3,\nh4,\nh5 {\n  text-transform: uppercase;\n  font-weight: bold;\n  color: #656c7a;\n}\nh1 {\n  font-size: 26px;\n  margin-bottom: 20px;\n}\nh2 {\n  font-size: 22px;\n  margin-bottom: 18px;\n}\nh3 {\n  font-size: 18px;\n  margin-bottom: 18px;\n}\n#app {\n  width: 100%;\n  max-width: 960px;\n  min-height: 100%;\n  height: initial;\n  margin: 0 auto;\n  border-left: 1px solid #c3cbd4;\n  border-right: 1px solid #c3cbd4;\n}\n#wrapper {\n  display: flex;\n  flex-direction: column;\n  min-height: 100vh;\n}\n#container {\n  display: flex;\n  flex-direction: row;\n  align-content: center;\n  flex-grow: 1;\n}\nnav {\n  background: #fdfdfd;\n  border-bottom: 1px solid #c3cbd4;\n  padding: 16px 20px;\n}\nnav > a {\n  float: left;\n}\nnav li {\n  float: left;\n  margin-left: 20px;\n}\n#content {\n  flex-grow: 1;\n  max-width: 960px;\n  padding: 20px 25px 0;\n  background: white;\n}\nul.list-items-horizontal > li {\n  float: left;\n  margin-right: 20px;\n  margin-bottom: 10px;\n  font-size: 14px;\n}\n#audio {\n  width: 100%;\n  height: 100%;\n}\n#playerWrapper {\n  width: 100%;\n  border-top: 1px solid #c3cbd4;\n  height: 33px;\n  top: 0;\n  left: 0;\n  position: relative;\n  overflow: hidden;\n}\n#playerWrapper:before {\n  content: \"\";\n  display: none;\n  width: 100%;\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n#disqus_thread {\n  border-top: 1px solid #dbdfe4;\n  margin-left: -25px;\n  margin-right: -25px;\n  padding: 10px 25px 15px;\n  background: #fdfdfd;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports) {
 
 	/*
@@ -49114,7 +49227,7 @@
 	};
 
 /***/ },
-/* 320 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -49366,7 +49479,7 @@
 
 
 /***/ },
-/* 321 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49381,15 +49494,15 @@
 
 	var _reactRouterRedux = __webpack_require__(293);
 
-	var _stations = __webpack_require__(322);
+	var _stations = __webpack_require__(323);
 
 	var _stations2 = _interopRequireDefault(_stations);
 
-	var _player = __webpack_require__(323);
+	var _player = __webpack_require__(324);
 
 	var _player2 = _interopRequireDefault(_player);
 
-	var _meta = __webpack_require__(324);
+	var _meta = __webpack_require__(325);
 
 	var _meta2 = _interopRequireDefault(_meta);
 
@@ -49402,7 +49515,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 322 */
+/* 323 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49425,7 +49538,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 323 */
+/* 324 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -49448,7 +49561,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 324 */
+/* 325 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -49470,6 +49583,358 @@
 	}
 
 	module.exports = exports['default'];
+
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(189);
+
+	var _libsMeta = __webpack_require__(303);
+
+	var _libsMeta2 = _interopRequireDefault(_libsMeta);
+
+	String.prototype.stripTags = function () {
+		var str = this.replace(/<\/?[^>]+(>|$)/g, '').replace(/(Read more on Last\.fm.*)/g, "").replace(/[\n]+/g, "</p><p>");
+		return "<p>" + str + "</p>";
+	};
+
+	var setDefaultImage = function setDefaultImage(e) {
+		e.target.src = "/img/placeholder-image.png";
+	};
+
+	var Playlist = _react2['default'].createClass({
+		displayName: 'Playlist',
+
+		getInitialState: function getInitialState() {
+			return {
+				artist: {}
+			};
+		},
+
+		componentWillMount: function componentWillMount() {
+
+			var _this = this;
+
+			_libsMeta2['default'].getArtistInfo(this.props.params.artistName, function (data) {
+				_this.setState({
+					artist: data.artist
+				});
+			});
+		},
+
+		render: function render() {
+
+			if (!this.state.artist.name) return _react2['default'].createElement('div', { className: 'loader' });
+
+			var artist = this.state.artist;
+
+			return _react2['default'].createElement(
+				'div',
+				{ className: 'artist-info' },
+				_react2['default'].createElement(
+					_reactRouter.Link,
+					{ to: '/', title: artist.name },
+					_react2['default'].createElement('img', { src: artist.image[3]['#text'], onError: setDefaultImage, className: 'artist-info__image--medium' })
+				),
+				_react2['default'].createElement(
+					'div',
+					{ className: 'artist-info__description' },
+					_react2['default'].createElement(
+						'h1',
+						null,
+						artist.name
+					),
+					_react2['default'].createElement('div', { dangerouslySetInnerHTML: {
+							__html: artist.bio.content.stripTags()
+						} })
+				)
+			);
+		}
+	});
+
+	exports['default'] = Playlist;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Playlist.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 327 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(189);
+
+	var _libsMeta = __webpack_require__(303);
+
+	var _libsMeta2 = _interopRequireDefault(_libsMeta);
+
+	String.prototype.stripTags = function () {
+		var str = this.replace(/<\/?[^>]+(>|$)/g, '').replace(/(Read more on Last\.fm.*)/g, "").replace(/[\n]+/g, "</p><p>");
+		return "<p>" + str + "</p>";
+	};
+
+	var setDefaultImage = function setDefaultImage(e) {
+		e.target.src = "/img/placeholder-image.png";
+	};
+
+	var Photo = _react2['default'].createClass({
+		displayName: 'Photo',
+
+		getInitialState: function getInitialState() {
+			return {
+				artist: {}
+			};
+		},
+
+		componentWillMount: function componentWillMount() {
+
+			var _this = this;
+
+			_libsMeta2['default'].getArtistInfo(this.props.params.artistName, function (data) {
+				_this.setState({
+					artist: data.artist
+				});
+			});
+		},
+
+		render: function render() {
+
+			if (!this.state.artist.name) return _react2['default'].createElement('div', { className: 'loader' });
+
+			var artist = this.state.artist;
+
+			return _react2['default'].createElement(
+				'div',
+				{ className: 'artist-info' },
+				_react2['default'].createElement(
+					_reactRouter.Link,
+					{ to: '/', title: artist.name },
+					_react2['default'].createElement('img', { src: artist.image[3]['#text'], onError: setDefaultImage, className: 'artist-info__image--medium' })
+				),
+				_react2['default'].createElement(
+					'div',
+					{ className: 'artist-info__description' },
+					_react2['default'].createElement(
+						'h1',
+						null,
+						artist.name
+					),
+					_react2['default'].createElement('div', { dangerouslySetInnerHTML: {
+							__html: artist.bio.content.stripTags()
+						} })
+				)
+			);
+		}
+	});
+
+	exports['default'] = Photo;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Photo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(189);
+
+	var _libsMeta = __webpack_require__(303);
+
+	var _libsMeta2 = _interopRequireDefault(_libsMeta);
+
+	String.prototype.stripTags = function () {
+		var str = this.replace(/<\/?[^>]+(>|$)/g, '').replace(/(Read more on Last\.fm.*)/g, "").replace(/[\n]+/g, "</p><p>");
+		return "<p>" + str + "</p>";
+	};
+
+	var setDefaultImage = function setDefaultImage(e) {
+		e.target.src = "/img/placeholder-image.png";
+	};
+
+	var Video = _react2['default'].createClass({
+		displayName: 'Video',
+
+		getInitialState: function getInitialState() {
+			return {
+				artist: {}
+			};
+		},
+
+		componentWillMount: function componentWillMount() {
+
+			var _this = this;
+
+			_libsMeta2['default'].getArtistInfo(this.props.params.artistName, function (data) {
+				_this.setState({
+					artist: data.artist
+				});
+			});
+		},
+
+		render: function render() {
+
+			if (!this.state.artist.name) return _react2['default'].createElement('div', { className: 'loader' });
+
+			var artist = this.state.artist;
+
+			return _react2['default'].createElement(
+				'div',
+				{ className: 'artist-info' },
+				_react2['default'].createElement(
+					_reactRouter.Link,
+					{ to: '/', title: artist.name },
+					_react2['default'].createElement('img', { src: artist.image[3]['#text'], onError: setDefaultImage, className: 'artist-info__image--medium' })
+				),
+				_react2['default'].createElement(
+					'div',
+					{ className: 'artist-info__description' },
+					_react2['default'].createElement(
+						'h1',
+						null,
+						artist.name
+					),
+					_react2['default'].createElement('div', { dangerouslySetInnerHTML: {
+							__html: artist.bio.content.stripTags()
+						} })
+				)
+			);
+		}
+	});
+
+	exports['default'] = Video;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Video.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 329 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(189);
+
+	var _libsMeta = __webpack_require__(303);
+
+	var _libsMeta2 = _interopRequireDefault(_libsMeta);
+
+	String.prototype.stripTags = function () {
+		var str = this.replace(/<\/?[^>]+(>|$)/g, '').replace(/(Read more on Last\.fm.*)/g, "").replace(/[\n]+/g, "</p><p>");
+		return "<p>" + str + "</p>";
+	};
+
+	var setDefaultImage = function setDefaultImage(e) {
+		e.target.src = "/img/placeholder-image.png";
+	};
+
+	var Albums = _react2['default'].createClass({
+		displayName: 'Albums',
+
+		getInitialState: function getInitialState() {
+			return {
+				artist: {}
+			};
+		},
+
+		componentWillMount: function componentWillMount() {
+
+			var _this = this;
+
+			_libsMeta2['default'].getArtistInfo(this.props.params.artistName, function (data) {
+				_this.setState({
+					artist: data.artist
+				});
+			});
+		},
+
+		render: function render() {
+
+			if (!this.state.artist.name) return _react2['default'].createElement('div', { className: 'loader' });
+
+			var artist = this.state.artist;
+
+			return _react2['default'].createElement(
+				'div',
+				{ className: 'artist-info' },
+				_react2['default'].createElement(
+					_reactRouter.Link,
+					{ to: '/', title: artist.name },
+					_react2['default'].createElement('img', { src: artist.image[3]['#text'], onError: setDefaultImage, className: 'artist-info__image--medium' })
+				),
+				_react2['default'].createElement(
+					'div',
+					{ className: 'artist-info__description' },
+					_react2['default'].createElement(
+						'h1',
+						null,
+						artist.name
+					),
+					_react2['default'].createElement('div', { dangerouslySetInnerHTML: {
+							__html: artist.bio.content.stripTags()
+						} })
+				)
+			);
+		}
+	});
+
+	exports['default'] = Albums;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Albums.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }
 /******/ ]);

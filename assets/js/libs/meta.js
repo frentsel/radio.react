@@ -25,11 +25,8 @@ const meta = (function () {
 
 		return new Promise(function (resolve, reject) {
 
-			http.getJSON('/server/meta.php', {url})
-				.then(function (data) {
-					const artist = data.track.split('-').shift().trim();
-					getArtistInfo(artist, resolve);
-				})
+			http.getJSON('/server/meta.php', {url: url})
+				.then(resolve)
 				.catch(reject);
 		});
 	};

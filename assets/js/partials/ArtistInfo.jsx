@@ -12,17 +12,15 @@ const setDefaultImage = (e) => {
 
 const ArtistInfo = ({ artist }) => {
 
-	console.info("ArtistInfo: ", artist);
-
 	return (
-		<section className="artist-info">
-			<Link to={'/artist-info/'+encodeURIComponent(artist.name)} title={artist.name}>
+		<section className="artist-info short">
+			<Link to={'/artist-bio/'+encodeURIComponent(artist.name)} title={artist.name}>
 				<img src={artist.image[2]['#text']} onError={setDefaultImage} className="artist-info__image--small" />
 			</Link>
 			<div className="artist-info__description">
 				<h2>{artist.name}</h2>
 				<p>{artist.bio.summary.removeLinks()}<br/>
-					<Link to={'/artist-info/'+encodeURIComponent(artist.name)}>подробнее</Link>
+					<Link to={'/artist-bio/'+encodeURIComponent(artist.name)}>подробнее</Link>
 				</p>
 			</div>
 		</section>

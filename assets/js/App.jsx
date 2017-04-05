@@ -14,6 +14,11 @@ import Countries from './pages/Countries.jsx';
 import Country from './pages/Country.jsx';
 import Genre from './pages/Genre.jsx';
 import Artist from './pages/Artist.jsx';
+import Bio from './pages/artist-info/Bio.jsx';
+import Playlist from './pages/artist-info/Playlist.jsx';
+import Photo from './pages/artist-info/Photo.jsx';
+import Video from './pages/artist-info/Video.jsx';
+import Albums from './pages/artist-info/Albums.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 import '../less/main.less';
@@ -33,7 +38,13 @@ ReactDOM.render(
 				<Route path="/radio-countries" component={Countries}></Route>
 				<Route path="/radio-country/:countryId" component={Country}></Route>
 				<Route path="/radio-station/:stationId" component={Station}></Route>
-				<Route path="/artist-info/:artistName" component={Artist}></Route>
+				<Route component={Artist}>
+					<Route path="/artist-bio/:artistName" component={Bio}></Route>
+					<Route path="/artist-playlist/:artistName" component={Playlist}></Route>
+					<Route path="/artist-photo/:artistName" component={Photo}></Route>
+					<Route path="/artist-video/:artistName" component={Video}></Route>
+					<Route path="/artist-albums/:artistName" component={Albums}></Route>
+				</Route>
 				<Route path="*" component={NotFound}></Route>
 			</Route>
 		</Router>
