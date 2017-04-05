@@ -98,6 +98,16 @@ nav {
 	max-width: 960px;
 	padding: 20px 25px 0;
 	background: white;
+	height: ~"calc(100vh - 81px)";
+	overflow: hidden;
+	> section {
+		height: ~"calc(100% - 46px)";
+	}
+	.scroll {
+		overflow: auto;
+		height: 100%;
+		margin-top: 20px;
+	}
 }
 
 ul.list-items-horizontal > li {

@@ -17,7 +17,9 @@ const Artist = ({ params, children }) => {
 				<li><Link activeClassName={'active'} to={'/artist-video/'+artist}>Видео</Link></li>
 				<li><Link activeClassName={'active'} to={'/artist-albums/'+artist}>Альбомы</Link></li>
 			</ul>
-			{children}
+			<div className="scroll">
+				{children}
+			</div>
 		</section>
 	);
 };
