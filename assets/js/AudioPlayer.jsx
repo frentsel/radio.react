@@ -9,11 +9,17 @@ const hideLoader = () => {
 
 let timer;
 
-const AudioPlayer = ({ src, meta, setMeta }) => {
+const SoundCloudPlayer = ({ src }) => {
+	return (
+		<div id="soundCloudPlayerWrapper">
+			<iframe width="100%" height="120" scrolling="no" src={'https://w.soundcloud.com/player/?url='+src+'&color=ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false'}></iframe>
+		</div>
+	);
+};
+const Hml5AudioPlayer = ({ src }) => {
 
-	// console.info("meta: ", meta);
+	if(src.length) $('body').toggleClass('streamLoading', true);
 
-	$('body').toggleClass('streamLoading', true);
 
 	// clearInterval(timer);
 	// timer = setInterval(() => {
@@ -32,6 +38,15 @@ const AudioPlayer = ({ src, meta, setMeta }) => {
 			<audio id="audio" src={src} controls autoPlay onCanPlayThrough={hideLoader}></audio>
 		</div>
 	);
+};
+
+const AudioPlayer = ({ src, meta, setMeta }) => {
+
+	console.info("src: ", src);
+
+	if(!src.length) return <Hml5AudioPlayer src={src} />;
+
+	return src.indexOf('api.soundcloud.com') === -1 ? <Hml5AudioPlayer src={src} /> : <SoundCloudPlayer src={src} />;
 };
 
 export default connect(

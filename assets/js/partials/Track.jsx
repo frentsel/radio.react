@@ -9,7 +9,7 @@ const duration = (millis) => {
 
 const Track = ({ item, setTrack }) => {
 
-	const uri = item.uri+'/stream?client_id=d8e1be45275edc853761bb5fb863a978';
+	const uri = item.uri;//+'/stream?client_id=d8e1be45275edc853761bb5fb863a978';
 	return (
 		<div className="sound-track">
 			<div className="sound-track__play-pause" onClick={setTrack.bind(null, uri)}>►</div>
