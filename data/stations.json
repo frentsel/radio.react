@@ -670,18 +670,6 @@
 	},
 	{
 		"type": "mp3",
-		"img": "amdn_100.jpg",
-		"title": "Радио AMDN",
-		"genre": "talk",
-		"radio": "http:\/\/amdn.news:8888\/live",
-		"text": "Радио АМДН – это новости, программы, интервью с политиками и знаменитостями, живое общение с ведущими и полное отсутствие рекламы в эфире. Это лучшая отечественная и зарубежная музыка для вашего хорошего настроения - как патриотическая или ностальгическая, так и актуальная современная.",
-		"radioLink": "http:\/\/comedy-radio.ru",
-		"genreRu": "Разговорное",
-		"country": "ДНР",
-		"city": "Донецк"
-	},
-	{
-		"type": "mp3",
 		"img": "recordclub_100.jpg",
 		"title": "Record Club",
 		"genre": "club",
@@ -4504,18 +4492,6 @@
 	},
 	{
 		"type": "mp3",
-		"img": "musicboom_100.jpg",
-		"title": "Radio MusicBoom",
-		"genre": "pop",
-		"radio": "http:\/\/radio.musicboom.org:8000\/musicboom160",
-		"text": "Радио «MUSIC BOOM FM» — это прогрессивный BOOM - энергетик!  В эфире для вас звучит только популярная зарубежная танцевальная музыка. Заряжайся бодростью и позитивом на волнах энергичного радио!",
-		"radioLink": "http:\/\/musicboom.org",
-		"genreRu": "Поп-музыка",
-		"country": "ДНР",
-		"city": "Донецк"
-	},
-	{
-		"type": "mp3",
 		"img": "interra_100.jpg",
 		"title": "Интерра ФМ",
 		"genre": "retro",
@@ -5512,18 +5488,6 @@
 	},
 	{
 		"type": "mp3",
-		"img": "freshrock_100.jpg",
-		"title": "Fresh Rock",
-		"genre": "rock",
-		"radio": "http:\/\/de.freshrock.net:8000\/mp3-320",
-		"text": "Fresh Rock Internet Radio — это международная некоммерческая радиостанция, ведущая вещание преимущественно в стиле рок, которая даёт возможность молодым коллективам и рок-исполнителям ознакомить со своим творчеством и стать известнее среди любителей жанра.",
-		"radioLink": "http:\/\/freshrock.net",
-		"genreRu": "Рок",
-		"country": "ЛНР",
-		"city": "Луганск"
-	},
-	{
-		"type": "mp3",
 		"img": "volgogradfm_100.jpg",
 		"title": "Волгоград ФМ",
 		"genre": "club",
@@ -5617,18 +5581,6 @@
 		"genreRu": "Разговорное",
 		"country": "Россия",
 		"city": "Симферополь"
-	},
-	{
-		"type": "mp3",
-		"img": "lugaradio_100.jpg",
-		"title": "Луга радио",
-		"genre": "club",
-		"radio": "http:\/\/176.104.22.115:8000\/192.mp3",
-		"text": "Луга радио - Танцевальная интернет радиостанция. Лучшее в стилях: House, Progressive, Trance. Слушай в эфире: Интерактивные радиошоу, диджей миксы и миксшоу лучших исполнителей, а так же миксшоу от молодых талантов.",
-		"radioLink": "http:\/\/lradio.in",
-		"genreRu": "Клубное",
-		"country": "ЛНР",
-		"city": "Луганск"
 	},
 	{
 		"type": "mp3",
@@ -6349,18 +6301,6 @@
 		"genreRu": "Поп-музыка",
 		"country": "Россия",
 		"city": "Пермь"
-	},
-	{
-		"type": "mp3",
-		"img": "jpr_100.jpg",
-		"title": "JPR Стильное Радио",
-		"genre": "club",
-		"radio": "http:\/\/s5.radioheart.ru:8006\/radiojpr",
-		"text": "jprFm - это радио молодого поколения ,которые ценят клубную музыку. jprFm - Это самое стильно радио интернета.",
-		"radioLink": "http:\/\/jpr-style.com.ua",
-		"genreRu": "Клубное",
-		"country": "ДНР",
-		"city": "Донецк"
 	},
 	{
 		"type": "mp3",

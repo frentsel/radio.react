@@ -1,6 +1,9 @@
 'use strict';
 
-({
+import Http from './http';
+import $ from 'jquery';
+
+const youtube = {
 	apiKey: 'AIzaSyDkpmmvSxy8sfl0eO7eztvgMhy6m93V76s',
 	pageToken: '',
 	reloadCounter: 0,
@@ -8,10 +11,10 @@
 	utils: {
 		getDuration: function (duration) {
 
-			var match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
-			var hours = (parseInt(match[1]) || 0);
-			var minutes = (parseInt(match[2]) || 0);
-			var seconds = (parseInt(match[3]) || 0);
+			var match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/),
+				hours = (parseInt(match[1]) || 0),
+				minutes = (parseInt(match[2]) || 0),
+				seconds = (parseInt(match[3]) || 0);
 
 			seconds = seconds < 10 ? "0" + seconds : seconds;
 
@@ -19,14 +22,10 @@
 		},
 		changeDataFormat: function (data, callback) {
 
-			var result = [];
-			var n;
-			var el;
-			var name;
+			var result = [],
+				name;
 
-			for (n in data.items) {
-				el = data.items[n];
-
+			data.items.map(function (el, n) {
 				name = el.snippet.title.split(' - ');
 				result.push({
 					aid: el.id,
@@ -37,7 +36,7 @@
 					url: "//www.youtubeinmp3.com/fetch/?video=https://www.youtube.com/watch?v=" + el.id,
 					duration: this.getDuration(el.contentDetails.duration)
 				});
-			}
+			});
 
 			callback(result);
 		}
@@ -46,18 +45,17 @@
 		this.pageToken = '';
 	},
 	getByName: function (q, callback) {
+
 		var params = {
 			part: 'snippet',
-			maxResults: 1,
+			maxResults: 50,
 			q: q,
 			key: this.apiKey,
 			type: "video",
 			videoCategoryId: 10
 		};
-		this.query(params, function (data) {
-			if (data)
-				callback(data);
-		});
+
+		this.query(params, callback);
 	},
 	getByArtistName: function (_params, callback) {
 
@@ -200,9 +198,7 @@
 	},
 	query: function (params, callback) {
 
-		Http.getJSON('https://www.googleapis.com/youtube/v3/search', params, function (data) {
-			callback(data);
-		}, 'cacheTrue');
+		Http.getJSON('https://www.googleapis.com/youtube/v3/search', params).then(callback);
 	},
 	updateBar: function () {
 
@@ -220,55 +216,57 @@
 
 		var _this = this;
 
-		setTimeout(function () {
-
-			_this.instance = new YT.Player("videoFrame", {
-				playerVars: {
-					autoplay: 0,
-					rel: 0,
-					showinfo: 0,
-					egm: 0,
-					showsearch: 0,
-					controls: 0,
-					modestbranding: 1,
-					iv_load_policy: 3,
-					disablekb: 1,
-					version: 3
-				},
-				height: 320,
-				width: 400,
-				videoId: 'gEPmA3USJdI',
-				events: {
-					onReady: function (event) {
-						console.info("onReady!", event);
-					}, onError: function (r) {
-						console.info("onError!");
-					}, onStateChange: function (state) {
-
-						if(state.data === 0){
-							App.next();
-						}
-
-						_this.updateBar();
-						console.info("onStateChange!");
-					}
-				}
-			});
-
-			$(document).on('click', '.jp-progress', function(e){
-
-				var progress = 517,
-					percent = ( e.offsetX / progress ) * 100,
-					seek = (_this.instance.getDuration() / 100) * percent;
-
-				_this.instance.seekTo(seek, true);
-
-				$(".jp-play-bar").css({width: percent + '%'});
-			});
-
-		}, 500);
+		// setTimeout(function () {
+		//
+		// 	_this.instance = new YT.Player("videoFrame", {
+		// 		playerVars: {
+		// 			autoplay: 0,
+		// 			rel: 0,
+		// 			showinfo: 0,
+		// 			egm: 0,
+		// 			showsearch: 0,
+		// 			controls: 0,
+		// 			modestbranding: 1,
+		// 			iv_load_policy: 3,
+		// 			disablekb: 1,
+		// 			version: 3
+		// 		},
+		// 		height: 320,
+		// 		width: 400,
+		// 		videoId: 'gEPmA3USJdI',
+		// 		events: {
+		// 			onReady: function (event) {
+		// 				console.info("onReady!", event);
+		// 			}, onError: function (r) {
+		// 				console.info("onError!");
+		// 			}, onStateChange: function (state) {
+		//
+		// 				if(state.data === 0){
+		// 					App.next();
+		// 				}
+		//
+		// 				_this.updateBar();
+		// 				console.info("onStateChange!");
+		// 			}
+		// 		}
+		// 	});
+		//
+		// 	$(document).on('click', '.jp-progress', function(e){
+		//
+		// 		var progress = 517,
+		// 			percent = ( e.offsetX / progress ) * 100,
+		// 			seek = (_this.instance.getDuration() / 100) * percent;
+		//
+		// 		_this.instance.seekTo(seek, true);
+		//
+		// 		$(".jp-play-bar").css({width: percent + '%'});
+		// 	});
+		//
+		// }, 500);
 
 		delete this.init;
 		window[name] = this;
 	}
-}).init('Youtube');
+};
+
+export default youtube;

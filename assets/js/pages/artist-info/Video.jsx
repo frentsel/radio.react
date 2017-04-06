@@ -1,23 +1,13 @@
 import React from 'react';
 import {Router, Route, hashHistory, Link} from 'react-router';
-import meta from '../../libs/meta';
-
-String.prototype.stripTags = function () {
-	const str = this.replace(/<\/?[^>]+(>|$)/g, '')
-		.replace(/(Read more on Last\.fm.*)/g, "")
-		.replace(/[\n]+/g, "</p><p>");
-	return "<p>"+str+"</p>";
-};
-
-const setDefaultImage = (e) => {
-	e.target.src = "/img/placeholder-image.png";
-};
+import youtube from '../../libs/youtube';
+import YoutubeTrack from '../../partials/YoutubeTrack.jsx';
 
 const Video = React.createClass({
 
 	getInitialState() {
 		return {
-			artist: {}
+			playlist: []
 		}
 	},
 
@@ -25,31 +15,25 @@ const Video = React.createClass({
 
 		const _this = this;
 
-		meta.getArtistInfo(this.props.params.artistName, function (data) {
+		youtube.getByName(this.props.params.artistName, function (data) {
+
+			console.info("youtube: ", data);
 			_this.setState({
-				artist: data.artist
+				playlist: data.items
 			});
 		});
 	},
 
 	render(){
 
-		if (!this.state.artist.name)
+		if (!this.state.playlist.length)
 			return <div className="loader"></div>;
 
-		const artist = this.state.artist;
+		const playlist = this.state.playlist;
 
 		return (
-			<div className="artist-info">
-				<Link to={'/'} title={artist.name}>
-					<img src={artist.image[3]['#text']} onError={setDefaultImage} className="artist-info__image--medium" />
-				</Link>
-				<div className="artist-info__description">
-					<h1>{artist.name}</h1>
-					<div dangerouslySetInnerHTML={{
-						__html: artist.bio.content.stripTags()
-					}}/>
-				</div>
+			<div className="youtube-tracks">
+				{playlist.map((item, n) => <YoutubeTrack item={item} key={n} />)}
 			</div>
 		);
 	}
