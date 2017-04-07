@@ -216,53 +216,53 @@ const youtube = {
 
 		var _this = this;
 
-		// setTimeout(function () {
-		//
-		// 	_this.instance = new YT.Player("videoFrame", {
-		// 		playerVars: {
-		// 			autoplay: 0,
-		// 			rel: 0,
-		// 			showinfo: 0,
-		// 			egm: 0,
-		// 			showsearch: 0,
-		// 			controls: 0,
-		// 			modestbranding: 1,
-		// 			iv_load_policy: 3,
-		// 			disablekb: 1,
-		// 			version: 3
-		// 		},
-		// 		height: 320,
-		// 		width: 400,
-		// 		videoId: 'gEPmA3USJdI',
-		// 		events: {
-		// 			onReady: function (event) {
-		// 				console.info("onReady!", event);
-		// 			}, onError: function (r) {
-		// 				console.info("onError!");
-		// 			}, onStateChange: function (state) {
-		//
-		// 				if(state.data === 0){
-		// 					App.next();
-		// 				}
-		//
-		// 				_this.updateBar();
-		// 				console.info("onStateChange!");
-		// 			}
-		// 		}
-		// 	});
-		//
-		// 	$(document).on('click', '.jp-progress', function(e){
-		//
-		// 		var progress = 517,
-		// 			percent = ( e.offsetX / progress ) * 100,
-		// 			seek = (_this.instance.getDuration() / 100) * percent;
-		//
-		// 		_this.instance.seekTo(seek, true);
-		//
-		// 		$(".jp-play-bar").css({width: percent + '%'});
-		// 	});
-		//
-		// }, 500);
+		setTimeout(function () {
+
+			_this.instance = new YT.Player("videoFrame", {
+				playerVars: {
+					autoplay: 0,
+					rel: 0,
+					showinfo: 0,
+					egm: 0,
+					showsearch: 0,
+					controls: 0,
+					modestbranding: 1,
+					iv_load_policy: 3,
+					disablekb: 1,
+					version: 3
+				},
+				height: 320,
+				width: 400,
+				videoId: 'gEPmA3USJdI',
+				events: {
+					onReady: function (event) {
+						console.info("onReady!", event);
+					}, onError: function (r) {
+						console.info("onError!");
+					}, onStateChange: function (state) {
+
+						if(state.data === 0){
+							App.next();
+						}
+
+						_this.updateBar();
+						console.info("onStateChange!");
+					}
+				}
+			});
+
+			$(document).on('click', '.jp-progress', function(e){
+
+				var progress = 517,
+					percent = ( e.offsetX / progress ) * 100,
+					seek = (_this.instance.getDuration() / 100) * percent;
+
+				_this.instance.seekTo(seek, true);
+
+				$(".jp-play-bar").css({width: percent + '%'});
+			});
+
+		}, 500);
 
 		delete this.init;
 		window[name] = this;

@@ -45,8 +45,8 @@ const Album = React.createClass({
 		console.info("album: ", album);
 
 		return (
-			<div className="album-block">
-				<Link to={'/artist-bio/'+encodeURIComponent(album.name)} title={album.name}>
+			<div className="albums-section">
+				<Link className="albums-section__image-link" to={'/artist-bio/'+encodeURIComponent(album.name)} title={album.name}>
 					<img src={album.image["2"]['#text']} onError={setDefaultImage} className="artist-info__image--small" />
 				</Link>
 				<div className="album-block__description">

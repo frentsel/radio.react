@@ -2,14 +2,14 @@ import React from 'react';
 import {Router, Route, hashHistory, Link} from 'react-router';
 import meta from '../../libs/meta';
 
-const setDefaultImage = (e) => {
-	e.target.src = "/img/placeholder-image.png";
-};
+const AlbumItem = ({ album, artist }) => {
 
-const AlbumItem = ({ album }) => {
+	const setDefaultImage = (e) =>
+		e.target.src = "/img/placeholder-image.png";
+
 	return (
-		<Link className="album-item" to={'/artist-album/'+album.artist.name+'/'+album.name}>
-			<img src={album.image[2]["#text"]} onError={setDefaultImage} />
+		<Link className="album-item" to={'/artist-album/'+artist+'/'+album.name}>
+			<img src={album.img} onError={setDefaultImage} />
 			<span className="album-item__name">{album.name}</span>
 		</Link>
 	);
@@ -25,13 +25,9 @@ const Albums = React.createClass({
 
 	componentWillMount() {
 
-		const _this = this;
-
-		meta.getTopAlbums(this.props.params.artistName, function (data) {
-
-			console.info("albums: ", data.topalbums.album);
-			_this.setState({
-				albums: data.topalbums.album
+		meta.getTopAlbums(this.props.params.artistName, (data) => {
+			this.setState({
+				albums: data
 			});
 		});
 	},
@@ -42,10 +38,13 @@ const Albums = React.createClass({
 			return <div className="loader"></div>;
 
 		const albums = this.state.albums;
+		const artist = this.props.params.artistName;
+
+		console.info("albums: ", albums);
 
 		return (
 			<div className="albums-block">
-				{albums.map((album, n) => <AlbumItem album={album} key={n} />)}
+				{albums.map((album, n) => <AlbumItem album={album} artist={artist} key={n} />)}
 			</div>
 		);
 	}

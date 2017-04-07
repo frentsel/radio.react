@@ -81,15 +81,20 @@ const meta = (function () {
 		get(settings, callback);
 	};
 
+	var getArtistImages = function (artist, callback) {
+
+		http.getJSON('/server/lastfm.php', {
+				method: 'getArtistImages',
+				artist: artist
+			}).then(callback);
+	};
+
 	var getTopAlbums = function (artist, callback) {
 
-		$.extend(settings, {
-			method: 'artist.gettopalbums',
-			artist: artist,
-			limit: 100
-		});
-
-		get(settings, callback);
+		http.getJSON('/server/lastfm.php', {
+				method: 'getAlbums',
+				artist: artist
+			}).then(callback);
 	};
 
 	var getTopArtistTracks = function (artist, callback) {
@@ -145,6 +150,7 @@ const meta = (function () {
 		getTrackInfo: getTrackInfo,
 		getTrackInfoByURL: getTrackInfoByURL,
 		getTopArtistTracks: getTopArtistTracks,
+		getArtistImages: getArtistImages,
 		getTopAlbums: getTopAlbums,
 		getTopTracks: getTopTracks,
 		getAllTopArtists: getAllTopArtists,
