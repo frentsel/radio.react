@@ -1,0 +1,25 @@
+.album-item {
+	float: left;
+	position: relative;
+	width: 25%;
+	> img {
+		float: left;
+		max-width: 100%;
+	}
+}
+
+span.album-item__name {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+	text-overflow: ellipsis;
+	background: rgba(0,0,0,.7);
+	color: white;
+	font-size: 13px;
+	padding: 5px;
+	width: 100%;
+}

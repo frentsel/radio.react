@@ -54,9 +54,7 @@ const meta = (function () {
 			limit: limit
 		});
 
-		get(settings, function (data) {
-			callback(data);
-		});
+		get(settings, callback);
 	};
 
 	var getArtistInfo = function (artist, callback) {
@@ -76,11 +74,11 @@ const meta = (function () {
 		$.extend(settings, {
 			method: 'album.getinfo',
 			artist: artist,
+			lang: "ru",
 			album: album
 		});
-		get(settings, function (data) {
-			callback(data);
-		});
+
+		get(settings, callback);
 	};
 
 	var getTopAlbums = function (artist, callback) {
@@ -90,15 +88,26 @@ const meta = (function () {
 			artist: artist,
 			limit: 100
 		});
-		get(settings, function (data) {
-			callback(data);
+
+		get(settings, callback);
+	};
+
+	var getTopArtistTracks = function (artist, callback) {
+
+		$.extend(settings, {
+			method: 'artist.gettoptracks',
+			artist: artist,
+			autocorrect: 1,
+			limit: 100
 		});
+
+		get(settings, callback);
 	};
 
 	var getAllTopArtists = function (offset, callback) {
 
-		var limit = 52;
-		var page = offset === 0 ? 1 : offset / limit + 1;
+		var limit = 52,
+			page = offset === 0 ? 1 : offset / limit + 1;
 
 		$.extend(settings, {
 			method: 'chart.getTopArtists',
@@ -106,9 +115,7 @@ const meta = (function () {
 			limit: limit
 		});
 
-		get(settings, function (data) {
-			callback(data);
-		});
+		get(settings, callback);
 	};
 
 	var getTopTracks = function (category, callback) {
@@ -137,6 +144,7 @@ const meta = (function () {
 		getAlbum: getAlbum,
 		getTrackInfo: getTrackInfo,
 		getTrackInfoByURL: getTrackInfoByURL,
+		getTopArtistTracks: getTopArtistTracks,
 		getTopAlbums: getTopAlbums,
 		getTopTracks: getTopTracks,
 		getAllTopArtists: getAllTopArtists,

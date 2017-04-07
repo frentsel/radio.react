@@ -9,6 +9,7 @@
 @import "artist-info";
 @import "sounrd-track";
 @import "youtube-tracks";
+@import "albums";
 
 * {
 	outline: none;
@@ -104,8 +105,9 @@ nav {
 		flex-direction: column;
 	}
 	.scroll {
-		overflow: auto;
+		overflow-y: auto;
 		margin-top: 20px;
+		overflow-x: hidden;
 	}
 }
 
@@ -135,6 +137,7 @@ ul.list-items-horizontal > li {
 #soundCloudPlayerWrapper {
 	width: 100%;
 	border-top: 1px solid #c3cbd4;
+	background: whitesmoke;
 	height: 120px;
 	min-height: 120px;
 	top: 0;

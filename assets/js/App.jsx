@@ -19,6 +19,7 @@ import Playlist from './pages/artist-info/Playlist.jsx';
 import Photo from './pages/artist-info/Photo.jsx';
 import Video from './pages/artist-info/Video.jsx';
 import Albums from './pages/artist-info/Albums.jsx';
+import Album from './pages/artist-info/Album.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 import '../less/main.less';
@@ -44,6 +45,7 @@ ReactDOM.render(
 					<Route path="/artist-photo/:artistName" component={Photo}></Route>
 					<Route path="/artist-video/:artistName" component={Video}></Route>
 					<Route path="/artist-albums/:artistName" component={Albums}></Route>
+					<Route path="/artist-album/:artistName/:album" component={Album}></Route>
 				</Route>
 				<Route path="*" component={NotFound}></Route>
 			</Route>

@@ -2,22 +2,24 @@ import React from 'react';
 import {Router, Route, hashHistory, Link} from 'react-router';
 import meta from '../../libs/meta';
 
-String.prototype.stripTags = function () {
-	const str = this.replace(/<\/?[^>]+(>|$)/g, '')
-		.replace(/(Read more on Last\.fm.*)/g, "")
-		.replace(/[\n]+/g, "</p><p>");
-	return "<p>"+str+"</p>";
-};
-
 const setDefaultImage = (e) => {
 	e.target.src = "/img/placeholder-image.png";
+};
+
+const AlbumItem = ({ album }) => {
+	return (
+		<Link className="album-item" to={'/artist-album/'+album.artist.name+'/'+album.name}>
+			<img src={album.image[2]["#text"]} onError={setDefaultImage} />
+			<span className="album-item__name">{album.name}</span>
+		</Link>
+	);
 };
 
 const Albums = React.createClass({
 
 	getInitialState() {
 		return {
-			artist: {}
+			albums: []
 		}
 	},
 
@@ -25,31 +27,25 @@ const Albums = React.createClass({
 
 		const _this = this;
 
-		meta.getArtistInfo(this.props.params.artistName, function (data) {
+		meta.getTopAlbums(this.props.params.artistName, function (data) {
+
+			console.info("albums: ", data.topalbums.album);
 			_this.setState({
-				artist: data.artist
+				albums: data.topalbums.album
 			});
 		});
 	},
 
 	render(){
 
-		if (!this.state.artist.name)
+		if (!this.state.albums.length)
 			return <div className="loader"></div>;
 
-		const artist = this.state.artist;
+		const albums = this.state.albums;
 
 		return (
-			<div className="artist-info">
-				<Link to={'/'} title={artist.name}>
-					<img src={artist.image[3]['#text']} onError={setDefaultImage} className="artist-info__image--medium" />
-				</Link>
-				<div className="artist-info__description">
-					<h1>{artist.name}</h1>
-					<div dangerouslySetInnerHTML={{
-						__html: artist.bio.content.stripTags()
-					}}/>
-				</div>
+			<div className="albums-block">
+				{albums.map((album, n) => <AlbumItem album={album} key={n} />)}
 			</div>
 		);
 	}

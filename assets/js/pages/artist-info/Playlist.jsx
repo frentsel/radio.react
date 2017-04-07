@@ -1,18 +1,8 @@
 import React from 'react';
-import {Router, Route, hashHistory, Link} from 'react-router';
-import SoundCloud from '../../libs/SoundCloud';
-import Track from '../../partials/Track.jsx';
-
-String.prototype.stripTags = function () {
-	const str = this.replace(/<\/?[^>]+(>|$)/g, '')
-		.replace(/(Read more on Last\.fm.*)/g, "")
-		.replace(/[\n]+/g, "</p><p>");
-	return "<p>"+str+"</p>";
-};
-
-const setDefaultImage = (e) => {
-	e.target.src = "/img/placeholder-image.png";
-};
+// import {Router, Route, hashHistory, Link} from 'react-router';
+import meta from '../../libs/meta';
+import soundCloud from '../../libs/SoundCloud';
+import TrackSoundCloud from '../../partials/TrackSoundCloud.jsx';
 
 const Playlist = React.createClass({
 
@@ -25,10 +15,18 @@ const Playlist = React.createClass({
 	componentWillMount() {
 
 		const _this = this;
+		const artist = this.props.params.artistName;
 
-		SoundCloud.get.tracks({q: this.props.params.artistName, offset: 0}, function(data){
+		meta.getTopArtistTracks(artist, function(data){
 
-			console.info("SoundCloud: ", data);
+			console.info("getTopArtistTracks: ", data.toptracks.track);
+
+			// _this.setState({
+			// 	playlist: data.toptracks.track
+			// });
+		});
+
+		soundCloud.get.tracks({q: artist, offset: 0}, function(data){
 
 			_this.setState({
 				playlist: data.collection
@@ -45,7 +43,7 @@ const Playlist = React.createClass({
 
 		return (
 			<div className="artist-info">
-				{playlist.map((item, n) => <Track item={item} key={n} />)}
+				{playlist.map((item, n) => <TrackSoundCloud item={item} key={n} />)}
 			</div>
 		);
 	}

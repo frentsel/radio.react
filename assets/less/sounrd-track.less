@@ -6,6 +6,9 @@
 	margin-bottom: 15px;
 	align-items: center;
 	margin-right: 10px;
+	&.active {
+		background: whitesmoke;
+	}
 }
 
 .sound-track__artist-name {
@@ -21,6 +24,13 @@
 	min-width: 40px;
 	justify-content: center;
 	cursor: pointer;
+	&:after {
+		content: "►";
+	}
+}
+
+.sound-track.play .sound-track__play-pause:after {
+	content: "❙❙";
 }
 
 .sound-track__controls {
@@ -28,10 +38,15 @@
 	height: 100%;
 	display: flex;
 	align-items: center;
-	width: 60px;
-	min-width: 60px;
-	justify-content: center;
+	width: 50px;
+	min-width: 50px;
 	cursor: pointer;
+}
+
+.sound-track__duration {
+	flex-grow: 1;
+	text-align: center;
+	font-size: 13px;
 }
 
 .sound-track__artist-name {
