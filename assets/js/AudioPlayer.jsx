@@ -8,15 +8,53 @@ const hideLoader = () => {
 };
 
 const SoundCloudPlayer = ({ src }) => {
+
+	let widget,
+		iframe;
+
+	const widgetOptions = {
+		color: "ff5500",
+		auto_play: "true",
+		hide_related: "false",
+		show_comments: "true",
+		show_user: "true",
+		show_reposts: "false"
+	};
+
+	setTimeout(() => {
+
+		iframe = document.getElementById('widgetSound');
+		widget = SC.Widget(iframe);
+
+		widget.load(src, widgetOptions);
+		widget.unbind("pause");
+		widget.unbind("stop");
+		widget.unbind("play");
+
+		widget.bind("pause", function (eventData) {
+			console.info("pause: ", eventData);
+		});
+
+		widget.bind("stop", function (eventData) {
+			console.info("stop: ", eventData);
+		});
+
+		widget.bind("play", function (eventData) {
+			console.info("play: ", eventData);
+		});
+
+	}, 100);
+
 	return (
 		<div id="soundCloudPlayerWrapper">
-			<iframe width="100%" height="120" scrolling="no" src={'https://w.soundcloud.com/player/?url='+src+'&color=ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false'}></iframe>
+			<iframe width="100%" height="120" scrolling="no" id="widgetSound" src={'https://w.soundcloud.com/player/?url=' + src}></iframe>
 		</div>
 	);
 };
-const Hml5AudioPlayer = ({ src }) => {
 
-	if(src.length) $('body').toggleClass('streamLoading', true);
+const Hml5AudioPlayer = ({src}) => {
+
+	if (src.length) $('body').toggleClass('streamLoading', true);
 
 
 	// clearInterval(timer);
@@ -52,6 +90,7 @@ const AudioPlayer = React.createClass({
 		// 3. This function creates an <iframe> (and YouTube player)
 		//    after the API code downloads.
 		var player;
+
 		function onYouTubeIframeAPIReady() {
 			player = new YT.Player('player', {
 				height: '360',
@@ -73,12 +112,14 @@ const AudioPlayer = React.createClass({
 		//    The function indicates that when playing a video (state=1),
 		//    the player should play for six seconds and then stop.
 		var done = false;
+
 		function onPlayerStateChange(event) {
 			if (event.data == YT.PlayerState.PLAYING && !done) {
 				setTimeout(stopVideo, 6000);
 				done = true;
 			}
 		}
+
 		function stopVideo() {
 			player.stopVideo();
 		}
@@ -90,13 +131,14 @@ const AudioPlayer = React.createClass({
 
 		console.info("src: ", src);
 
-		if(!src.length)
-			return <Hml5AudioPlayer src={src} />;
+		if (!src.length)
+			return <Hml5AudioPlayer src={src}/>;
 
-		if(src.indexOf('www.youtube.com/embed') !== -1)
-			return <iframe id="youtubePlayer" width="250" height="141" src={src+'?enablejsapi=1&autoplay=1'}></iframe>;
+		if (src.indexOf('www.youtube.com/embed') !== -1)
+			return <iframe id="youtubePlayer" width="250" height="141"
+						   src={src + '?enablejsapi=1&autoplay=1'}></iframe>;
 
-		return src.indexOf('api.soundcloud.com') === -1 ? <Hml5AudioPlayer src={src} /> : <SoundCloudPlayer src={src} />;
+		return src.indexOf('api.soundcloud.com') === -1 ? <Hml5AudioPlayer src={src}/> : <SoundCloudPlayer src={src}/>;
 	}
 });
 
