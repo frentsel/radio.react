@@ -49141,10 +49141,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _libsMeta = __webpack_require__(311);
-
-	var _libsMeta2 = _interopRequireDefault(_libsMeta);
-
 	var _libsSoundCloud = __webpack_require__(322);
 
 	var _libsSoundCloud2 = _interopRequireDefault(_libsSoundCloud);
@@ -49158,6 +49154,18 @@
 	var _jquery = __webpack_require__(306);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var scrollToActiveItem = function scrollToActiveItem() {
+
+		var $item = (0, _jquery2['default'])('.sound-track.active'),
+		    index = $item.index() || 0,
+		    playlist = (0, _jquery2['default'])('#soundCloudPlaylist').parent(),
+		    offset = index * ($item.outerHeight(true) + 1) - (playlist.outerHeight(true) / 2 - 75);
+
+		playlist.animate({
+			scrollTop: offset
+		}, 200);
+	};
 
 	var Playlist = _react2['default'].createClass({
 		displayName: 'Playlist',
@@ -49194,15 +49202,16 @@
 
 				var index = (0, _jquery2['default'])('.sound-track.active').removeClass('active play').next().addClass('active play').index();
 
-				var uri = this.state.playlist[index].uri + '/stream?client_id=d8e1be45275edc853761bb5fb863a978';
+				var uri = this.state.playlist[index].uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId;
 
 				this.props.setTrack(uri);
 				this.props.play();
+				scrollToActiveItem();
 			}
 
 			return _react2['default'].createElement(
 				'div',
-				{ className: 'artist-info' },
+				{ className: 'artist-info', id: 'soundCloudPlaylist' },
 				this.state.playlist.map(function (item, n) {
 					return _react2['default'].createElement(_partialsTrackSoundCloudJsx2['default'], { item: item, key: n });
 				})
@@ -49339,6 +49348,10 @@
 
 	var _reactRedux = __webpack_require__(270);
 
+	var _libsSoundCloud = __webpack_require__(322);
+
+	var _libsSoundCloud2 = _interopRequireDefault(_libsSoundCloud);
+
 	var _jquery = __webpack_require__(306);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
@@ -49354,7 +49367,7 @@
 		var setTrack = _ref.setTrack;
 		var play = _ref.play;
 
-		var uri = item.uri + '/stream?client_id=d8e1be45275edc853761bb5fb863a978';
+		var uri = item.uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId;
 
 		var handler = function handler(e) {
 			(0, _jquery2['default'])('.sound-track').removeClass('active play');
@@ -56652,11 +56665,16 @@
 
 	var _meta2 = _interopRequireDefault(_meta);
 
+	var _playlist = __webpack_require__(403);
+
+	var _playlist2 = _interopRequireDefault(_playlist);
+
 	exports['default'] = (0, _redux.combineReducers)({
 		routing: _reactRouterRedux.routerReducer,
 		stations: _stations2['default'],
 		meta: _meta2['default'],
 		source: _source2['default'],
+		playlist: _playlist2['default'],
 		player: _player2['default']
 	});
 	module.exports = exports['default'];
@@ -56761,6 +56779,38 @@
 
 		if (action.type === 'SET_META') {
 			return state = action.meta;
+		}
+
+		return state;
+	}
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 403 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	exports['default'] = playlist;
+
+	function playlist(state, action) {
+		if (state === undefined) state = [];
+
+		if (action.type === 'GET_PLAYLIST') {
+			return state;
+		}
+
+		if (action.type === 'SET_PLAYLIST') {
+			state = action.playlist;
+			return state;
+		}
+
+		if (action.type === 'CLEAR_PLAYLIST') {
+			return state = [];
 		}
 
 		return state;

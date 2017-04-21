@@ -1,9 +1,20 @@
 import React from 'react';
-import meta from '../../libs/meta';
 import soundCloud from '../../libs/SoundCloud';
 import TrackSoundCloud from '../../partials/TrackSoundCloud.jsx';
 import {connect} from 'react-redux';
 import $ from 'jquery';
+
+const scrollToActiveItem = function () {
+
+	const $item = $('.sound-track.active'),
+		index = $item.index() || 0,
+		playlist = $('#soundCloudPlaylist').parent(),
+		offset = index * ($item.outerHeight(true) + 1) - (playlist.outerHeight(true) / 2 - 75);
+
+	playlist.animate({
+		scrollTop: (offset)
+	}, 200);
+};
 
 const Playlist = React.createClass({
 
@@ -26,7 +37,7 @@ const Playlist = React.createClass({
 			// });
 
 			soundCloud.get.tracks({q: artist, offset: 0}, function (data) {
-				_this.setState({ playlist: data.collection });
+				_this.setState({playlist: data.collection});
 			});
 		},
 
@@ -45,16 +56,17 @@ const Playlist = React.createClass({
 					.addClass('active play')
 					.index();
 
-				const uri = this.state.playlist[index].uri + '/stream?client_id=d8e1be45275edc853761bb5fb863a978';
+				const uri = this.state.playlist[index].uri + '/stream?client_id='+soundCloud.clientId;
 
 				this.props.setTrack(uri);
 				this.props.play();
+				scrollToActiveItem();
 			}
 
 
 			return (
-				<div className="artist-info">
-					{this.state.playlist.map((item, n) => <TrackSoundCloud item={item} key={n} /> )}
+				<div className="artist-info" id="soundCloudPlaylist">
+					{this.state.playlist.map((item, n) => <TrackSoundCloud item={item} key={n}/>)}
 				</div>
 			);
 		}

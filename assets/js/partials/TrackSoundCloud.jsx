@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import soundCloud from '../libs/SoundCloud';
 import $ from 'jquery';
 
 const duration = (millis) => {
@@ -10,7 +11,7 @@ const duration = (millis) => {
 
 const TrackSoundCloud = ({ item, setTrack, play }) => {
 
-	const uri = item.uri + '/stream?client_id=d8e1be45275edc853761bb5fb863a978';
+	const uri = item.uri + '/stream?client_id='+soundCloud.clientId;
 
 	const handler = (e) => {
 		$('.sound-track').removeClass('active play');
