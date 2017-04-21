@@ -16,6 +16,41 @@ const scrollToActiveItem = function () {
 	}, 200);
 };
 
+let _playlist = {
+	current: 0,
+	data: [],
+	getAll: function () {
+		return this.data;
+	},
+	getCurrent: function () {
+		return this.data[this.current];
+	},
+	setCurrent: function (index) {
+		return this.current = index;
+	},
+	getNext: function () {
+
+		const $item = $('.sound-track.active');
+		let index;
+
+		if($item.length) {
+
+			index = $item.removeClass('active play')
+				.next()
+				.addClass('active play')
+				.index();
+
+			this.current = index;
+			return this.data[index] || false;
+		}
+
+		return this.data[++this.current] || false;
+	},
+	getPrev: function () {
+		return this.data[--this.current] || false;
+	}
+};
+
 const Playlist = React.createClass({
 
 		getInitialState() {
@@ -38,6 +73,7 @@ const Playlist = React.createClass({
 
 			soundCloud.get.tracks({q: artist, offset: 0}, function (data) {
 				_this.setState({playlist: data.collection});
+				_playlist.data = data.collection;
 			});
 		},
 
@@ -50,23 +86,16 @@ const Playlist = React.createClass({
 			// Next track feature
 			if (this.props.player === 'end') {
 
-				const index = $('.sound-track.active')
-					.removeClass('active play')
-					.next()
-					.addClass('active play')
-					.index();
-
-				const uri = this.state.playlist[index].uri + '/stream?client_id='+soundCloud.clientId;
+				const uri = _playlist.getNext().uri + '/stream?client_id='+soundCloud.clientId;
 
 				this.props.setTrack(uri);
 				this.props.play();
 				scrollToActiveItem();
 			}
 
-
 			return (
 				<div className="artist-info" id="soundCloudPlaylist">
-					{this.state.playlist.map((item, n) => <TrackSoundCloud item={item} key={n}/>)}
+					{this.state.playlist.map((item, n) => <TrackSoundCloud item={item} key={n} setCurrentIndex={_playlist.setCurrent.bind(_playlist)} />)}
 				</div>
 			);
 		}

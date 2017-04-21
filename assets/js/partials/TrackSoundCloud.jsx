@@ -9,13 +9,14 @@ const duration = (millis) => {
 	return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 };
 
-const TrackSoundCloud = ({ item, setTrack, play }) => {
+const TrackSoundCloud = ({ item, setCurrentIndex, setTrack, play }) => {
 
 	const uri = item.uri + '/stream?client_id='+soundCloud.clientId;
 
 	const handler = (e) => {
 		$('.sound-track').removeClass('active play');
-		$(e.target).closest('.sound-track').addClass('active play');
+		const index = $(e.target).closest('.sound-track').addClass('active play');
+		setCurrentIndex(index);
 		setTrack(uri);
 		play();
 	};
