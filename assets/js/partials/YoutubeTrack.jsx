@@ -18,7 +18,7 @@ const YoutubeTrack = ({ item, setTrack }) => {
 
 export default connect(
 	state => ({
-		url: state.player
+		url: state.source
 	}),
 	dispatch => ({
 		setTrack: (url) => {

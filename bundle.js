@@ -70,11 +70,11 @@
 
 	var _LayoutJsx2 = _interopRequireDefault(_LayoutJsx);
 
-	var _pagesHomeJsx = __webpack_require__(306);
+	var _pagesHomeJsx = __webpack_require__(307);
 
 	var _pagesHomeJsx2 = _interopRequireDefault(_pagesHomeJsx);
 
-	var _pagesStationJsx = __webpack_require__(307);
+	var _pagesStationJsx = __webpack_require__(308);
 
 	var _pagesStationJsx2 = _interopRequireDefault(_pagesStationJsx);
 
@@ -38095,76 +38095,29 @@
 
 	var _reactRedux = __webpack_require__(270);
 
-	var _jquery = __webpack_require__(312);
+	var _jquery = __webpack_require__(306);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _libsMeta = __webpack_require__(310);
-
-	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
 	var hideLoader = function hideLoader() {
 		(0, _jquery2['default'])('body').toggleClass('streamLoading', false);
 	};
 
-	var SoundCloudPlayer = function SoundCloudPlayer(_ref) {
+	// Current track
+	var _src = "";
+
+	var Hml5AudioPlayer = function Hml5AudioPlayer(_ref) {
 		var src = _ref.src;
+		var player = _ref.player;
+		var play = _ref.play;
+		var pause = _ref.pause;
+		var end = _ref.end;
 
-		var widget = undefined,
-		    iframe = undefined;
+		if (src.length && _src !== src) (0, _jquery2['default'])('body').toggleClass('streamLoading', true);
 
-		var widgetOptions = {
-			color: "ff5500",
-			auto_play: "true",
-			hide_related: "false",
-			show_comments: "true",
-			show_user: "true",
-			show_reposts: "false"
-		};
+		_src = player === "end" ? "" : src;
 
-		setTimeout(function () {
-
-			iframe = document.getElementById('widgetSound');
-			widget = SC.Widget(iframe);
-
-			widget.load(src, widgetOptions);
-			widget.unbind("pause");
-			widget.unbind("stop");
-			widget.unbind("play");
-
-			widget.bind("pause", function (eventData) {
-				console.info("pause: ", eventData);
-			});
-
-			widget.bind("stop", function (eventData) {
-				console.info("stop: ", eventData);
-			});
-
-			widget.bind("play", function (eventData) {
-				console.info("play: ", eventData);
-			});
-		}, 100);
-
-		return _react2['default'].createElement(
-			'div',
-			{ id: 'soundCloudPlayerWrapper' },
-			_react2['default'].createElement('iframe', { width: '100%', height: '120', scrolling: 'no', id: 'widgetSound', src: 'https://w.soundcloud.com/player/?url=' + src })
-		);
-	};
-
-	var Hml5AudioPlayer = function Hml5AudioPlayer(_ref2) {
-		var src = _ref2.src;
-
-		if (src.length) (0, _jquery2['default'])('body').toggleClass('streamLoading', true);
-
-		// clearInterval(timer);
-		// timer = setInterval(() => {
-		//
-		// 	Meta.getTrackInfoByURL(src)
-		// 		// .then(setMeta);
-		// 		.then(console.info);
-		//
-		// }, 5000);
+		// console.info("player: ", player);
 
 		return _react2['default'].createElement(
 			'div',
@@ -38174,7 +38127,12 @@
 				{ className: 'meter' },
 				_react2['default'].createElement('span', null)
 			),
-			_react2['default'].createElement('audio', { id: 'audio', src: src, controls: true, autoPlay: true, onCanPlayThrough: hideLoader })
+			_react2['default'].createElement('audio', { id: 'audio', src: src, controls: true,
+				autoPlay: player === 'play',
+				onPlay: play,
+				onPause: pause,
+				onEnded: end,
+				onCanPlayThrough: hideLoader })
 		);
 	};
 
@@ -38230,30 +38188,42 @@
 
 		render: function render() {
 
-			var src = this.props.src;
+			var src = this.props.src,
+			    player = this.props.player,
+			    play = this.props.play,
+			    pause = this.props.pause,
+			    end = this.props.end;
 
-			console.info("src: ", src);
+			// console.info("src: ", src);
 
 			if (!src.length) return _react2['default'].createElement(Hml5AudioPlayer, { src: src });
 
-			if (src.indexOf('www.youtube.com/embed') !== -1) return _react2['default'].createElement('iframe', { id: 'youtubePlayer', width: '250', height: '141',
-				src: src + '?enablejsapi=1&autoplay=1' });
+			if (src.indexOf('www.youtube.com/embed') !== -1) return _react2['default'].createElement('iframe', { id: 'youtubePlayer', width: '250', height: '141', src: src + '?enablejsapi=1&autoplay=1' });
 
-			return src.indexOf('api.soundcloud.com') === -1 ? _react2['default'].createElement(Hml5AudioPlayer, { src: src }) : _react2['default'].createElement(SoundCloudPlayer, { src: src });
+			return _react2['default'].createElement(Hml5AudioPlayer, { src: src, player: player, play: play, pause: pause, end: end });
 		}
 	});
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
 		return {
-			src: state.player,
-			meta: state.meta
+			src: state.source,
+			player: state.player
 		};
 	}, function (dispatch) {
 		return {
-			setMeta: function setMeta(meta) {
+			play: function play() {
 				dispatch({
-					type: 'SET_META',
-					meta: meta
+					type: 'PLAY'
+				});
+			},
+			pause: function pause() {
+				dispatch({
+					type: 'PAUSE'
+				});
+			},
+			end: function end() {
+				dispatch({
+					type: 'END'
 				});
 			}
 		};
@@ -38264,557 +38234,6 @@
 
 /***/ },
 /* 306 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(11);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var Home = function Home() {
-
-		return _react2['default'].createElement(
-			'div',
-			null,
-			_react2['default'].createElement(
-				'h1',
-				null,
-				'Home page'
-			),
-			_react2['default'].createElement(
-				'p',
-				null,
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur dignissimos doloribus enim illum, itaque maiores obcaecati perferendis quasi soluta. Accusamus consequuntur cum debitis deserunt eaque exercitationem expedita minima, nulla, quae sequi sint, soluta suscipit tenetur totam unde! Deserunt impedit laudantium nemo officiis sequi. Autem dolor maxime modi nesciunt voluptate!'
-			),
-			_react2['default'].createElement(
-				'p',
-				null,
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error ipsum molestiae totam, vero vitae. Assumenda beatae blanditiis delectus enim expedita fugit incidunt itaque provident tempore vitae.'
-			)
-		);
-	};
-
-	exports['default'] = Home;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 307 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(11);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(270);
-
-	var _reactRouter = __webpack_require__(193);
-
-	var _dataStationsJson = __webpack_require__(304);
-
-	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
-
-	var _partialsDisqusBlockJsx = __webpack_require__(308);
-
-	var _partialsDisqusBlockJsx2 = _interopRequireDefault(_partialsDisqusBlockJsx);
-
-	var _partialsArtistInfoJsx = __webpack_require__(309);
-
-	var _partialsArtistInfoJsx2 = _interopRequireDefault(_partialsArtistInfoJsx);
-
-	var _libsMeta = __webpack_require__(310);
-
-	var _libsMeta2 = _interopRequireDefault(_libsMeta);
-
-	var Station = _react2['default'].createClass({
-		displayName: 'Station',
-
-		getInitialState: function getInitialState() {
-			return {
-				station: _dataStationsJson2['default'][this.props.params.stationId],
-				artist: {}
-			};
-		},
-
-		componentWillMount: function componentWillMount() {
-
-			var _this = this;
-
-			this.props.setTrack(this.state.station.radio);
-
-			_libsMeta2['default'].getTrackInfo(this.props.params.stationId).then(function (res) {
-				_this.setState({
-					station: _this.state.station,
-					artist: res.artist
-				});
-			});
-		},
-
-		componentWillUnmount: function componentWillUnmount() {
-			this.props.setTrack(this.state.station.radio);
-		},
-
-		render: function render() {
-
-			var station = this.state.station;
-			var artist = this.state.artist;
-
-			return _react2['default'].createElement(
-				'div',
-				null,
-				_react2['default'].createElement(
-					'div',
-					{ className: 'station-page' },
-					_react2['default'].createElement('img', { src: 'images/' + station.img, alt: '' }),
-					_react2['default'].createElement(
-						'div',
-						{ className: 'station-info__description' },
-						_react2['default'].createElement(
-							'h1',
-							null,
-							station.title
-						),
-						_react2['default'].createElement(
-							'p',
-							null,
-							station.text
-						),
-						_react2['default'].createElement(
-							'p',
-							null,
-							'Жанр: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-genre/' + station.genre },
-								station.genre
-							),
-							', Страна: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-country/' + station.country },
-								station.country
-							),
-							', Город: ',
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/radio-city/' + station.city },
-								station.city
-							)
-						)
-					)
-				),
-				artist.name ? _react2['default'].createElement(_partialsArtistInfoJsx2['default'], { artist: artist }) : '',
-				_react2['default'].createElement(_partialsDisqusBlockJsx2['default'], {
-					url: window.location.href,
-					identifier: this.state.station.title,
-					title: this.state.station.title
-				})
-			);
-		}
-	});
-
-	exports['default'] = (0, _reactRedux.connect)(function (state) {
-		return {
-			url: state.player
-		};
-	}, function (dispatch) {
-		return {
-			setTrack: function setTrack(url) {
-				dispatch({
-					type: 'SET',
-					url: url
-				});
-			}
-		};
-	})(Station);
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Station.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 308 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(11);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var DisqusBlock = function DisqusBlock(_ref) {
-		var url = _ref.url;
-		var identifier = _ref.identifier;
-		var title = _ref.title;
-
-		window.disqus_config = function () {
-			this.page.url = url;
-			this.page.identifier = identifier;
-			this.page.title = title;
-		};
-
-		(function () {
-
-			var d = document,
-			    s = d.createElement('script');
-
-			s.src = '//cishophostenkocom.disqus.com/embed.js';
-
-			s.setAttribute('data-timestamp', +new Date());
-			(d.head || d.body).appendChild(s);
-		})();
-
-		return _react2['default'].createElement('div', { id: 'disqus_thread' });
-	};
-
-	exports['default'] = DisqusBlock;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "DisqusBlock.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 309 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _react = __webpack_require__(11);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(193);
-
-	String.prototype.removeLinks = function () {
-		return this.replace(/<a[^\>]+>[^\<]+<\/a>/ig, '');
-	};
-
-	var setDefaultImage = function setDefaultImage(e) {
-		e.target.src = "/img/placeholder-image.png";
-	};
-
-	var ArtistInfo = function ArtistInfo(_ref) {
-		var artist = _ref.artist;
-
-		return _react2['default'].createElement(
-			'section',
-			{ className: 'artist-info short' },
-			_react2['default'].createElement(
-				_reactRouter.Link,
-				{ to: '/artist-bio/' + encodeURIComponent(artist.name), title: artist.name },
-				_react2['default'].createElement('img', { src: artist.image[2]['#text'], onError: setDefaultImage, className: 'artist-info__image--small' })
-			),
-			_react2['default'].createElement(
-				'div',
-				{ className: 'artist-info__description' },
-				_react2['default'].createElement(
-					'h2',
-					null,
-					artist.name
-				),
-				_react2['default'].createElement(
-					'p',
-					null,
-					artist.bio.summary.removeLinks(),
-					_react2['default'].createElement('br', null),
-					_react2['default'].createElement(
-						_reactRouter.Link,
-						{ to: '/artist-bio/' + encodeURIComponent(artist.name) },
-						'подробнее'
-					)
-				)
-			)
-		);
-	};
-
-	exports['default'] = ArtistInfo;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ArtistInfo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ },
-/* 310 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _http = __webpack_require__(311);
-
-	var _http2 = _interopRequireDefault(_http);
-
-	var _jquery = __webpack_require__(312);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var meta = (function () {
-
-		var settings = {
-			format: 'json',
-			api_key: '02ec4e9d3a6dec29749f9d0a2cf3f598'
-		};
-
-		var getTrackInfo = function getTrackInfo(stationId) {
-
-			return new Promise(function (resolve, reject) {
-
-				_http2['default'].getJSON('/server/meta.php', { id: stationId }).then(function (data) {
-					var artist = data.track.split('-').shift().trim();
-					getArtistInfo(artist, resolve);
-				})['catch'](reject);
-			});
-		};
-
-		var getTrackInfoByURL = function getTrackInfoByURL(url) {
-
-			return new Promise(function (resolve, reject) {
-
-				_http2['default'].getJSON('/server/meta.php', { url: url }).then(resolve)['catch'](reject);
-			});
-		};
-
-		var find = function find(q, callback) {
-
-			_jquery2['default'].extend(settings, {
-				artist: q,
-				limit: 8,
-				method: 'artist.search'
-			});
-
-			get(settings, callback);
-		};
-
-		var getTopArtists = function getTopArtists(tag, offset, callback) {
-
-			var limit = 30;
-			var page = offset === 0 ? 1 : offset / limit + 1;
-
-			_jquery2['default'].extend(settings, {
-				method: 'tag.gettopartists',
-				tag: tag,
-				page: page,
-				limit: limit
-			});
-
-			get(settings, callback);
-		};
-
-		var getArtistInfo = function getArtistInfo(artist, callback) {
-
-			_jquery2['default'].extend(settings, {
-				method: 'artist.getinfo',
-				autocorrect: 1,
-				artist: artist,
-				lang: "ru"
-			});
-
-			get(settings, callback);
-		};
-
-		var getAlbum = function getAlbum(artist, album, callback) {
-
-			_jquery2['default'].extend(settings, {
-				method: 'album.getinfo',
-				artist: artist,
-				lang: "ru",
-				album: album
-			});
-
-			get(settings, callback);
-		};
-
-		var getArtistImages = function getArtistImages(artist, callback) {
-
-			_http2['default'].getJSON('/server/lastfm.php', {
-				method: 'getArtistImages',
-				artist: artist
-			}).then(callback);
-		};
-
-		var getTopAlbums = function getTopAlbums(artist, callback) {
-
-			_http2['default'].getJSON('/server/lastfm.php', {
-				method: 'getAlbums',
-				artist: artist
-			}).then(callback);
-		};
-
-		var getTopArtistTracks = function getTopArtistTracks(artist, callback) {
-
-			_jquery2['default'].extend(settings, {
-				method: 'artist.gettoptracks',
-				artist: artist,
-				autocorrect: 1,
-				limit: 100
-			});
-
-			get(settings, callback);
-		};
-
-		var getAllTopArtists = function getAllTopArtists(offset, callback) {
-
-			var limit = 52,
-			    page = offset === 0 ? 1 : offset / limit + 1;
-
-			_jquery2['default'].extend(settings, {
-				method: 'chart.getTopArtists',
-				page: page,
-				limit: limit
-			});
-
-			get(settings, callback);
-		};
-
-		var getTopTracks = function getTopTracks(category, callback) {
-
-			_jquery2['default'].extend(settings, {
-				method: 'tag.gettoptracks',
-				tag: category,
-				limit: 100
-			});
-
-			get(settings, function (data) {
-				callback(data);
-			});
-		};
-
-		var get = function get(params, callback) {
-
-			_http2['default'].getJSON('http://ws.audioscrobbler.com/2.0/', params).then(callback);
-		};
-
-		return {
-			init: function init(settings) {
-				//getGenres();
-			},
-			getAlbum: getAlbum,
-			getTrackInfo: getTrackInfo,
-			getTrackInfoByURL: getTrackInfoByURL,
-			getTopArtistTracks: getTopArtistTracks,
-			getArtistImages: getArtistImages,
-			getTopAlbums: getTopAlbums,
-			getTopTracks: getTopTracks,
-			getAllTopArtists: getAllTopArtists,
-			getTopArtists: getTopArtists,
-			getArtistInfo: getArtistInfo,
-			find: find
-		};
-	})();
-
-	exports['default'] = meta;
-	module.exports = exports['default'];
-
-/***/ },
-/* 311 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _jquery = __webpack_require__(312);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var http = {
-		ajaxSpinner: function ajaxSpinner(status) {
-			// $('body').toggleClass('loading', status);
-		},
-		cache: {},
-		getJSON: function getJSON(path, params) {
-			return this.get(path, params, 'json');
-		},
-		get: function get(path, _params, type) {
-
-			var _this = this,
-			    params = _params || {},
-			    cacheKey = path + _jquery2['default'].param(params);
-
-			return new Promise(function (resolve, reject) {
-
-				if (_this.cache[cacheKey] !== undefined) {
-					resolve(_this.cache[cacheKey]);
-					return false;
-				}
-
-				// if(path.indexOf('http://') === -1){
-				// 	path = window.location.origin + path;
-				// }
-
-				params.t = new Date() * 1;
-
-				_jquery2['default'].ajax({
-					url: path,
-					type: 'get',
-					dataType: type || 'text',
-					data: params,
-					beforeSend: function beforeSend() {
-						_this.ajaxSpinner(true);
-					},
-					complete: function complete() {
-						_this.ajaxSpinner(false);
-					},
-					success: function success(response) {
-						_this.cache[cacheKey] = response;
-						resolve(response);
-					},
-					error: function error(e) {
-						reject(e);
-						console.error(arguments);
-					}
-				});
-			});
-		}
-	};
-
-	exports['default'] = http;
-	module.exports = exports['default'];
-
-/***/ },
-/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -48642,6 +48061,557 @@
 	// Otherwise append directly
 
 /***/ },
+/* 307 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(11);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var Home = function Home() {
+
+		return _react2['default'].createElement(
+			'div',
+			null,
+			_react2['default'].createElement(
+				'h1',
+				null,
+				'Home page'
+			),
+			_react2['default'].createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur dignissimos doloribus enim illum, itaque maiores obcaecati perferendis quasi soluta. Accusamus consequuntur cum debitis deserunt eaque exercitationem expedita minima, nulla, quae sequi sint, soluta suscipit tenetur totam unde! Deserunt impedit laudantium nemo officiis sequi. Autem dolor maxime modi nesciunt voluptate!'
+			),
+			_react2['default'].createElement(
+				'p',
+				null,
+				'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid error ipsum molestiae totam, vero vitae. Assumenda beatae blanditiis delectus enim expedita fugit incidunt itaque provident tempore vitae.'
+			)
+		);
+	};
+
+	exports['default'] = Home;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(11);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(270);
+
+	var _reactRouter = __webpack_require__(193);
+
+	var _dataStationsJson = __webpack_require__(304);
+
+	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
+
+	var _partialsDisqusBlockJsx = __webpack_require__(309);
+
+	var _partialsDisqusBlockJsx2 = _interopRequireDefault(_partialsDisqusBlockJsx);
+
+	var _partialsArtistInfoJsx = __webpack_require__(310);
+
+	var _partialsArtistInfoJsx2 = _interopRequireDefault(_partialsArtistInfoJsx);
+
+	var _libsMeta = __webpack_require__(311);
+
+	var _libsMeta2 = _interopRequireDefault(_libsMeta);
+
+	var Station = _react2['default'].createClass({
+		displayName: 'Station',
+
+		getInitialState: function getInitialState() {
+			return {
+				station: _dataStationsJson2['default'][this.props.params.stationId],
+				artist: {}
+			};
+		},
+
+		componentWillMount: function componentWillMount() {
+
+			var _this = this;
+
+			this.props.setTrack(this.state.station.radio);
+
+			_libsMeta2['default'].getTrackInfo(this.props.params.stationId).then(function (res) {
+				_this.setState({
+					station: _this.state.station,
+					artist: res.artist
+				});
+			});
+		},
+
+		componentWillUnmount: function componentWillUnmount() {
+			this.props.setTrack(this.state.station.radio);
+		},
+
+		render: function render() {
+
+			var station = this.state.station;
+			var artist = this.state.artist;
+
+			return _react2['default'].createElement(
+				'div',
+				null,
+				_react2['default'].createElement(
+					'div',
+					{ className: 'station-page' },
+					_react2['default'].createElement('img', { src: 'images/' + station.img, alt: '' }),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'station-info__description' },
+						_react2['default'].createElement(
+							'h1',
+							null,
+							station.title
+						),
+						_react2['default'].createElement(
+							'p',
+							null,
+							station.text
+						),
+						_react2['default'].createElement(
+							'p',
+							null,
+							'Жанр: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-genre/' + station.genre },
+								station.genre
+							),
+							', Страна: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-country/' + station.country },
+								station.country
+							),
+							', Город: ',
+							_react2['default'].createElement(
+								_reactRouter.Link,
+								{ to: '/radio-city/' + station.city },
+								station.city
+							)
+						)
+					)
+				),
+				artist.name ? _react2['default'].createElement(_partialsArtistInfoJsx2['default'], { artist: artist }) : '',
+				_react2['default'].createElement(_partialsDisqusBlockJsx2['default'], {
+					url: window.location.href,
+					identifier: this.state.station.title,
+					title: this.state.station.title
+				})
+			);
+		}
+	});
+
+	exports['default'] = (0, _reactRedux.connect)(function (state) {
+		return {
+			url: state.source
+		};
+	}, function (dispatch) {
+		return {
+			setTrack: function setTrack(url) {
+				dispatch({
+					type: 'SET',
+					url: url
+				});
+			}
+		};
+	})(Station);
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Station.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(11);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var DisqusBlock = function DisqusBlock(_ref) {
+		var url = _ref.url;
+		var identifier = _ref.identifier;
+		var title = _ref.title;
+
+		window.disqus_config = function () {
+			this.page.url = url;
+			this.page.identifier = identifier;
+			this.page.title = title;
+		};
+
+		(function () {
+
+			var d = document,
+			    s = d.createElement('script');
+
+			s.src = '//cishophostenkocom.disqus.com/embed.js';
+
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+		})();
+
+		return _react2['default'].createElement('div', { id: 'disqus_thread' });
+	};
+
+	exports['default'] = DisqusBlock;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "DisqusBlock.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(11);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(193);
+
+	String.prototype.removeLinks = function () {
+		return this.replace(/<a[^\>]+>[^\<]+<\/a>/ig, '');
+	};
+
+	var setDefaultImage = function setDefaultImage(e) {
+		e.target.src = "/img/placeholder-image.png";
+	};
+
+	var ArtistInfo = function ArtistInfo(_ref) {
+		var artist = _ref.artist;
+
+		return _react2['default'].createElement(
+			'section',
+			{ className: 'artist-info short' },
+			_react2['default'].createElement(
+				_reactRouter.Link,
+				{ to: '/artist-bio/' + encodeURIComponent(artist.name), title: artist.name },
+				_react2['default'].createElement('img', { src: artist.image[2]['#text'], onError: setDefaultImage, className: 'artist-info__image--small' })
+			),
+			_react2['default'].createElement(
+				'div',
+				{ className: 'artist-info__description' },
+				_react2['default'].createElement(
+					'h2',
+					null,
+					artist.name
+				),
+				_react2['default'].createElement(
+					'p',
+					null,
+					artist.bio.summary.removeLinks(),
+					_react2['default'].createElement('br', null),
+					_react2['default'].createElement(
+						_reactRouter.Link,
+						{ to: '/artist-bio/' + encodeURIComponent(artist.name) },
+						'подробнее'
+					)
+				)
+			)
+		);
+	};
+
+	exports['default'] = ArtistInfo;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ArtistInfo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 311 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _http = __webpack_require__(312);
+
+	var _http2 = _interopRequireDefault(_http);
+
+	var _jquery = __webpack_require__(306);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var meta = (function () {
+
+		var settings = {
+			format: 'json',
+			api_key: '02ec4e9d3a6dec29749f9d0a2cf3f598'
+		};
+
+		var getTrackInfo = function getTrackInfo(stationId) {
+
+			return new Promise(function (resolve, reject) {
+
+				_http2['default'].getJSON('/server/meta.php', { id: stationId }).then(function (data) {
+					var artist = data.track.split('-').shift().trim();
+					getArtistInfo(artist, resolve);
+				})['catch'](reject);
+			});
+		};
+
+		var getTrackInfoByURL = function getTrackInfoByURL(url) {
+
+			return new Promise(function (resolve, reject) {
+
+				_http2['default'].getJSON('/server/meta.php', { url: url }).then(resolve)['catch'](reject);
+			});
+		};
+
+		var find = function find(q, callback) {
+
+			_jquery2['default'].extend(settings, {
+				artist: q,
+				limit: 8,
+				method: 'artist.search'
+			});
+
+			get(settings, callback);
+		};
+
+		var getTopArtists = function getTopArtists(tag, offset, callback) {
+
+			var limit = 30;
+			var page = offset === 0 ? 1 : offset / limit + 1;
+
+			_jquery2['default'].extend(settings, {
+				method: 'tag.gettopartists',
+				tag: tag,
+				page: page,
+				limit: limit
+			});
+
+			get(settings, callback);
+		};
+
+		var getArtistInfo = function getArtistInfo(artist, callback) {
+
+			_jquery2['default'].extend(settings, {
+				method: 'artist.getinfo',
+				autocorrect: 1,
+				artist: artist,
+				lang: "ru"
+			});
+
+			get(settings, callback);
+		};
+
+		var getAlbum = function getAlbum(artist, album, callback) {
+
+			_jquery2['default'].extend(settings, {
+				method: 'album.getinfo',
+				artist: artist,
+				lang: "ru",
+				album: album
+			});
+
+			get(settings, callback);
+		};
+
+		var getArtistImages = function getArtistImages(artist, callback) {
+
+			_http2['default'].getJSON('/server/lastfm.php', {
+				method: 'getArtistImages',
+				artist: artist
+			}).then(callback);
+		};
+
+		var getTopAlbums = function getTopAlbums(artist, callback) {
+
+			_http2['default'].getJSON('/server/lastfm.php', {
+				method: 'getAlbums',
+				artist: artist
+			}).then(callback);
+		};
+
+		var getTopArtistTracks = function getTopArtistTracks(artist, callback) {
+
+			_jquery2['default'].extend(settings, {
+				method: 'artist.gettoptracks',
+				artist: artist,
+				autocorrect: 1,
+				limit: 100
+			});
+
+			get(settings, callback);
+		};
+
+		var getAllTopArtists = function getAllTopArtists(offset, callback) {
+
+			var limit = 52,
+			    page = offset === 0 ? 1 : offset / limit + 1;
+
+			_jquery2['default'].extend(settings, {
+				method: 'chart.getTopArtists',
+				page: page,
+				limit: limit
+			});
+
+			get(settings, callback);
+		};
+
+		var getTopTracks = function getTopTracks(category, callback) {
+
+			_jquery2['default'].extend(settings, {
+				method: 'tag.gettoptracks',
+				tag: category,
+				limit: 100
+			});
+
+			get(settings, function (data) {
+				callback(data);
+			});
+		};
+
+		var get = function get(params, callback) {
+
+			_http2['default'].getJSON('http://ws.audioscrobbler.com/2.0/', params).then(callback);
+		};
+
+		return {
+			init: function init(settings) {
+				//getGenres();
+			},
+			getAlbum: getAlbum,
+			getTrackInfo: getTrackInfo,
+			getTrackInfoByURL: getTrackInfoByURL,
+			getTopArtistTracks: getTopArtistTracks,
+			getArtistImages: getArtistImages,
+			getTopAlbums: getTopAlbums,
+			getTopTracks: getTopTracks,
+			getAllTopArtists: getAllTopArtists,
+			getTopArtists: getTopArtists,
+			getArtistInfo: getArtistInfo,
+			find: find
+		};
+	})();
+
+	exports['default'] = meta;
+	module.exports = exports['default'];
+
+/***/ },
+/* 312 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _jquery = __webpack_require__(306);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var http = {
+		ajaxSpinner: function ajaxSpinner(status) {
+			// $('body').toggleClass('loading', status);
+		},
+		cache: {},
+		getJSON: function getJSON(path, params) {
+			return this.get(path, params, 'json');
+		},
+		get: function get(path, _params, type) {
+
+			var _this = this,
+			    params = _params || {},
+			    cacheKey = path + _jquery2['default'].param(params);
+
+			return new Promise(function (resolve, reject) {
+
+				if (_this.cache[cacheKey] !== undefined) {
+					resolve(_this.cache[cacheKey]);
+					return false;
+				}
+
+				// if(path.indexOf('http://') === -1){
+				// 	path = window.location.origin + path;
+				// }
+
+				params.t = new Date() * 1;
+
+				_jquery2['default'].ajax({
+					url: path,
+					type: 'get',
+					dataType: type || 'text',
+					data: params,
+					beforeSend: function beforeSend() {
+						_this.ajaxSpinner(true);
+					},
+					complete: function complete() {
+						_this.ajaxSpinner(false);
+					},
+					success: function success(response) {
+						_this.cache[cacheKey] = response;
+						resolve(response);
+					},
+					error: function error(e) {
+						reject(e);
+						console.error(arguments);
+					}
+				});
+			});
+		}
+	};
+
+	exports['default'] = http;
+	module.exports = exports['default'];
+
+/***/ },
 /* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -49000,9 +48970,6 @@
 
 		var artist = params.artistName;
 
-		console.info("params: ", params);
-		console.info("children: ", children.type.displayName);
-
 		return _react2['default'].createElement(
 			'section',
 			null,
@@ -49088,7 +49055,7 @@
 
 	var _reactRouter = __webpack_require__(193);
 
-	var _libsMeta = __webpack_require__(310);
+	var _libsMeta = __webpack_require__(311);
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
@@ -49174,9 +49141,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	// import {Router, Route, hashHistory, Link} from 'react-router';
-
-	var _libsMeta = __webpack_require__(310);
+	var _libsMeta = __webpack_require__(311);
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
@@ -49187,6 +49152,12 @@
 	var _partialsTrackSoundCloudJsx = __webpack_require__(323);
 
 	var _partialsTrackSoundCloudJsx2 = _interopRequireDefault(_partialsTrackSoundCloudJsx);
+
+	var _reactRedux = __webpack_require__(270);
+
+	var _jquery = __webpack_require__(306);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
 
 	var Playlist = _react2['default'].createClass({
 		displayName: 'Playlist',
@@ -49199,23 +49170,18 @@
 
 		componentWillMount: function componentWillMount() {
 
-			var _this = this;
-			var artist = this.props.params.artistName;
+			var _this = this,
+			    artist = this.props.params.artistName;
 
-			_libsMeta2['default'].getTopArtistTracks(artist, function (data) {
-
-				console.info("getTopArtistTracks: ", data.toptracks.track);
-
-				// _this.setState({
-				// 	playlist: data.toptracks.track
-				// });
-			});
+			// meta.getTopArtistTracks(artist, function (data) {
+			//
+			// 	_this.setState({
+			// 		playlist: data.toptracks.track
+			// 	});
+			// });
 
 			_libsSoundCloud2['default'].get.tracks({ q: artist, offset: 0 }, function (data) {
-
-				_this.setState({
-					playlist: data.collection
-				});
+				_this.setState({ playlist: data.collection });
 			});
 		},
 
@@ -49223,19 +49189,48 @@
 
 			if (!this.state.playlist.length) return _react2['default'].createElement('div', { className: 'loader' });
 
-			var playlist = this.state.playlist;
+			// Next track feature
+			if (this.props.player === 'end') {
+
+				var index = (0, _jquery2['default'])('.sound-track.active').removeClass('active play').next().addClass('active play').index();
+
+				var uri = this.state.playlist[index].uri + '/stream?client_id=d8e1be45275edc853761bb5fb863a978';
+
+				this.props.setTrack(uri);
+				this.props.play();
+			}
 
 			return _react2['default'].createElement(
 				'div',
 				{ className: 'artist-info' },
-				playlist.map(function (item, n) {
+				this.state.playlist.map(function (item, n) {
 					return _react2['default'].createElement(_partialsTrackSoundCloudJsx2['default'], { item: item, key: n });
 				})
 			);
 		}
 	});
 
-	exports['default'] = Playlist;
+	exports['default'] = (0, _reactRedux.connect)(function (state) {
+		return {
+			player: state.player,
+			source: state.source
+		};
+	}, function (dispatch) {
+		return {
+			setTrack: function setTrack(url) {
+				dispatch({
+					type: 'SET',
+					url: url
+				});
+			},
+			play: function play(url) {
+				dispatch({
+					type: 'PLAY',
+					url: url
+				});
+			}
+		};
+	})(Playlist);
 	module.exports = exports['default'];
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Playlist.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -49252,11 +49247,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _http = __webpack_require__(311);
+	var _http = __webpack_require__(312);
 
 	var _http2 = _interopRequireDefault(_http);
 
-	var _jquery = __webpack_require__(312);
+	var _jquery = __webpack_require__(306);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -49344,7 +49339,7 @@
 
 	var _reactRedux = __webpack_require__(270);
 
-	var _jquery = __webpack_require__(312);
+	var _jquery = __webpack_require__(306);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -49357,13 +49352,15 @@
 	var TrackSoundCloud = function TrackSoundCloud(_ref) {
 		var item = _ref.item;
 		var setTrack = _ref.setTrack;
+		var play = _ref.play;
 
-		var uri = item.uri;
+		var uri = item.uri + '/stream?client_id=d8e1be45275edc853761bb5fb863a978';
 
 		var handler = function handler(e) {
 			(0, _jquery2['default'])('.sound-track').removeClass('active play');
 			(0, _jquery2['default'])(e.target).closest('.sound-track').addClass('active play');
 			setTrack(uri);
+			play();
 		};
 
 		return(
@@ -49398,13 +49395,19 @@
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
 		return {
-			url: state.player
+			url: state.source
 		};
 	}, function (dispatch) {
 		return {
 			setTrack: function setTrack(url) {
 				dispatch({
 					type: 'SET',
+					url: url
+				});
+			},
+			play: function play(url) {
+				dispatch({
+					type: 'PLAY',
 					url: url
 				});
 			}
@@ -49432,7 +49435,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _libsMeta = __webpack_require__(310);
+	var _libsMeta = __webpack_require__(311);
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
@@ -55629,11 +55632,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _http = __webpack_require__(311);
+	var _http = __webpack_require__(312);
 
 	var _http2 = _interopRequireDefault(_http);
 
-	var _jquery = __webpack_require__(312);
+	var _jquery = __webpack_require__(306);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -55948,7 +55951,7 @@
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
 		return {
-			url: state.player
+			url: state.source
 		};
 	}, function (dispatch) {
 		return {
@@ -55984,7 +55987,7 @@
 
 	var _reactRouter = __webpack_require__(193);
 
-	var _libsMeta = __webpack_require__(310);
+	var _libsMeta = __webpack_require__(311);
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
@@ -56075,7 +56078,7 @@
 
 	var _partialsTrackJsx2 = _interopRequireDefault(_partialsTrackJsx);
 
-	var _libsMeta = __webpack_require__(310);
+	var _libsMeta = __webpack_require__(311);
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
@@ -56177,7 +56180,7 @@
 
 	var _reactRedux = __webpack_require__(270);
 
-	var _jquery = __webpack_require__(312);
+	var _jquery = __webpack_require__(306);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -56209,7 +56212,7 @@
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
 		return {
-			url: state.player
+			url: state.source
 		};
 	}, function (dispatch) {
 		return {
@@ -56641,7 +56644,11 @@
 
 	var _player2 = _interopRequireDefault(_player);
 
-	var _meta = __webpack_require__(401);
+	var _source = __webpack_require__(401);
+
+	var _source2 = _interopRequireDefault(_source);
+
+	var _meta = __webpack_require__(402);
 
 	var _meta2 = _interopRequireDefault(_meta);
 
@@ -56649,6 +56656,7 @@
 		routing: _reactRouterRedux.routerReducer,
 		stations: _stations2['default'],
 		meta: _meta2['default'],
+		source: _source2['default'],
 		player: _player2['default']
 	});
 	module.exports = exports['default'];
@@ -56688,25 +56696,20 @@
 	exports['default'] = player;
 
 	function player(state, action) {
-		if (state === undefined) state = "";
-
-		if (action.type === 'SET') {
-			return state = action.url;
-		}
-
-		if (action.type === 'GET') {
-			return state;
-		}
+		if (state === undefined) state = "play";
 
 		if (action.type === 'PLAY') {
+			state = 'play';
 			return state;
 		}
 
 		if (action.type === 'PAUSE') {
+			state = 'pause';
 			return state;
 		}
 
-		if (action.type === 'STOP') {
+		if (action.type === 'END') {
+			state = 'end';
 			return state;
 		}
 
@@ -56717,6 +56720,33 @@
 
 /***/ },
 /* 401 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	exports['default'] = source;
+
+	function source(state, action) {
+		if (state === undefined) state = "";
+
+		if (action.type === 'SET') {
+			if (state !== action.url) return state = action.url;
+		}
+
+		if (action.type === 'GET') {
+			return state;
+		}
+
+		return state;
+	}
+
+	module.exports = exports['default'];
+
+/***/ },
+/* 402 */
 /***/ function(module, exports) {
 
 	'use strict';

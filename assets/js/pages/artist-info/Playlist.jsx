@@ -1,52 +1,83 @@
 import React from 'react';
-// import {Router, Route, hashHistory, Link} from 'react-router';
 import meta from '../../libs/meta';
 import soundCloud from '../../libs/SoundCloud';
 import TrackSoundCloud from '../../partials/TrackSoundCloud.jsx';
+import {connect} from 'react-redux';
+import $ from 'jquery';
 
 const Playlist = React.createClass({
 
-	getInitialState() {
-		return {
-			playlist: []
-		}
-	},
+		getInitialState() {
+			return {
+				playlist: []
+			}
+		},
 
-	componentWillMount() {
+		componentWillMount() {
 
-		const _this = this;
-		const artist = this.props.params.artistName;
+			const _this = this,
+				artist = this.props.params.artistName;
 
-		meta.getTopArtistTracks(artist, function(data){
-
-			console.info("getTopArtistTracks: ", data.toptracks.track);
-
-			// _this.setState({
-			// 	playlist: data.toptracks.track
+			// meta.getTopArtistTracks(artist, function (data) {
+			//
+			// 	_this.setState({
+			// 		playlist: data.toptracks.track
+			// 	});
 			// });
-		});
 
-		soundCloud.get.tracks({q: artist, offset: 0}, function(data){
-
-			_this.setState({
-				playlist: data.collection
+			soundCloud.get.tracks({q: artist, offset: 0}, function (data) {
+				_this.setState({ playlist: data.collection });
 			});
-		});
-	},
+		},
 
-	render(){
+		render()
+		{
 
-		if (!this.state.playlist.length)
-			return <div className="loader"></div>;
+			if (!this.state.playlist.length)
+				return <div className="loader"></div>;
 
-		const playlist = this.state.playlist;
+			// Next track feature
+			if (this.props.player === 'end') {
 
-		return (
-			<div className="artist-info">
-				{playlist.map((item, n) => <TrackSoundCloud item={item} key={n} />)}
-			</div>
-		);
-	}
-});
+				const index = $('.sound-track.active')
+					.removeClass('active play')
+					.next()
+					.addClass('active play')
+					.index();
 
-export default Playlist;
+				const uri = this.state.playlist[index].uri + '/stream?client_id=d8e1be45275edc853761bb5fb863a978';
+
+				this.props.setTrack(uri);
+				this.props.play();
+			}
+
+
+			return (
+				<div className="artist-info">
+					{this.state.playlist.map((item, n) => <TrackSoundCloud item={item} key={n} /> )}
+				</div>
+			);
+		}
+	})
+	;
+
+export default connect(
+	state => ({
+		player: state.player,
+		source: state.source
+	}),
+	dispatch => ({
+		setTrack: (url) => {
+			dispatch({
+				type: 'SET',
+				url: url
+			});
+		},
+		play: (url) => {
+			dispatch({
+				type: 'PLAY',
+				url: url
+			});
+		}
+	})
+)(Playlist);

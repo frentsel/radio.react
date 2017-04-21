@@ -1,77 +1,34 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import $ from 'jquery';
-import Meta from './libs/meta';
 
 const hideLoader = () => {
 	$('body').toggleClass('streamLoading', false);
 };
 
-const SoundCloudPlayer = ({ src }) => {
+// Current track
+let _src = "";
 
-	let widget,
-		iframe;
+const Hml5AudioPlayer = ({src, player, play, pause, end}) => {
 
-	const widgetOptions = {
-		color: "ff5500",
-		auto_play: "true",
-		hide_related: "false",
-		show_comments: "true",
-		show_user: "true",
-		show_reposts: "false"
-	};
+	if (src.length && _src !== src)
+		$('body').toggleClass('streamLoading', true);
 
-	setTimeout(() => {
+	_src = (player === "end") ? "" : src;
 
-		iframe = document.getElementById('widgetSound');
-		widget = SC.Widget(iframe);
-
-		widget.load(src, widgetOptions);
-		widget.unbind("pause");
-		widget.unbind("stop");
-		widget.unbind("play");
-
-		widget.bind("pause", function (eventData) {
-			console.info("pause: ", eventData);
-		});
-
-		widget.bind("stop", function (eventData) {
-			console.info("stop: ", eventData);
-		});
-
-		widget.bind("play", function (eventData) {
-			console.info("play: ", eventData);
-		});
-
-	}, 100);
-
-	return (
-		<div id="soundCloudPlayerWrapper">
-			<iframe width="100%" height="120" scrolling="no" id="widgetSound" src={'https://w.soundcloud.com/player/?url=' + src}></iframe>
-		</div>
-	);
-};
-
-const Hml5AudioPlayer = ({src}) => {
-
-	if (src.length) $('body').toggleClass('streamLoading', true);
-
-
-	// clearInterval(timer);
-	// timer = setInterval(() => {
-	//
-	// 	Meta.getTrackInfoByURL(src)
-	// 		// .then(setMeta);
-	// 		.then(console.info);
-	//
-	// }, 5000);
+	// console.info("player: ", player);
 
 	return (
 		<div id="playerWrapper">
 			<div className="meter">
 				<span></span>
 			</div>
-			<audio id="audio" src={src} controls autoPlay onCanPlayThrough={hideLoader}></audio>
+			<audio id="audio" src={src} controls
+				   autoPlay={player === 'play'}
+				   onPlay={play}
+				   onPause={pause}
+				   onEnded={end}
+				   onCanPlayThrough={hideLoader}></audio>
 		</div>
 	);
 };
@@ -127,31 +84,43 @@ const AudioPlayer = React.createClass({
 
 	render(){
 
-		const src = this.props.src;
+		const src = this.props.src,
+			player = this.props.player,
+			play = this.props.play,
+			pause = this.props.pause,
+			end = this.props.end;
 
-		console.info("src: ", src);
+		// console.info("src: ", src);
 
 		if (!src.length)
 			return <Hml5AudioPlayer src={src}/>;
 
 		if (src.indexOf('www.youtube.com/embed') !== -1)
-			return <iframe id="youtubePlayer" width="250" height="141"
-						   src={src + '?enablejsapi=1&autoplay=1'}></iframe>;
+			return <iframe id="youtubePlayer" width="250" height="141" src={src + '?enablejsapi=1&autoplay=1'}></iframe>;
 
-		return src.indexOf('api.soundcloud.com') === -1 ? <Hml5AudioPlayer src={src}/> : <SoundCloudPlayer src={src}/>;
+		return <Hml5AudioPlayer src={src} player={player} play={play} pause={pause} end={end}/>;
 	}
 });
 
 export default connect(
 	state => ({
-		src: state.player,
-		meta: state.meta
+		src: state.source,
+		player: state.player
 	}),
 	dispatch => ({
-		setMeta: (meta) => {
+		play: () => {
 			dispatch({
-				type: 'SET_META',
-				meta: meta
+				type: 'PLAY'
+			});
+		},
+		pause: () => {
+			dispatch({
+				type: 'PAUSE'
+			});
+		},
+		end: () => {
+			dispatch({
+				type: 'END'
 			});
 		}
 	})

@@ -65,7 +65,7 @@ const Station = React.createClass({
 
 export default connect(
 	state => ({
-		url: state.player
+		url: state.source
 	}),
 	dispatch => ({
 		setTrack: (url) => {

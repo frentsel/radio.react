@@ -1,22 +1,17 @@
-export default function player(state = "", action) {
-
-	if (action.type === 'SET') {
-		return state = action.url;
-	}
-
-	if (action.type === 'GET') {
-		return state;
-	}
+export default function player(state = "play", action) {
 
 	if (action.type === 'PLAY') {
+		state = 'play';
 		return state;
 	}
 
 	if (action.type === 'PAUSE') {
+		state = 'pause';
 		return state;
 	}
 
-	if (action.type === 'STOP') {
+	if (action.type === 'END') {
+		state = 'end';
 		return state;
 	}
 

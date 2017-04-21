@@ -8,14 +8,15 @@ const duration = (millis) => {
 	return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 };
 
-const TrackSoundCloud = ({ item, setTrack }) => {
+const TrackSoundCloud = ({ item, setTrack, play }) => {
 
-	const uri = item.uri;
+	const uri = item.uri + '/stream?client_id=d8e1be45275edc853761bb5fb863a978';
 
 	const handler = (e) => {
 		$('.sound-track').removeClass('active play');
 		$(e.target).closest('.sound-track').addClass('active play');
 		setTrack(uri);
+		play();
 	};
 
 	return (
@@ -38,12 +39,18 @@ const TrackSoundCloud = ({ item, setTrack }) => {
 
 export default connect(
 	state => ({
-		url: state.player
+		url: state.source
 	}),
 	dispatch => ({
 		setTrack: (url) => {
 			dispatch({
 				type: 'SET',
+				url: url
+			});
+		},
+		play: (url) => {
+			dispatch({
+				type: 'PLAY',
 				url: url
 			});
 		}

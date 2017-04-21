@@ -5,9 +5,6 @@ const Artist = ({ params, children }) => {
 
 	const artist = params.artistName;
 
-	console.info("params: ", params);
-	console.info("children: ", children.type.displayName);
-
 	return (
 		<section>
 			<ul className="artist-info-controls">
