@@ -49179,6 +49179,14 @@
 		setCurrent: function setCurrent(index) {
 			return this.current = index;
 		},
+		play: function play() {
+
+			(0, _jquery2['default'])('.sound-track.active').addClass('play');
+		},
+		pause: function pause() {
+
+			(0, _jquery2['default'])('.sound-track.active').removeClass('play');
+		},
 		getNext: function getNext() {
 
 			var $item = (0, _jquery2['default'])('.sound-track.active');
@@ -49230,7 +49238,17 @@
 
 			if (!this.state.playlist.length) return _react2['default'].createElement('div', { className: 'loader' });
 
-			// Next track feature
+			// Play
+			if (this.props.player === 'play') {
+				_playlist.play();
+			}
+
+			// Pause
+			if (this.props.player === 'pause') {
+				_playlist.pause();
+			}
+
+			// Next track by 'end' event
 			if (this.props.player === 'end') {
 
 				var uri = _playlist.getNext().uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId;

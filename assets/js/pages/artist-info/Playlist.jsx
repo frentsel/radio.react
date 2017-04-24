@@ -28,6 +28,16 @@ let _playlist = {
 	setCurrent: function (index) {
 		return this.current = index;
 	},
+	play: function () {
+
+		$('.sound-track.active')
+			.addClass('play');
+	},
+	pause: function () {
+
+		$('.sound-track.active')
+			.removeClass('play');
+	},
 	getNext: function () {
 
 		const $item = $('.sound-track.active');
@@ -83,7 +93,17 @@ const Playlist = React.createClass({
 			if (!this.state.playlist.length)
 				return <div className="loader"></div>;
 
-			// Next track feature
+			// Play
+			if (this.props.player === 'play') {
+				_playlist.play();
+			}
+
+			// Pause
+			if (this.props.player === 'pause') {
+				_playlist.pause();
+			}
+
+			// Next track by 'end' event
 			if (this.props.player === 'end') {
 
 				const uri = _playlist.getNext().uri + '/stream?client_id='+soundCloud.clientId;
