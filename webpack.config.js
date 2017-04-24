@@ -19,11 +19,11 @@ var config = {
 	watch: true,
 	module: {
 		loaders: [
-			{ test: /\.js$/, loader: "babel-loader", query: {compact: false} },
-			{ test: /\.jsx$/, loader: "react-hot!babel"},
-			{ test: /\.json$/, loader: "json-loader" },
-			{ test: /\.css/, loader: 'style-loader!css-loader' },
-			{ test: /\.less$/, loader:  'style!css!less' },
+			{test: /\.js$/, loader: "babel-loader", query: {compact: false}},
+			{test: /\.jsx$/, loader: "react-hot!babel"},
+			{test: /\.json$/, loader: "json-loader"},
+			{test: /\.css/, loader: 'style-loader!css-loader'},
+			{test: /\.less$/, loader: 'style!css!less'},
 			// { test: /\.gif$/, loader: "url-loader?limit=10000&mimetype=image/gif" },
 			// { test: /\.jpg$/, loader: "url-loader?limit=10000&mimetype=image/jpg" },
 			// { test: /\.png$/, loader: "url-loader?limit=10000&mimetype=image/png" },

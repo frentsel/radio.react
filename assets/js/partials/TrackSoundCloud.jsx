@@ -22,13 +22,13 @@ const TrackSoundCloud = ({ item, setCurrentIndex, setTrack, play }) => {
 	};
 
 	return (
-/*		<div className="sound-track">
-			<div className="sound-track__play-pause" onClick={handler}></div>
-			<div className="sound-track__artist-name">{item.artist.name} - {item.name}</div>
-			<div className="sound-track__controls">
-				<div className="sound-track__duration">123</div>
-			</div>
-		</div>*/
+		// <div className="sound-track">
+		// 	<div className="sound-track__play-pause" onClick={handler}></div>
+		// 	<div className="sound-track__artist-name">{item.artist.name} - {item.name}</div>
+		// 	<div className="sound-track__controls">
+		// 		<div className="sound-track__duration">123</div>
+		// 	</div>
+		// </div>
 		<div className="sound-track">
 			<div className="sound-track__play-pause" onClick={handler}></div>
 			<div className="sound-track__artist-name">{item.title}</div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import soundCloud from '../../libs/SoundCloud';
+import meta from '../../libs/meta';
 import TrackSoundCloud from '../../partials/TrackSoundCloud.jsx';
 import {connect} from 'react-redux';
 import $ from 'jquery';

@@ -16,18 +16,44 @@ const setDefaultImage = (e) => {
 const Bio = React.createClass({
 
 	getInitialState() {
+
+		hashHistory.listen(this.hashHandler);
+
 		return {
-			artist: {}
+			artist: {},
+			artistName: ''
 		}
+	},
+
+	hashHandler() {
+
+		const artistName = this.props.params.artistName;
+
+		if(this.state.artistName === artistName) {
+			return false;
+		}
+
+		this.setState({
+			artist: {},
+			artistName: artistName
+		});
+
+		meta.getArtistInfo(artistName, (data) => {
+			this.setState({
+				artist: data.artist,
+				artistName: artistName
+			});
+		});
 	},
 
 	componentWillMount() {
 
-		const _this = this;
+		const artistName = this.props.params.artistName;
 
-		meta.getArtistInfo(this.props.params.artistName, function (data) {
-			_this.setState({
-				artist: data.artist
+		meta.getArtistInfo(artistName, (data) => {
+			this.setState({
+				artist: data.artist,
+				artistName: artistName
 			});
 		});
 	},
