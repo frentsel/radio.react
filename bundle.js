@@ -70,69 +70,77 @@
 
 	var _LayoutJsx2 = _interopRequireDefault(_LayoutJsx);
 
-	var _pagesHomeJsx = __webpack_require__(316);
+	var _pagesHomeJsx = __webpack_require__(315);
 
 	var _pagesHomeJsx2 = _interopRequireDefault(_pagesHomeJsx);
 
-	var _pagesStationJsx = __webpack_require__(317);
+	var _pagesStationJsx = __webpack_require__(316);
 
 	var _pagesStationJsx2 = _interopRequireDefault(_pagesStationJsx);
 
-	var _pagesCityJsx = __webpack_require__(320);
+	var _pagesCityJsx = __webpack_require__(319);
 
 	var _pagesCityJsx2 = _interopRequireDefault(_pagesCityJsx);
 
-	var _pagesCitiesJsx = __webpack_require__(322);
+	var _pagesCitiesJsx = __webpack_require__(321);
 
 	var _pagesCitiesJsx2 = _interopRequireDefault(_pagesCitiesJsx);
 
-	var _pagesCountriesJsx = __webpack_require__(323);
+	var _pagesCountriesJsx = __webpack_require__(322);
 
 	var _pagesCountriesJsx2 = _interopRequireDefault(_pagesCountriesJsx);
 
-	var _pagesCountryJsx = __webpack_require__(324);
+	var _pagesCountryJsx = __webpack_require__(323);
 
 	var _pagesCountryJsx2 = _interopRequireDefault(_pagesCountryJsx);
 
-	var _pagesGenreJsx = __webpack_require__(325);
+	var _pagesGenreJsx = __webpack_require__(324);
 
 	var _pagesGenreJsx2 = _interopRequireDefault(_pagesGenreJsx);
 
-	var _pagesArtistJsx = __webpack_require__(326);
+	var _pagesArtistJsx = __webpack_require__(325);
 
 	var _pagesArtistJsx2 = _interopRequireDefault(_pagesArtistJsx);
 
-	var _pagesArtistInfoBioJsx = __webpack_require__(327);
+	var _pagesArtistInfoBioJsx = __webpack_require__(326);
 
 	var _pagesArtistInfoBioJsx2 = _interopRequireDefault(_pagesArtistInfoBioJsx);
 
-	var _pagesArtistInfoPlaylistJsx = __webpack_require__(328);
+	var _pagesArtistInfoPlaylistJsx = __webpack_require__(327);
 
 	var _pagesArtistInfoPlaylistJsx2 = _interopRequireDefault(_pagesArtistInfoPlaylistJsx);
 
-	var _pagesArtistInfoPhotoJsx = __webpack_require__(331);
+	var _pagesArtistInfoPhotoJsx = __webpack_require__(330);
 
 	var _pagesArtistInfoPhotoJsx2 = _interopRequireDefault(_pagesArtistInfoPhotoJsx);
 
-	var _pagesArtistInfoVideoJsx = __webpack_require__(394);
+	var _pagesArtistInfoVideoJsx = __webpack_require__(393);
 
 	var _pagesArtistInfoVideoJsx2 = _interopRequireDefault(_pagesArtistInfoVideoJsx);
 
-	var _pagesArtistInfoAlbumsJsx = __webpack_require__(397);
+	var _pagesArtistInfoAlbumsJsx = __webpack_require__(396);
 
 	var _pagesArtistInfoAlbumsJsx2 = _interopRequireDefault(_pagesArtistInfoAlbumsJsx);
 
-	var _pagesArtistInfoAlbumJsx = __webpack_require__(398);
+	var _pagesArtistInfoAlbumJsx = __webpack_require__(397);
 
 	var _pagesArtistInfoAlbumJsx2 = _interopRequireDefault(_pagesArtistInfoAlbumJsx);
 
-	var _pagesNotFoundJsx = __webpack_require__(400);
+	var _pagesNotFoundJsx = __webpack_require__(399);
 
 	var _pagesNotFoundJsx2 = _interopRequireDefault(_pagesNotFoundJsx);
 
-	__webpack_require__(401);
+	var _pagesContactJsx = __webpack_require__(400);
 
-	var _reducers = __webpack_require__(405);
+	var _pagesContactJsx2 = _interopRequireDefault(_pagesContactJsx);
+
+	var _pagesAboutJsx = __webpack_require__(401);
+
+	var _pagesAboutJsx2 = _interopRequireDefault(_pagesAboutJsx);
+
+	__webpack_require__(402);
+
+	var _reducers = __webpack_require__(406);
 
 	var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -140,34 +148,36 @@
 	var history = (0, _reactRouterRedux.syncHistoryWithStore)(_reactRouter.hashHistory, store);
 
 	_reactDom2['default'].render(_react2['default'].createElement(
-		_reactRedux.Provider,
-		{ store: store },
-		_react2['default'].createElement(
-			_reactRouter.Router,
-			{ history: history },
-			_react2['default'].createElement(
-				_reactRouter.Route,
-				{ component: _LayoutJsx2['default'] },
-				_react2['default'].createElement(_reactRouter.Route, { path: '/', component: _pagesHomeJsx2['default'] }),
-				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-genre/:genreId', component: _pagesGenreJsx2['default'] }),
-				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-cities', component: _pagesCitiesJsx2['default'] }),
-				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-city/:cityId', component: _pagesCityJsx2['default'] }),
-				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-countries', component: _pagesCountriesJsx2['default'] }),
-				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-country/:countryId', component: _pagesCountryJsx2['default'] }),
-				_react2['default'].createElement(_reactRouter.Route, { path: '/radio-station/:stationId', component: _pagesStationJsx2['default'] }),
-				_react2['default'].createElement(
-					_reactRouter.Route,
-					{ component: _pagesArtistJsx2['default'] },
-					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-bio/:artistName', component: _pagesArtistInfoBioJsx2['default'] }),
-					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-playlist/:artistName', component: _pagesArtistInfoPlaylistJsx2['default'] }),
-					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-photo/:artistName', component: _pagesArtistInfoPhotoJsx2['default'] }),
-					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-video/:artistName', component: _pagesArtistInfoVideoJsx2['default'] }),
-					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-albums/:artistName', component: _pagesArtistInfoAlbumsJsx2['default'] }),
-					_react2['default'].createElement(_reactRouter.Route, { path: '/artist-album/:artistName/:album', component: _pagesArtistInfoAlbumJsx2['default'] })
-				),
-				_react2['default'].createElement(_reactRouter.Route, { path: '*', component: _pagesNotFoundJsx2['default'] })
-			)
-		)
+	    _reactRedux.Provider,
+	    { store: store },
+	    _react2['default'].createElement(
+	        _reactRouter.Router,
+	        { history: history },
+	        _react2['default'].createElement(
+	            _reactRouter.Route,
+	            { component: _LayoutJsx2['default'] },
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/', component: _pagesHomeJsx2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/about', component: _pagesAboutJsx2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/contact', component: _pagesContactJsx2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/radio-genre/:genreId', component: _pagesGenreJsx2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/radio-cities', component: _pagesCitiesJsx2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/radio-city/:cityId', component: _pagesCityJsx2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/radio-countries', component: _pagesCountriesJsx2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/radio-country/:countryId', component: _pagesCountryJsx2['default'] }),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '/radio-station/:stationId', component: _pagesStationJsx2['default'] }),
+	            _react2['default'].createElement(
+	                _reactRouter.Route,
+	                { component: _pagesArtistJsx2['default'] },
+	                _react2['default'].createElement(_reactRouter.Route, { path: '/artist-bio/:artistName', component: _pagesArtistInfoBioJsx2['default'] }),
+	                _react2['default'].createElement(_reactRouter.Route, { path: '/artist-playlist/:artistName', component: _pagesArtistInfoPlaylistJsx2['default'] }),
+	                _react2['default'].createElement(_reactRouter.Route, { path: '/artist-photo/:artistName', component: _pagesArtistInfoPhotoJsx2['default'] }),
+	                _react2['default'].createElement(_reactRouter.Route, { path: '/artist-video/:artistName', component: _pagesArtistInfoVideoJsx2['default'] }),
+	                _react2['default'].createElement(_reactRouter.Route, { path: '/artist-albums/:artistName', component: _pagesArtistInfoAlbumsJsx2['default'] }),
+	                _react2['default'].createElement(_reactRouter.Route, { path: '/artist-album/:artistName/:album', component: _pagesArtistInfoAlbumJsx2['default'] })
+	            ),
+	            _react2['default'].createElement(_reactRouter.Route, { path: '*', component: _pagesNotFoundJsx2['default'] })
+	        )
+	    )
 	), document.querySelector('#app'));
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "App.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
@@ -30374,7 +30384,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -30398,67 +30408,67 @@
 	var _partialsSearchJsx2 = _interopRequireDefault(_partialsSearchJsx);
 
 	var Layout = function Layout(_ref) {
-		var src = _ref.src;
-		var children = _ref.children;
+	    var src = _ref.src;
+	    var children = _ref.children;
 
-		return _react2['default'].createElement(
-			'div',
-			{ id: 'wrapper' },
-			_react2['default'].createElement(
-				'nav',
-				null,
-				_react2['default'].createElement(
-					'div',
-					{ className: 'nav-section-left' },
-					_react2['default'].createElement(
-						_reactRouter.Link,
-						{ to: '/' },
-						'Home'
-					),
-					_react2['default'].createElement(
-						'ul',
-						null,
-						_react2['default'].createElement(
-							'li',
-							null,
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/about' },
-								'About'
-							)
-						),
-						_react2['default'].createElement(
-							'li',
-							null,
-							_react2['default'].createElement(
-								_reactRouter.Link,
-								{ to: '/contacts' },
-								'Contacts'
-							)
-						)
-					)
-				),
-				_react2['default'].createElement(_partialsSearchJsx2['default'], null)
-			),
-			_react2['default'].createElement(
-				'div',
-				{ id: 'container' },
-				_react2['default'].createElement(_partialsSidebarJsx2['default'], null),
-				_react2['default'].createElement(
-					'div',
-					{ id: 'content' },
-					children
-				)
-			),
-			_react2['default'].createElement(_AudioPlayerJsx2['default'], null)
-		);
+	    return _react2['default'].createElement(
+	        'div',
+	        { id: 'wrapper' },
+	        _react2['default'].createElement(
+	            'nav',
+	            null,
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'nav-section-left' },
+	                _react2['default'].createElement(
+	                    _reactRouter.Link,
+	                    { to: '/' },
+	                    'Home'
+	                ),
+	                _react2['default'].createElement(
+	                    'ul',
+	                    null,
+	                    _react2['default'].createElement(
+	                        'li',
+	                        null,
+	                        _react2['default'].createElement(
+	                            _reactRouter.Link,
+	                            { to: '/about' },
+	                            'About'
+	                        )
+	                    ),
+	                    _react2['default'].createElement(
+	                        'li',
+	                        null,
+	                        _react2['default'].createElement(
+	                            _reactRouter.Link,
+	                            { to: '/contact' },
+	                            'Contact'
+	                        )
+	                    )
+	                )
+	            ),
+	            _react2['default'].createElement(_partialsSearchJsx2['default'], null)
+	        ),
+	        _react2['default'].createElement(
+	            'div',
+	            { id: 'container' },
+	            _react2['default'].createElement(_partialsSidebarJsx2['default'], null),
+	            _react2['default'].createElement(
+	                'div',
+	                { id: 'content' },
+	                children
+	            )
+	        ),
+	        _react2['default'].createElement(_AudioPlayerJsx2['default'], null)
+	    );
 	};
 
 	exports['default'] = Layout;
 	module.exports = exports['default'];
 	/*			<div className="linear-activity">
-				<div className="indeterminate"></div>
-			</div>*/
+	<div className="indeterminate"></div>
+	</div>*/
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Layout.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
@@ -31066,7 +31076,7 @@
 			"title": "Kiss FM 2.0 Digital",
 			"genre": "club",
 			"radio": "http://online-kissfm.tavrmedia.ua/KissFM_digital",
-			"text": "KISS FM – это танцевальная радиостанция Украины и крупнейшая радиосеть в Европе.\nСпециализораванная Digital-версия популарного ресурса.",
+			"text": "KISS FM – это танцевальная радиостанция Украины и крупнейшая радиосеть в Европе.\nСпециализораванная Digital-версия популярного ресурса.",
 			"radioLink": "http://www.kissfm.ua",
 			"genreRu": "Клубное",
 			"country": "Украина",
@@ -31078,7 +31088,7 @@
 			"title": "Kiss FM 2.0 Deep",
 			"genre": "deep",
 			"radio": "http://online-kissfm.tavrmedia.ua/KissFM_deep",
-			"text": "KISS FM – это танцевальная радиостанция Украины и крупнейшая радиосеть в Европе.\nСпециализораванная Deep-версия популарного ресурса.",
+			"text": "KISS FM – это танцевальная радиостанция Украины и крупнейшая радиосеть в Европе.\nСпециализораванная Deep-версия популярного ресурса.",
 			"radioLink": "http://www.kissfm.ua",
 			"genreRu": "Deep",
 			"country": "Украина",
@@ -31102,7 +31112,7 @@
 			"title": "Kiss FM 2.0 Trance",
 			"genre": "trance",
 			"radio": "http://online-kissfm.tavrmedia.ua/KissFM_trance",
-			"text": "KISS FM – это танцевальная радиостанция Украины и крупнейшая радиосеть в Европе.\nСпециализораванная Trance-версия популарного ресурса.",
+			"text": "KISS FM – это танцевальная радиостанция Украины и крупнейшая радиосеть в Европе.\nСпециализораванная Trance-версия популярного ресурса.",
 			"radioLink": "http://www.kissfm.ua",
 			"genreRu": "Транс",
 			"country": "Украина",
@@ -31114,7 +31124,7 @@
 			"title": "Kiss FM 2.0 Drum & Bass",
 			"genre": "drum&bass",
 			"radio": "http://online-kissfm.tavrmedia.ua/KissFM_dnb",
-			"text": "KISS FM – это танцевальная радиостанция Украины и крупнейшая радиосеть в Европе.\nСпециализораванная Drum&Bass-версия популарного ресурса.",
+			"text": "KISS FM – это танцевальная радиостанция Украины и крупнейшая радиосеть в Европе.\nСпециализораванная Drum&Bass-версия популярного ресурса.",
 			"radioLink": "http://www.kissfm.ua",
 			"genreRu": "Drum AND Bass",
 			"country": "Украина",
@@ -48282,7 +48292,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -48291,6 +48301,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _jquery = __webpack_require__(311);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
 	var _reactRouter = __webpack_require__(198);
 
 	var _libsMeta = __webpack_require__(313);
@@ -48298,106 +48312,116 @@
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
 	var Search = _react2['default'].createClass({
-		displayName: 'Search',
+	    displayName: 'Search',
 
-		getInitialState: function getInitialState() {
-			return {
-				q: '',
-				artists: [],
-				dropDown: false
-			};
-		},
+	    getInitialState: function getInitialState() {
+	        return {
+	            q: '',
+	            artists: [],
+	            dropDown: false
+	        };
+	    },
 
-		submit: function submit(e) {
-			e.preventDefault();
-			console.info("submit: ", e);
-		},
+	    submit: function submit(e) {
+	        e.preventDefault();
+	        console.info("submit: ", e);
+	    },
 
-		reset: function reset(e) {
-			this.setState({
-				q: '',
-				artists: [],
-				dropDown: true
-			});
-		},
+	    reset: function reset(e) {
 
-		blur: function blur(e) {
-			var _this = this;
+	        (0, _jquery2['default'])(e.target).closest('form').removeClass('clear-active');
 
-			setTimeout(function () {
-				_this.state.dropDown = false;
-				_this.setState(_this.state);
-			}, 100);
-		},
+	        this.setState({
+	            q: '',
+	            artists: [],
+	            dropDown: true
+	        });
+	    },
 
-		hideDropDown: function hideDropDown(artistName) {
-			this.state.dropDown = false;
-			this.state.q = artistName;
-			this.setState(this.state);
-		},
+	    blur: function blur(e) {
+	        var _this = this;
 
-		handler: function handler(e) {
-			var _this2 = this;
+	        setTimeout(function () {
+	            _this.state.dropDown = false;
+	            _this.setState(_this.state);
+	        }, 100);
+	    },
 
-			var q = e.target.value;
+	    hideDropDown: function hideDropDown(artistName) {
+	        this.state.dropDown = false;
+	        this.state.q = artistName;
+	        this.setState(this.state);
+	    },
 
-			_libsMeta2['default'].find(q, function (data) {
+	    handler: function handler(e) {
+	        var _this2 = this;
 
-				_this2.setState({
-					q: q,
-					artists: data.results.artistmatches.artist,
-					dropDown: true
-				});
-			});
-		},
+	        var q = e.target.value;
 
-		setDefaultImage: function setDefaultImage(e) {
-			e.target.src = "/img/placeholder-image.png";
-		},
+	        (0, _jquery2['default'])(e.target).closest('form').toggleClass('clear-active', q.length > 0);
 
-		render: function render() {
-			var _this3 = this;
+	        this.state.q = q;
+	        this.state.dropDown = !!q.length;
 
-			var artists = this.state.artists.map(function (artist, n) {
-				return _react2['default'].createElement(
-					_reactRouter.Link,
-					{ to: '/artist-bio/' + artist.name, className: 'search-result-artist', key: n,
-						onClick: _this3.hideDropDown.bind(_this3, artist.name) },
-					_react2['default'].createElement('img', { src: artist.image[0]['#text'], alt: artist.name, onError: _this3.setDefaultImage }),
-					_react2['default'].createElement(
-						'span',
-						null,
-						artist.name
-					)
-				);
-			});
+	        this.setState(this.state);
 
-			return _react2['default'].createElement(
-				'div',
-				{ id: 'searchSection' },
-				_react2['default'].createElement(
-					'form',
-					{ onSubmit: this.submit, className: 'search-form' },
-					_react2['default'].createElement('input', { type: 'text', value: this.state.q, autoFocus: true, className: 'search-field', onInput: this.handler,
-						onBlur: this.blur }),
-					_react2['default'].createElement(
-						'button',
-						{ className: 'search-reset-button', onClick: this.reset },
-						_react2['default'].createElement('i', { className: 'fa fa-times', 'aria-hidden': 'true' })
-					),
-					_react2['default'].createElement(
-						'button',
-						{ className: 'search-submit-button', onClick: this.submit },
-						_react2['default'].createElement('i', { className: 'fa fa-search' })
-					)
-				),
-				this.state.dropDown && _react2['default'].createElement(
-					'div',
-					{ className: 'search-drop-down' },
-					artists
-				)
-			);
-		}
+	        if (!q.length) return false;
+
+	        _libsMeta2['default'].find(q, function (data) {
+
+	            _this2.state.artists = data.results.artistmatches.artist;
+	            _this2.state.dropDown = true;
+
+	            _this2.setState(_this2.state);
+	        });
+	    },
+
+	    setDefaultImage: function setDefaultImage(e) {
+	        e.target.src = "/img/placeholder-image.png";
+	    },
+
+	    render: function render() {
+	        var _this3 = this;
+
+	        var artists = this.state.artists.map(function (artist, n) {
+	            return _react2['default'].createElement(
+	                _reactRouter.Link,
+	                { to: '/artist-bio/' + artist.name, className: 'search-result-artist', key: n,
+	                    onClick: _this3.hideDropDown.bind(_this3, artist.name) },
+	                _react2['default'].createElement('img', { src: artist.image[0]['#text'], alt: artist.name, onError: _this3.setDefaultImage }),
+	                _react2['default'].createElement(
+	                    'span',
+	                    null,
+	                    artist.name
+	                )
+	            );
+	        });
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { id: 'searchSection' },
+	            _react2['default'].createElement(
+	                'form',
+	                { onSubmit: this.submit, className: 'search-form' },
+	                _react2['default'].createElement('input', { type: 'text', value: this.state.q, autoFocus: true, className: 'search-field', onInput: this.handler, onBlur: this.blur }),
+	                _react2['default'].createElement(
+	                    'button',
+	                    { className: 'search-reset-button', onClick: this.reset },
+	                    _react2['default'].createElement('i', { className: 'fa fa-times', 'aria-hidden': 'true' })
+	                ),
+	                _react2['default'].createElement(
+	                    'button',
+	                    { className: 'search-submit-button', onClick: this.submit },
+	                    _react2['default'].createElement('i', { className: 'fa fa-search' })
+	                )
+	            ),
+	            this.state.dropDown && _react2['default'].createElement(
+	                'div',
+	                { className: 'search-drop-down' },
+	                artists
+	            )
+	        );
+	    }
 	});
 
 	exports['default'] = Search;
@@ -48653,8 +48677,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 315 */,
-/* 316 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -48700,7 +48723,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Home.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 317 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -48725,11 +48748,11 @@
 
 	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
 
-	var _partialsDisqusBlockJsx = __webpack_require__(318);
+	var _partialsDisqusBlockJsx = __webpack_require__(317);
 
 	var _partialsDisqusBlockJsx2 = _interopRequireDefault(_partialsDisqusBlockJsx);
 
-	var _partialsArtistInfoJsx = __webpack_require__(319);
+	var _partialsArtistInfoJsx = __webpack_require__(318);
 
 	var _partialsArtistInfoJsx2 = _interopRequireDefault(_partialsArtistInfoJsx);
 
@@ -48843,7 +48866,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Station.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 318 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -48891,7 +48914,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "DisqusBlock.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 319 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -48958,7 +48981,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "ArtistInfo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 320 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -48979,7 +49002,7 @@
 
 	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
 
-	var _partialsStationItemJsx = __webpack_require__(321);
+	var _partialsStationItemJsx = __webpack_require__(320);
 
 	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
 
@@ -49012,7 +49035,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "City.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 321 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49057,7 +49080,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "StationItem.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 322 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49120,7 +49143,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Cities.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 323 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49183,7 +49206,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Countries.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 324 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49204,7 +49227,7 @@
 
 	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
 
-	var _partialsStationItemJsx = __webpack_require__(321);
+	var _partialsStationItemJsx = __webpack_require__(320);
 
 	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
 
@@ -49237,7 +49260,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Country.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 325 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49258,7 +49281,7 @@
 
 	var _dataStationsJson2 = _interopRequireDefault(_dataStationsJson);
 
-	var _partialsStationItemJsx = __webpack_require__(321);
+	var _partialsStationItemJsx = __webpack_require__(320);
 
 	var _partialsStationItemJsx2 = _interopRequireDefault(_partialsStationItemJsx);
 
@@ -49291,7 +49314,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Genre.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 326 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49382,7 +49405,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Artist.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 327 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49498,7 +49521,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Bio.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 328 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49515,7 +49538,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _libsSoundCloud = __webpack_require__(329);
+	var _libsSoundCloud = __webpack_require__(328);
 
 	var _libsSoundCloud2 = _interopRequireDefault(_libsSoundCloud);
 
@@ -49523,7 +49546,7 @@
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
-	var _partialsTrackSoundCloudJsx = __webpack_require__(330);
+	var _partialsTrackSoundCloudJsx = __webpack_require__(329);
 
 	var _partialsTrackSoundCloudJsx2 = _interopRequireDefault(_partialsTrackSoundCloudJsx);
 
@@ -49672,7 +49695,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Playlist.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 329 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -49756,7 +49779,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 330 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49775,7 +49798,7 @@
 
 	var _reactRedux = __webpack_require__(275);
 
-	var _libsSoundCloud = __webpack_require__(329);
+	var _libsSoundCloud = __webpack_require__(328);
 
 	var _libsSoundCloud2 = _interopRequireDefault(_libsSoundCloud);
 
@@ -49860,7 +49883,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "TrackSoundCloud.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 331 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -49881,11 +49904,11 @@
 
 	var _libsMeta2 = _interopRequireDefault(_libsMeta);
 
-	var _reactPhotoGallery = __webpack_require__(332);
+	var _reactPhotoGallery = __webpack_require__(331);
 
 	var _reactPhotoGallery2 = _interopRequireDefault(_reactPhotoGallery);
 
-	var _reactImages = __webpack_require__(333);
+	var _reactImages = __webpack_require__(332);
 
 	var _reactImages2 = _interopRequireDefault(_reactImages);
 
@@ -49984,7 +50007,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Photo.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 332 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50194,7 +50217,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 333 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50253,41 +50276,41 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _aphroditeNoImportant = __webpack_require__(334);
+	var _aphroditeNoImportant = __webpack_require__(333);
 
-	var _reactScrolllock = __webpack_require__(360);
+	var _reactScrolllock = __webpack_require__(359);
 
 	var _reactScrolllock2 = _interopRequireDefault(_reactScrolllock);
 
-	var _theme = __webpack_require__(362);
+	var _theme = __webpack_require__(361);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
-	var _componentsArrow = __webpack_require__(363);
+	var _componentsArrow = __webpack_require__(362);
 
 	var _componentsArrow2 = _interopRequireDefault(_componentsArrow);
 
-	var _componentsContainer = __webpack_require__(373);
+	var _componentsContainer = __webpack_require__(372);
 
 	var _componentsContainer2 = _interopRequireDefault(_componentsContainer);
 
-	var _componentsFooter = __webpack_require__(374);
+	var _componentsFooter = __webpack_require__(373);
 
 	var _componentsFooter2 = _interopRequireDefault(_componentsFooter);
 
-	var _componentsHeader = __webpack_require__(375);
+	var _componentsHeader = __webpack_require__(374);
 
 	var _componentsHeader2 = _interopRequireDefault(_componentsHeader);
 
-	var _componentsPaginatedThumbnails = __webpack_require__(376);
+	var _componentsPaginatedThumbnails = __webpack_require__(375);
 
 	var _componentsPaginatedThumbnails2 = _interopRequireDefault(_componentsPaginatedThumbnails);
 
-	var _componentsPortal = __webpack_require__(378);
+	var _componentsPortal = __webpack_require__(377);
 
 	var _componentsPortal2 = _interopRequireDefault(_componentsPortal);
 
-	var _utils = __webpack_require__(364);
+	var _utils = __webpack_require__(363);
 
 	var Lightbox = (function (_Component) {
 		_inherits(Lightbox, _Component);
@@ -50617,15 +50640,15 @@
 	*/
 
 /***/ },
-/* 334 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(335);
+	module.exports = __webpack_require__(334);
 
 /***/ },
-/* 335 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Module with the same interface as the core aphrodite module,
@@ -50638,9 +50661,9 @@
 	    value: true
 	});
 
-	var _inject = __webpack_require__(336);
+	var _inject = __webpack_require__(335);
 
-	var _indexJs = __webpack_require__(359);
+	var _indexJs = __webpack_require__(358);
 
 	var css = function css() {
 	    for (var _len = arguments.length, styleDefinitions = Array(_len), _key = 0; _key < _len; _key++) {
@@ -50657,7 +50680,7 @@
 	exports.css = css;
 
 /***/ },
-/* 336 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -50670,13 +50693,13 @@
 	    return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
-	var _asap = __webpack_require__(337);
+	var _asap = __webpack_require__(336);
 
 	var _asap2 = _interopRequireDefault(_asap);
 
-	var _generate = __webpack_require__(339);
+	var _generate = __webpack_require__(338);
 
-	var _util = __webpack_require__(358);
+	var _util = __webpack_require__(357);
 
 	// The current <style> tag we are inserting into, or null if we haven't
 	// inserted anything yet. We could find this each time using
@@ -50895,13 +50918,13 @@
 	exports.injectAndGetClassName = injectAndGetClassName;
 
 /***/ },
-/* 337 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	// rawAsap provides everything we need except exception management.
-	var rawAsap = __webpack_require__(338);
+	var rawAsap = __webpack_require__(337);
 	// RawTasks are recycled to reduce GC churn.
 	var freeTasks = [];
 	// We queue errors to ensure they are thrown in right order (FIFO).
@@ -50966,7 +50989,7 @@
 	};
 
 /***/ },
-/* 338 */
+/* 337 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {"use strict";
@@ -51195,7 +51218,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 339 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51234,11 +51257,11 @@
 	    return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
-	var _inlineStylePrefixerStatic = __webpack_require__(340);
+	var _inlineStylePrefixerStatic = __webpack_require__(339);
 
 	var _inlineStylePrefixerStatic2 = _interopRequireDefault(_inlineStylePrefixerStatic);
 
-	var _util = __webpack_require__(358);
+	var _util = __webpack_require__(357);
 
 	/**
 	 * Generate CSS for a selector and some styles.
@@ -51425,15 +51448,15 @@
 	exports.generateCSSRuleset = generateCSSRuleset;
 
 /***/ },
-/* 340 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(341);
+	module.exports = __webpack_require__(340);
 
 /***/ },
-/* 341 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51443,51 +51466,51 @@
 	});
 	exports['default'] = prefixAll;
 
-	var _prefixProps = __webpack_require__(342);
+	var _prefixProps = __webpack_require__(341);
 
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 
-	var _capitalizeString = __webpack_require__(343);
+	var _capitalizeString = __webpack_require__(342);
 
 	var _capitalizeString2 = _interopRequireDefault(_capitalizeString);
 
-	var _sortPrefixedStyle = __webpack_require__(344);
+	var _sortPrefixedStyle = __webpack_require__(343);
 
 	var _sortPrefixedStyle2 = _interopRequireDefault(_sortPrefixedStyle);
 
-	var _position = __webpack_require__(346);
+	var _position = __webpack_require__(345);
 
 	var _position2 = _interopRequireDefault(_position);
 
-	var _calc = __webpack_require__(347);
+	var _calc = __webpack_require__(346);
 
 	var _calc2 = _interopRequireDefault(_calc);
 
-	var _cursor = __webpack_require__(350);
+	var _cursor = __webpack_require__(349);
 
 	var _cursor2 = _interopRequireDefault(_cursor);
 
-	var _flex = __webpack_require__(351);
+	var _flex = __webpack_require__(350);
 
 	var _flex2 = _interopRequireDefault(_flex);
 
-	var _sizing = __webpack_require__(352);
+	var _sizing = __webpack_require__(351);
 
 	var _sizing2 = _interopRequireDefault(_sizing);
 
-	var _gradient = __webpack_require__(353);
+	var _gradient = __webpack_require__(352);
 
 	var _gradient2 = _interopRequireDefault(_gradient);
 
-	var _transition = __webpack_require__(354);
+	var _transition = __webpack_require__(353);
 
 	var _transition2 = _interopRequireDefault(_transition);
 
-	var _flexboxIE = __webpack_require__(356);
+	var _flexboxIE = __webpack_require__(355);
 
 	var _flexboxIE2 = _interopRequireDefault(_flexboxIE);
 
-	var _flexboxOld = __webpack_require__(357);
+	var _flexboxOld = __webpack_require__(356);
 
 	var _flexboxOld2 = _interopRequireDefault(_flexboxOld);
 
@@ -51554,7 +51577,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 342 */
+/* 341 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -51566,7 +51589,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 343 */
+/* 342 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -51583,7 +51606,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 344 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51593,7 +51616,7 @@
 	});
 	exports['default'] = sortPrefixedStyle;
 
-	var _isPrefixedProperty = __webpack_require__(345);
+	var _isPrefixedProperty = __webpack_require__(344);
 
 	var _isPrefixedProperty2 = _interopRequireDefault(_isPrefixedProperty);
 
@@ -51617,7 +51640,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 345 */
+/* 344 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -51633,7 +51656,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 346 */
+/* 345 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51650,7 +51673,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 347 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51660,11 +51683,11 @@
 	});
 	exports['default'] = calc;
 
-	var _joinPrefixedValue = __webpack_require__(348);
+	var _joinPrefixedValue = __webpack_require__(347);
 
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 
-	var _isPrefixedValue = __webpack_require__(349);
+	var _isPrefixedValue = __webpack_require__(348);
 
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 
@@ -51682,7 +51705,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 348 */
+/* 347 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51713,7 +51736,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 349 */
+/* 348 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51731,7 +51754,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 350 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51741,7 +51764,7 @@
 	});
 	exports['default'] = cursor;
 
-	var _joinPrefixedValue = __webpack_require__(348);
+	var _joinPrefixedValue = __webpack_require__(347);
 
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 
@@ -51764,7 +51787,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 351 */
+/* 350 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51785,7 +51808,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 352 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51795,7 +51818,7 @@
 	});
 	exports['default'] = sizing;
 
-	var _joinPrefixedValue = __webpack_require__(348);
+	var _joinPrefixedValue = __webpack_require__(347);
 
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 
@@ -51828,7 +51851,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 353 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51838,11 +51861,11 @@
 	});
 	exports['default'] = gradient;
 
-	var _joinPrefixedValue = __webpack_require__(348);
+	var _joinPrefixedValue = __webpack_require__(347);
 
 	var _joinPrefixedValue2 = _interopRequireDefault(_joinPrefixedValue);
 
-	var _isPrefixedValue = __webpack_require__(349);
+	var _isPrefixedValue = __webpack_require__(348);
 
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 
@@ -51860,7 +51883,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 354 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51870,19 +51893,19 @@
 	});
 	exports['default'] = transition;
 
-	var _hyphenateStyleName = __webpack_require__(355);
+	var _hyphenateStyleName = __webpack_require__(354);
 
 	var _hyphenateStyleName2 = _interopRequireDefault(_hyphenateStyleName);
 
-	var _capitalizeString = __webpack_require__(343);
+	var _capitalizeString = __webpack_require__(342);
 
 	var _capitalizeString2 = _interopRequireDefault(_capitalizeString);
 
-	var _isPrefixedValue = __webpack_require__(349);
+	var _isPrefixedValue = __webpack_require__(348);
 
 	var _isPrefixedValue2 = _interopRequireDefault(_isPrefixedValue);
 
-	var _prefixProps = __webpack_require__(342);
+	var _prefixProps = __webpack_require__(341);
 
 	var _prefixProps2 = _interopRequireDefault(_prefixProps);
 
@@ -51955,7 +51978,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 355 */
+/* 354 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -51971,7 +51994,7 @@
 	module.exports = hyphenateStyleName;
 
 /***/ },
-/* 356 */
+/* 355 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52014,7 +52037,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 357 */
+/* 356 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52061,7 +52084,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 358 */
+/* 357 */
 /***/ function(module, exports) {
 
 	// {K1: V1, K2: V2, ...} -> [[K1, V1], [K2, V2]]
@@ -52331,7 +52354,7 @@
 	exports.importantify = importantify;
 
 /***/ },
-/* 359 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52366,9 +52389,9 @@
 	    };
 	})();
 
-	var _util = __webpack_require__(358);
+	var _util = __webpack_require__(357);
 
-	var _inject = __webpack_require__(336);
+	var _inject = __webpack_require__(335);
 
 	var StyleSheet = {
 	    create: function create(sheetDefinition) {
@@ -52462,15 +52485,15 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 360 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(361);
+	module.exports = __webpack_require__(360);
 
 /***/ },
-/* 361 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52556,7 +52579,7 @@
 	module.exports = ScrollLock;
 
 /***/ },
-/* 362 */
+/* 361 */
 /***/ function(module, exports) {
 
 	// ==============================
@@ -52618,7 +52641,7 @@
 	module.exports = theme;
 
 /***/ },
-/* 363 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52647,15 +52670,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _aphroditeNoImportant = __webpack_require__(334);
+	var _aphroditeNoImportant = __webpack_require__(333);
 
-	var _theme = __webpack_require__(362);
+	var _theme = __webpack_require__(361);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
-	var _utils = __webpack_require__(364);
+	var _utils = __webpack_require__(363);
 
-	var _Icon = __webpack_require__(368);
+	var _Icon = __webpack_require__(367);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -52740,7 +52763,7 @@
 	module.exports = Arrow;
 
 /***/ },
-/* 364 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52749,15 +52772,15 @@
 		return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
-	var _bindFunctions = __webpack_require__(365);
+	var _bindFunctions = __webpack_require__(364);
 
 	var _bindFunctions2 = _interopRequireDefault(_bindFunctions);
 
-	var _canUseDom = __webpack_require__(366);
+	var _canUseDom = __webpack_require__(365);
 
 	var _canUseDom2 = _interopRequireDefault(_canUseDom);
 
-	var _deepMerge = __webpack_require__(367);
+	var _deepMerge = __webpack_require__(366);
 
 	var _deepMerge2 = _interopRequireDefault(_deepMerge);
 
@@ -52768,7 +52791,7 @@
 	};
 
 /***/ },
-/* 365 */
+/* 364 */
 /***/ function(module, exports) {
 
 	/**
@@ -52794,7 +52817,7 @@
 	};
 
 /***/ },
-/* 366 */
+/* 365 */
 /***/ function(module, exports) {
 
 	// Return true if window + document
@@ -52804,7 +52827,7 @@
 	module.exports = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 
 /***/ },
-/* 367 */
+/* 366 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -52842,7 +52865,7 @@
 	module.exports = deepMerge;
 
 /***/ },
-/* 368 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52875,7 +52898,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _icons = __webpack_require__(369);
+	var _icons = __webpack_require__(368);
 
 	var _icons2 = _interopRequireDefault(_icons);
 
@@ -52904,19 +52927,19 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 369 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-		arrowLeft: __webpack_require__(370),
-		arrowRight: __webpack_require__(371),
-		close: __webpack_require__(372)
+		arrowLeft: __webpack_require__(369),
+		arrowRight: __webpack_require__(370),
+		close: __webpack_require__(371)
 	};
 
 /***/ },
-/* 370 */
+/* 369 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -52932,7 +52955,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 371 */
+/* 370 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -52948,7 +52971,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 372 */
+/* 371 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -52964,7 +52987,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 373 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -52993,13 +53016,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _aphroditeNoImportant = __webpack_require__(334);
+	var _aphroditeNoImportant = __webpack_require__(333);
 
-	var _theme = __webpack_require__(362);
+	var _theme = __webpack_require__(361);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
-	var _utils = __webpack_require__(364);
+	var _utils = __webpack_require__(363);
 
 	function Container(_ref, _ref2) {
 		var props = _objectWithoutProperties(_ref, []);
@@ -53040,7 +53063,7 @@
 	module.exports = Container;
 
 /***/ },
-/* 374 */
+/* 373 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53069,13 +53092,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _aphroditeNoImportant = __webpack_require__(334);
+	var _aphroditeNoImportant = __webpack_require__(333);
 
-	var _theme = __webpack_require__(362);
+	var _theme = __webpack_require__(361);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
-	var _utils = __webpack_require__(364);
+	var _utils = __webpack_require__(363);
 
 	function Footer(_ref, _ref2) {
 		var caption = _ref.caption;
@@ -53135,7 +53158,7 @@
 	module.exports = Footer;
 
 /***/ },
-/* 375 */
+/* 374 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53164,15 +53187,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _aphroditeNoImportant = __webpack_require__(334);
+	var _aphroditeNoImportant = __webpack_require__(333);
 
-	var _theme = __webpack_require__(362);
+	var _theme = __webpack_require__(361);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
-	var _utils = __webpack_require__(364);
+	var _utils = __webpack_require__(363);
 
-	var _Icon = __webpack_require__(368);
+	var _Icon = __webpack_require__(367);
 
 	var _Icon2 = _interopRequireDefault(_Icon);
 
@@ -53229,7 +53252,7 @@
 	module.exports = Header;
 
 /***/ },
-/* 376 */
+/* 375 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53298,17 +53321,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _aphroditeNoImportant = __webpack_require__(334);
+	var _aphroditeNoImportant = __webpack_require__(333);
 
-	var _Thumbnail = __webpack_require__(377);
+	var _Thumbnail = __webpack_require__(376);
 
 	var _Thumbnail2 = _interopRequireDefault(_Thumbnail);
 
-	var _Arrow = __webpack_require__(363);
+	var _Arrow = __webpack_require__(362);
 
 	var _Arrow2 = _interopRequireDefault(_Arrow);
 
-	var _theme = __webpack_require__(362);
+	var _theme = __webpack_require__(361);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
@@ -53500,7 +53523,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 377 */
+/* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53517,13 +53540,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _aphroditeNoImportant = __webpack_require__(334);
+	var _aphroditeNoImportant = __webpack_require__(333);
 
-	var _theme = __webpack_require__(362);
+	var _theme = __webpack_require__(361);
 
 	var _theme2 = _interopRequireDefault(_theme);
 
-	var _utils = __webpack_require__(364);
+	var _utils = __webpack_require__(363);
 
 	function Thumbnail(_ref, _ref2) {
 		var index = _ref.index;
@@ -53582,7 +53605,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 378 */
+/* 377 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -53651,13 +53674,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactAddonsCssTransitionGroup = __webpack_require__(379);
+	var _reactAddonsCssTransitionGroup = __webpack_require__(378);
 
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 
 	var _reactDom = __webpack_require__(47);
 
-	var _PassContext = __webpack_require__(393);
+	var _PassContext = __webpack_require__(392);
 
 	var _PassContext2 = _interopRequireDefault(_PassContext);
 
@@ -53716,15 +53739,15 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 379 */
+/* 378 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(380);
+	module.exports = __webpack_require__(379);
 
 /***/ },
-/* 380 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53763,8 +53786,8 @@
 	var propTypesFactory = __webpack_require__(41);
 	var PropTypes = propTypesFactory(React.isValidElement);
 
-	var ReactTransitionGroup = __webpack_require__(381);
-	var ReactCSSTransitionGroupChild = __webpack_require__(384);
+	var ReactTransitionGroup = __webpack_require__(380);
+	var ReactCSSTransitionGroupChild = __webpack_require__(383);
 
 	function createTransitionTimeoutPropValidator(transitionType) {
 	  var timeoutPropName = 'transition' + transitionType + 'Timeout';
@@ -53846,7 +53869,7 @@
 	module.exports = ReactCSSTransitionGroup;
 
 /***/ },
-/* 381 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -53882,7 +53905,7 @@
 	}
 
 	var React = __webpack_require__(13);
-	var ReactTransitionChildMapping = __webpack_require__(382);
+	var ReactTransitionChildMapping = __webpack_require__(381);
 
 	var propTypesFactory = __webpack_require__(41);
 	var PropTypes = propTypesFactory(React.isValidElement);
@@ -54093,7 +54116,7 @@
 	module.exports = ReactTransitionGroup;
 
 /***/ },
-/* 382 */
+/* 381 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54108,7 +54131,7 @@
 
 	'use strict';
 
-	var flattenChildren = __webpack_require__(383);
+	var flattenChildren = __webpack_require__(382);
 
 	var ReactTransitionChildMapping = {
 	  /**
@@ -54200,7 +54223,7 @@
 	module.exports = ReactTransitionChildMapping;
 
 /***/ },
-/* 383 */
+/* 382 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -54281,7 +54304,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)))
 
 /***/ },
-/* 384 */
+/* 383 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54315,13 +54338,13 @@
 	}
 
 	var React = __webpack_require__(13);
-	var ReactAddonsDOMDependencies = __webpack_require__(385);
+	var ReactAddonsDOMDependencies = __webpack_require__(384);
 
 	var propTypesFactory = __webpack_require__(41);
 	var PropTypes = propTypesFactory(React.isValidElement);
 
-	var CSSCore = __webpack_require__(390);
-	var ReactTransitionEvents = __webpack_require__(391);
+	var CSSCore = __webpack_require__(389);
+	var ReactTransitionEvents = __webpack_require__(390);
 
 	var onlyChild = __webpack_require__(46);
 
@@ -54481,7 +54504,7 @@
 	module.exports = ReactCSSTransitionGroupChild;
 
 /***/ },
-/* 385 */
+/* 384 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -54508,21 +54531,21 @@
 
 	  exports.getReactPerf = function () {
 	    if (!ReactPerf) {
-	      ReactPerf = __webpack_require__(386);
+	      ReactPerf = __webpack_require__(385);
 	    }
 	    return ReactPerf;
 	  };
 
 	  exports.getReactTestUtils = function () {
 	    if (!ReactTestUtils) {
-	      ReactTestUtils = __webpack_require__(387);
+	      ReactTestUtils = __webpack_require__(386);
 	    }
 	    return ReactTestUtils;
 	  };
 	}
 
 /***/ },
-/* 386 */
+/* 385 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -55035,7 +55058,7 @@
 	module.exports = ReactPerfAnalysis;
 
 /***/ },
-/* 387 */
+/* 386 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -55053,7 +55076,7 @@
 	var _prodInvariant = __webpack_require__(50),
 	    _assign = __webpack_require__(68);
 
-	var EventConstants = __webpack_require__(388);
+	var EventConstants = __webpack_require__(387);
 	var EventPluginHub = __webpack_require__(58);
 	var EventPluginRegistry = __webpack_require__(59);
 	var EventPropagators = __webpack_require__(57);
@@ -55064,7 +55087,7 @@
 	var ReactInstanceMap = __webpack_require__(135);
 	var ReactUpdates = __webpack_require__(75);
 	var SyntheticEvent = __webpack_require__(72);
-	var ReactShallowRenderer = __webpack_require__(389);
+	var ReactShallowRenderer = __webpack_require__(388);
 
 	var findDOMNode = __webpack_require__(192);
 	var invariant = __webpack_require__(52);
@@ -55451,7 +55474,7 @@
 	module.exports = ReactTestUtils;
 
 /***/ },
-/* 388 */
+/* 387 */
 /***/ function(module, exports) {
 
 	/**
@@ -55547,7 +55570,7 @@
 	module.exports = EventConstants;
 
 /***/ },
-/* 389 */
+/* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -55690,7 +55713,7 @@
 	module.exports = ReactShallowRenderer;
 
 /***/ },
-/* 390 */
+/* 389 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55816,7 +55839,7 @@
 	module.exports = CSSCore;
 
 /***/ },
-/* 391 */
+/* 390 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -55831,7 +55854,7 @@
 
 	'use strict';
 
-	var ExecutionEnvironment = __webpack_require__(392);
+	var ExecutionEnvironment = __webpack_require__(391);
 
 	var getVendorPrefixedEventName = __webpack_require__(126);
 
@@ -55893,7 +55916,7 @@
 	module.exports = ReactTransitionEvents;
 
 /***/ },
-/* 392 */
+/* 391 */
 /***/ function(module, exports) {
 
 	/**
@@ -55933,7 +55956,7 @@
 	module.exports = ExecutionEnvironment;
 
 /***/ },
-/* 393 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56026,7 +56049,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 394 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -56045,11 +56068,11 @@
 
 	var _reactRouter = __webpack_require__(198);
 
-	var _libsYoutube = __webpack_require__(395);
+	var _libsYoutube = __webpack_require__(394);
 
 	var _libsYoutube2 = _interopRequireDefault(_libsYoutube);
 
-	var _partialsYoutubeTrackJsx = __webpack_require__(396);
+	var _partialsYoutubeTrackJsx = __webpack_require__(395);
 
 	var _partialsYoutubeTrackJsx2 = _interopRequireDefault(_partialsYoutubeTrackJsx);
 
@@ -56097,7 +56120,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Video.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 395 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -56383,7 +56406,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 396 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -56444,7 +56467,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "YoutubeTrack.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 397 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -56531,7 +56554,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Albums.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 398 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -56550,7 +56573,7 @@
 
 	var _reactRouter = __webpack_require__(198);
 
-	var _partialsTrackJsx = __webpack_require__(399);
+	var _partialsTrackJsx = __webpack_require__(398);
 
 	var _partialsTrackJsx2 = _interopRequireDefault(_partialsTrackJsx);
 
@@ -56637,7 +56660,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Album.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 399 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -56705,7 +56728,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Track.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
-/* 400 */
+/* 399 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -56750,16 +56773,106 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "NotFound.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ },
+/* 400 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(12);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	exports['default'] = function () {
+
+	    return _react2['default'].createElement(
+	        'div',
+	        null,
+	        _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'Contact page'
+	        ),
+	        _react2['default'].createElement(
+	            'p',
+	            null,
+	            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dignissimos id, in minima omnis porro rem voluptas. Eaque, libero, molestiae.'
+	        ),
+	        _react2['default'].createElement(
+	            'p',
+	            null,
+	            'Debitis doloremque ducimus enim ex explicabo illum iusto laboriosam maiores minima minus mollitia odio repellat, voluptatem voluptatibus!'
+	        )
+	    );
+	};
+
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Contact.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
 /* 401 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(12);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	exports['default'] = function () {
+
+	    return _react2['default'].createElement(
+	        'div',
+	        null,
+	        _react2['default'].createElement(
+	            'h1',
+	            null,
+	            'About page'
+	        ),
+	        _react2['default'].createElement(
+	            'p',
+	            null,
+	            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dignissimos id, in minima omnis porro rem voluptas. Eaque, libero, molestiae.'
+	        ),
+	        _react2['default'].createElement(
+	            'p',
+	            null,
+	            'Debitis doloremque ducimus enim ex explicabo illum iusto laboriosam maiores minima minus mollitia odio repellat, voluptatem voluptatibus!'
+	        )
+	    );
+	};
+
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "About.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(402);
+	var content = __webpack_require__(403);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(404)(content, {});
+	var update = __webpack_require__(405)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -56776,21 +56889,21 @@
 	}
 
 /***/ },
-/* 402 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(403)();
+	exports = module.exports = __webpack_require__(404)();
 	// imports
 	exports.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:400,500&subset=cyrillic);", ""]);
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nq:before,\nblockquote:after,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n#sidebar {\n  min-width: 250px;\n  width: 250px;\n  background: #fdfdfd;\n  padding: 15px 20px;\n  border-right: 1px solid #dbdfe4;\n}\n#sidebar > b {\n  text-transform: uppercase;\n  font-weight: bold;\n  margin-bottom: 10px;\n  display: block;\n  color: #656c7a;\n}\nul.sidebar-list {\n  clear: both;\n  float: none;\n  overflow: hidden;\n  margin-bottom: 20px;\n}\nul.sidebar-list > li {\n  float: left;\n  margin-right: 12px;\n  font-size: 14px;\n  line-height: 20px;\n}\nul.sidebar-list > li > a {\n  color: #567;\n}\nnav {\n  background: #fdfdfd;\n  border-bottom: 1px solid #c3cbd4;\n  padding: 16px 20px;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  align-items: center;\n  justify-content: space-between;\n}\nnav li {\n  float: left;\n  margin-right: 20px;\n}\n.nav-section-left {\n  width: 100%;\n  max-width: 230px;\n}\n.nav-section-left > a {\n  float: left;\n  margin-right: 20px;\n}\n#searchSection {\n  flex-grow: 1;\n  width: 100%;\n  position: relative;\n}\n.search-form {\n  position: relative;\n  display: flex;\n  justify-content: flex-end;\n}\n.search-form:hover > .search-reset-button {\n  display: block;\n}\ninput.search-field {\n  flex-grow: 1;\n  padding: 4px 5px;\n  border: 1px solid #c3cbd4;\n}\nbutton.search-reset-button {\n  display: none;\n  position: absolute;\n  right: 28px;\n  background: transparent;\n  border: 0;\n  height: 100%;\n  font-size: 14px;\n  font-weight: normal;\n  cursor: pointer;\n  color: #cacaca;\n}\nbutton.search-reset-button:hover {\n  color: #666;\n  transition: all 0.1s;\n}\n.search-drop-down {\n  position: absolute;\n  left: 0;\n  background: rgba(0, 0, 0, 0.85);\n  z-index: 1000;\n  width: 100%;\n  max-height: 300px;\n  overflow-y: scroll;\n  overflow-x: hidden;\n}\n.search-drop-down > a {\n  color: white;\n  width: 100%;\n  display: flex;\n  padding: 10px;\n  border-bottom: 1px solid black;\n  align-items: center;\n}\n.search-drop-down > a:hover {\n  background: black;\n  transition: all .15s;\n}\n.search-drop-down img {\n  margin-right: 10px;\n  width: 34px;\n  height: 34px;\n}\nbody.streamLoading .meter {\n  display: block;\n}\n.meter {\n  display: none;\n  height: 100%;\n  position: relative;\n}\n.meter > span {\n  display: block;\n  height: 100%;\n  width: 100%;\n  background-color: #c1c1c1;\n  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c1c1c1), color-stop(1, #d8d8d8));\n  background-image: -moz-linear-gradient(center bottom, #c1c1c1 37%, #d8d8d8 69%);\n  position: relative;\n  overflow: hidden;\n}\n.meter > span:after,\n.animate > span > span {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));\n  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);\n  z-index: 1;\n  -webkit-background-size: 50px 50px;\n  -moz-background-size: 50px 50px;\n  -webkit-animation: move 2s linear infinite;\n  overflow: hidden;\n}\n.animate > span:after {\n  display: none;\n}\n@-webkit-keyframes move {\n  0% {\n    background-position: 0 0;\n  }\n  100% {\n    background-position: 50px 50px;\n  }\n}\n.nostripes > span > span,\n.nostripes > span:after {\n  -webkit-animation: none;\n  background-image: none;\n}\nbody.streamLoading #playerWrapper:before {\n  display: block;\n}\nbody.loading .linear-activity {\n  display: block;\n}\n.linear-activity {\n  display: none;\n  margin: auto;\n  overflow: hidden;\n  width: 100%;\n  max-width: 960px;\n  height: 2px;\n  background-color: #B3E5FC;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.indeterminate {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.indeterminate:before {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #03A9F4;\n  animation: indeterminate_first 1.5s infinite ease-out;\n}\n.indeterminate:after {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #4FC3F7;\n  animation: indeterminate_second 1.5s infinite ease-in;\n}\n@keyframes indeterminate_first {\n  0% {\n    left: -100%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n@keyframes indeterminate_second {\n  0% {\n    left: -150%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n/* Page Loader (radial)\n----------------------------------------------------------------------------------------------------------------------*/\n#content {\n  position: relative;\n}\n#content .loader {\n  border: 8px solid #f3f3f3;\n  border-top: 8px solid #4285f4;\n  border-radius: 50%;\n  width: 60px;\n  height: 60px;\n  animation: spin 2s linear infinite;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  margin: auto;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.station-list > div {\n  float: left;\n  margin-right: 9px;\n  margin-bottom: 9px;\n  width: 100px;\n  height: 100px;\n  background: #fdfdfd;\n  box-shadow: 0 0 0 1px #eee;\n}\n.station-item {\n  position: relative;\n}\n.station-item > b {\n  position: absolute;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  height: 20px;\n  font-size: 13px;\n  line-height: 20px;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  text-align: center;\n  padding: 0 2px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.station-item img {\n  float: left;\n}\n.station-page {\n  margin-bottom: 20px;\n  overflow: hidden;\n}\n.station-page > img {\n  box-shadow: 0 0 0 1px #eee;\n  float: left;\n  margin-right: 20px;\n}\n.artist-info {\n  padding-bottom: 20px;\n  overflow: hidden;\n}\n.artist-info.short {\n  padding-top: 20px;\n  border-top: 1px solid #dbdfe4;\n}\n.artist-info > a {\n  margin-right: 20px;\n  overflow: hidden;\n  float: left;\n}\n.artist-info img {\n  background: #eee;\n}\n.artist-info__image--small {\n  width: 174px;\n  height: 174px;\n}\n.artist-info__image--medium {\n  width: 100%;\n  max-width: 300px;\n  height: auto;\n}\n.artist-info-controls {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  background: #e1e7ed;\n  height: 26px;\n  border: 1px solid #c3cbd4;\n  min-height: 26px;\n}\n.artist-info-controls > li {\n  flex-grow: 1;\n  height: 100%;\n  border-right: 1px solid #c3cbd4;\n  transition: all .1s;\n}\n.artist-info-controls > li:last-child {\n  border: 0;\n}\n.artist-info-controls > li:hover a {\n  background: white;\n}\n.artist-info-controls a {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #4d6ca0;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n}\n.artist-info-controls a.active {\n  background: #fdfdfd;\n}\n.sound-track {\n  display: flex;\n  flex-direction: row;\n  height: 40px;\n  border: 1px solid #dbdfe4;\n  margin-bottom: 15px;\n  align-items: center;\n  margin-right: 10px;\n}\n.sound-track.active {\n  background: whitesmoke;\n}\n.sound-track__artist-name {\n  flex-grow: 1;\n}\n.sound-track__play-pause {\n  border-right: 1px solid #dbdfe4;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  width: 40px;\n  min-width: 40px;\n  justify-content: center;\n  cursor: pointer;\n}\n.sound-track__play-pause:after {\n  content: \"\\25BA\";\n}\n.sound-track.play .sound-track__play-pause:after {\n  content: \"\\2759\\2759\";\n}\n.sound-track__controls {\n  border-left: 1px solid #dbdfe4;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  width: 50px;\n  min-width: 50px;\n  cursor: pointer;\n}\n.sound-track__duration {\n  flex-grow: 1;\n  text-align: center;\n  font-size: 13px;\n}\n.sound-track__artist-name {\n  flex-grow: 1;\n  padding: 0 10px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n#youtubePlayer {\n  position: absolute;\n  bottom: 0;\n}\n.youtube-track {\n  width: 33.33333%;\n  float: left;\n  position: relative;\n  padding-right: 10px;\n  padding-bottom: 10px;\n  cursor: pointer;\n}\n.youtube-track__img > img {\n  float: left;\n  max-width: 100%;\n  height: auto;\n  min-height: 115px;\n}\n.youtube-track__artist-name {\n  position: absolute;\n  bottom: 10px;\n  left: 0;\n  right: 10px;\n  color: white;\n  background: rgba(0, 0, 0, 0.7);\n  font-size: 13px;\n  padding: 5px;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\na.albums-section__image-link {\n  float: left;\n  margin-right: 20px;\n}\n.album-block__playlist {\n  clear: both;\n}\n.album-item {\n  float: left;\n  position: relative;\n  width: 25%;\n  border-right: 1px solid white;\n  min-height: 160px;\n  border-bottom: 1px solid white;\n}\n.album-item > img {\n  float: left;\n  max-width: 100%;\n}\nspan.album-item__name {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  display: block;\n  overflow: hidden;\n  white-space: nowrap;\n  text-align: center;\n  text-overflow: ellipsis;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  font-size: 13px;\n  padding: 5px;\n  width: 100%;\n}\n.photo-list > img {\n  float: left;\n  width: 25%;\n  border-top: 1px solid white;\n  border-right: 1px solid white;\n}\n* {\n  outline: none;\n  box-sizing: border-box;\n}\nhtml,\nbody,\n#app,\n#wrapper {\n  height: 100%;\n}\nbody {\n  font-family: 'Fira Sans Condensed', sans-serif;\n  color: #345;\n  font-size: 15px;\n  background: #e1e7ed;\n}\np {\n  line-height: 20px;\n  margin-bottom: 20px;\n}\na {\n  text-decoration: none;\n}\nh1,\nh2,\nh3,\nh4,\nh5 {\n  text-transform: uppercase;\n  font-weight: bold;\n  color: #656c7a;\n}\nh1 {\n  font-size: 26px;\n  margin-bottom: 20px;\n}\nh2 {\n  font-size: 22px;\n  margin-bottom: 18px;\n}\nh3 {\n  font-size: 18px;\n  margin-bottom: 18px;\n}\n#app {\n  width: 100%;\n  max-width: 960px;\n  margin: 0 auto;\n  border-left: 1px solid #c3cbd4;\n  border-right: 1px solid #c3cbd4;\n}\n#wrapper {\n  display: flex;\n  flex-direction: column;\n}\n#container {\n  display: flex;\n  flex-direction: row;\n  align-content: center;\n  flex-grow: 1;\n}\n#content {\n  flex-grow: 1;\n  max-width: 960px;\n  padding: 20px 25px 0;\n  background: white;\n  overflow: hidden;\n}\n#content > section {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n}\n#content .scroll {\n  overflow-y: auto;\n  margin-top: 20px;\n  overflow-x: hidden;\n}\nul.list-items-horizontal > li {\n  float: left;\n  margin-right: 20px;\n  margin-bottom: 10px;\n  font-size: 14px;\n}\n#audio {\n  width: 100%;\n  height: 100%;\n}\n#playerWrapper {\n  width: 100%;\n  border-top: 1px solid #c3cbd4;\n  height: 33px;\n  min-height: 33px;\n  top: 0;\n  left: 0;\n  position: relative;\n  overflow: hidden;\n}\n#soundCloudPlayerWrapper {\n  width: 100%;\n  border-top: 1px solid #c3cbd4;\n  background: whitesmoke;\n  height: 120px;\n  min-height: 120px;\n  top: 0;\n  left: 0;\n  position: relative;\n  overflow: hidden;\n}\n#playerWrapper:before {\n  content: \"\";\n  display: none;\n  width: 100%;\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n#disqus_thread {\n  border-top: 1px solid #dbdfe4;\n  margin-left: -25px;\n  margin-right: -25px;\n  padding: 10px 25px 15px;\n  background: #fdfdfd;\n}\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\n/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmain,\nmenu,\nnav,\nsection {\n  display: block;\n}\nbody {\n  line-height: 1;\n}\nol,\nul {\n  list-style: none;\n}\nblockquote,\nq {\n  quotes: none;\n}\nblockquote:before,\nq:before,\nblockquote:after,\nq:after {\n  content: '';\n  content: none;\n}\ntable {\n  border-collapse: collapse;\n  border-spacing: 0;\n}\n#sidebar {\n  min-width: 250px;\n  width: 250px;\n  background: #fdfdfd;\n  padding: 15px 20px;\n  border-right: 1px solid #dbdfe4;\n}\n#sidebar > b {\n  text-transform: uppercase;\n  font-weight: bold;\n  margin-bottom: 10px;\n  display: block;\n  color: #656c7a;\n}\nul.sidebar-list {\n  clear: both;\n  float: none;\n  overflow: hidden;\n  margin-bottom: 20px;\n}\nul.sidebar-list > li {\n  float: left;\n  margin-right: 12px;\n  font-size: 14px;\n  line-height: 20px;\n}\nul.sidebar-list > li > a {\n  color: #567;\n}\nnav {\n  background: #fdfdfd;\n  border-bottom: 1px solid #c3cbd4;\n  padding: 16px 20px;\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  align-items: center;\n  justify-content: space-between;\n}\nnav li {\n  float: left;\n  margin-right: 20px;\n}\n.nav-section-left {\n  width: 100%;\n  max-width: 230px;\n}\n.nav-section-left > a {\n  float: left;\n  margin-right: 20px;\n}\n#searchSection {\n  flex-grow: 1;\n  width: 100%;\n  position: relative;\n}\n.search-form {\n  position: relative;\n  display: flex;\n  justify-content: flex-end;\n}\n.search-form.clear-active:hover > .search-reset-button {\n  display: block;\n}\ninput.search-field {\n  flex-grow: 1;\n  padding: 4px 5px;\n  border: 1px solid #c3cbd4;\n}\nbutton.search-reset-button {\n  display: none;\n  position: absolute;\n  right: 28px;\n  background: transparent;\n  border: 0;\n  height: 100%;\n  font-size: 14px;\n  font-weight: normal;\n  cursor: pointer;\n  color: #cacaca;\n}\nbutton.search-reset-button:hover {\n  color: #666;\n  transition: all 0.1s;\n}\n.search-drop-down {\n  position: absolute;\n  left: 0;\n  background: rgba(0, 0, 0, 0.85);\n  z-index: 1000;\n  width: 100%;\n  max-height: 300px;\n  overflow-y: scroll;\n  overflow-x: hidden;\n}\n.search-drop-down > a {\n  color: white;\n  width: 100%;\n  display: flex;\n  padding: 10px;\n  border-bottom: 1px solid black;\n  align-items: center;\n}\n.search-drop-down > a:hover {\n  background: black;\n  transition: all .15s;\n}\n.search-drop-down img {\n  margin-right: 10px;\n  width: 34px;\n  height: 34px;\n}\nbody.streamLoading .meter {\n  display: block;\n}\n.meter {\n  display: none;\n  height: 100%;\n  position: relative;\n}\n.meter > span {\n  display: block;\n  height: 100%;\n  width: 100%;\n  background-color: #c1c1c1;\n  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c1c1c1), color-stop(1, #d8d8d8));\n  background-image: -moz-linear-gradient(center bottom, #c1c1c1 37%, #d8d8d8 69%);\n  position: relative;\n  overflow: hidden;\n}\n.meter > span:after,\n.animate > span > span {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));\n  background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);\n  z-index: 1;\n  -webkit-background-size: 50px 50px;\n  -moz-background-size: 50px 50px;\n  -webkit-animation: move 2s linear infinite;\n  overflow: hidden;\n}\n.animate > span:after {\n  display: none;\n}\n@-webkit-keyframes move {\n  0% {\n    background-position: 0 0;\n  }\n  100% {\n    background-position: 50px 50px;\n  }\n}\n.nostripes > span > span,\n.nostripes > span:after {\n  -webkit-animation: none;\n  background-image: none;\n}\nbody.streamLoading #playerWrapper:before {\n  display: block;\n}\nbody.loading .linear-activity {\n  display: block;\n}\n.linear-activity {\n  display: none;\n  margin: auto;\n  overflow: hidden;\n  width: 100%;\n  max-width: 960px;\n  height: 2px;\n  background-color: #B3E5FC;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n.indeterminate {\n  position: relative;\n  width: 100%;\n  height: 100%;\n}\n.indeterminate:before {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #03A9F4;\n  animation: indeterminate_first 1.5s infinite ease-out;\n}\n.indeterminate:after {\n  content: '';\n  position: absolute;\n  height: 100%;\n  background-color: #4FC3F7;\n  animation: indeterminate_second 1.5s infinite ease-in;\n}\n@keyframes indeterminate_first {\n  0% {\n    left: -100%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n@keyframes indeterminate_second {\n  0% {\n    left: -150%;\n    width: 100%;\n  }\n  100% {\n    left: 100%;\n    width: 10%;\n  }\n}\n/* Page Loader (radial)\n----------------------------------------------------------------------------------------------------------------------*/\n#content {\n  position: relative;\n}\n#content .loader {\n  border: 8px solid #f3f3f3;\n  border-top: 8px solid #4285f4;\n  border-radius: 50%;\n  width: 60px;\n  height: 60px;\n  animation: spin 2s linear infinite;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  margin: auto;\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n.station-list > div {\n  float: left;\n  margin-right: 9px;\n  margin-bottom: 9px;\n  width: 100px;\n  height: 100px;\n  background: #fdfdfd;\n  box-shadow: 0 0 0 1px #eee;\n}\n.station-item {\n  position: relative;\n}\n.station-item > b {\n  position: absolute;\n  width: 100%;\n  bottom: 0;\n  left: 0;\n  height: 20px;\n  font-size: 13px;\n  line-height: 20px;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  text-align: center;\n  padding: 0 2px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.station-item img {\n  float: left;\n}\n.station-page {\n  margin-bottom: 20px;\n  overflow: hidden;\n}\n.station-page > img {\n  box-shadow: 0 0 0 1px #eee;\n  float: left;\n  margin-right: 20px;\n}\n.artist-info {\n  padding-bottom: 20px;\n  overflow: hidden;\n}\n.artist-info.short {\n  padding-top: 20px;\n  border-top: 1px solid #dbdfe4;\n}\n.artist-info > a {\n  margin-right: 20px;\n  overflow: hidden;\n  float: left;\n}\n.artist-info img {\n  background: #eee;\n}\n.artist-info__image--small {\n  width: 174px;\n  height: 174px;\n}\n.artist-info__image--medium {\n  width: 100%;\n  max-width: 300px;\n  height: auto;\n}\n.artist-info-controls {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  background: #e1e7ed;\n  height: 26px;\n  border: 1px solid #c3cbd4;\n  min-height: 26px;\n}\n.artist-info-controls > li {\n  flex-grow: 1;\n  height: 100%;\n  border-right: 1px solid #c3cbd4;\n  transition: all .1s;\n}\n.artist-info-controls > li:last-child {\n  border: 0;\n}\n.artist-info-controls > li:hover a {\n  background: white;\n}\n.artist-info-controls a {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  color: #4d6ca0;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n}\n.artist-info-controls a.active {\n  background: #fdfdfd;\n}\n.sound-track {\n  display: flex;\n  flex-direction: row;\n  height: 40px;\n  border: 1px solid #dbdfe4;\n  margin-bottom: 15px;\n  align-items: center;\n  margin-right: 10px;\n}\n.sound-track.active {\n  background: whitesmoke;\n}\n.sound-track__artist-name {\n  flex-grow: 1;\n}\n.sound-track__play-pause {\n  border-right: 1px solid #dbdfe4;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  width: 40px;\n  min-width: 40px;\n  justify-content: center;\n  cursor: pointer;\n}\n.sound-track__play-pause:after {\n  content: \"\\25BA\";\n}\n.sound-track.play .sound-track__play-pause:after {\n  content: \"\\2759\\2759\";\n}\n.sound-track__controls {\n  border-left: 1px solid #dbdfe4;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  width: 50px;\n  min-width: 50px;\n  cursor: pointer;\n}\n.sound-track__duration {\n  flex-grow: 1;\n  text-align: center;\n  font-size: 13px;\n}\n.sound-track__artist-name {\n  flex-grow: 1;\n  padding: 0 10px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n#youtubePlayer {\n  position: absolute;\n  bottom: 0;\n}\n.youtube-track {\n  width: 33.33333%;\n  float: left;\n  position: relative;\n  padding-right: 10px;\n  padding-bottom: 10px;\n  cursor: pointer;\n}\n.youtube-track__img > img {\n  float: left;\n  max-width: 100%;\n  height: auto;\n  min-height: 115px;\n}\n.youtube-track__artist-name {\n  position: absolute;\n  bottom: 10px;\n  left: 0;\n  right: 10px;\n  color: white;\n  background: rgba(0, 0, 0, 0.7);\n  font-size: 13px;\n  padding: 5px;\n  white-space: nowrap;\n  text-overflow: ellipsis;\n  overflow: hidden;\n}\na.albums-section__image-link {\n  float: left;\n  margin-right: 20px;\n}\n.album-block__playlist {\n  clear: both;\n}\n.album-item {\n  float: left;\n  position: relative;\n  width: 25%;\n  border-right: 1px solid white;\n  min-height: 160px;\n  border-bottom: 1px solid white;\n}\n.album-item > img {\n  float: left;\n  max-width: 100%;\n}\nspan.album-item__name {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  display: block;\n  overflow: hidden;\n  white-space: nowrap;\n  text-align: center;\n  text-overflow: ellipsis;\n  background: rgba(0, 0, 0, 0.7);\n  color: white;\n  font-size: 13px;\n  padding: 5px;\n  width: 100%;\n}\n.photo-list > img {\n  float: left;\n  width: 25%;\n  border-top: 1px solid white;\n  border-right: 1px solid white;\n}\n* {\n  outline: none;\n  box-sizing: border-box;\n}\nhtml,\nbody,\n#app,\n#wrapper {\n  height: 100%;\n}\nbody {\n  font-family: 'Fira Sans Condensed', sans-serif;\n  color: #345;\n  font-size: 15px;\n  background: #e1e7ed;\n}\np {\n  line-height: 20px;\n  margin-bottom: 20px;\n}\na {\n  text-decoration: none;\n}\nh1,\nh2,\nh3,\nh4,\nh5 {\n  text-transform: uppercase;\n  font-weight: bold;\n  color: #656c7a;\n}\nh1 {\n  font-size: 26px;\n  margin-bottom: 20px;\n}\nh2 {\n  font-size: 22px;\n  margin-bottom: 18px;\n}\nh3 {\n  font-size: 18px;\n  margin-bottom: 18px;\n}\n#app {\n  width: 100%;\n  max-width: 960px;\n  margin: 0 auto;\n  border-left: 1px solid #c3cbd4;\n  border-right: 1px solid #c3cbd4;\n}\n#wrapper {\n  display: flex;\n  flex-direction: column;\n}\n#container {\n  display: flex;\n  flex-direction: row;\n  align-content: center;\n  flex-grow: 1;\n}\n#content {\n  flex-grow: 1;\n  max-width: 960px;\n  padding: 20px 25px 0;\n  background: white;\n  overflow: hidden;\n}\n#content > section {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n}\n#content .scroll {\n  overflow-y: auto;\n  margin-top: 20px;\n  overflow-x: hidden;\n}\nul.list-items-horizontal > li {\n  float: left;\n  margin-right: 20px;\n  margin-bottom: 10px;\n  font-size: 14px;\n}\n#audio {\n  width: 100%;\n  height: 100%;\n}\n#playerWrapper {\n  width: 100%;\n  border-top: 1px solid #c3cbd4;\n  height: 33px;\n  min-height: 33px;\n  top: 0;\n  left: 0;\n  position: relative;\n  overflow: hidden;\n}\n#soundCloudPlayerWrapper {\n  width: 100%;\n  border-top: 1px solid #c3cbd4;\n  background: whitesmoke;\n  height: 120px;\n  min-height: 120px;\n  top: 0;\n  left: 0;\n  position: relative;\n  overflow: hidden;\n}\n#playerWrapper:before {\n  content: \"\";\n  display: none;\n  width: 100%;\n  position: absolute;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 1;\n}\n#disqus_thread {\n  border-top: 1px solid #dbdfe4;\n  margin-left: -25px;\n  margin-right: -25px;\n  padding: 10px 25px 15px;\n  background: #fdfdfd;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 403 */
+/* 404 */
 /***/ function(module, exports) {
 
 	/*
@@ -56845,7 +56958,7 @@
 	};
 
 /***/ },
-/* 404 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -57097,7 +57210,7 @@
 
 
 /***/ },
-/* 405 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57112,19 +57225,19 @@
 
 	var _reactRouterRedux = __webpack_require__(302);
 
-	var _stations = __webpack_require__(406);
+	var _stations = __webpack_require__(407);
 
 	var _stations2 = _interopRequireDefault(_stations);
 
-	var _player = __webpack_require__(407);
+	var _player = __webpack_require__(408);
 
 	var _player2 = _interopRequireDefault(_player);
 
-	var _source = __webpack_require__(408);
+	var _source = __webpack_require__(409);
 
 	var _source2 = _interopRequireDefault(_source);
 
-	var _meta = __webpack_require__(409);
+	var _meta = __webpack_require__(410);
 
 	var _meta2 = _interopRequireDefault(_meta);
 
@@ -57138,7 +57251,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 406 */
+/* 407 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57161,7 +57274,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 407 */
+/* 408 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57195,7 +57308,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 408 */
+/* 409 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -57222,7 +57335,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 409 */
+/* 410 */
 /***/ function(module, exports) {
 
 	'use strict';
