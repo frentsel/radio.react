@@ -38307,7 +38307,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -38318,138 +38318,100 @@
 
 	var _reactRedux = __webpack_require__(275);
 
-	var _jquery = __webpack_require__(311);
+	var _partialsHml5AudioPlayerJsx = __webpack_require__(411);
 
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var hideLoader = function hideLoader() {
-		(0, _jquery2['default'])('body').toggleClass('streamLoading', false);
-	};
-
-	// Current track
-	var _src = "";
-
-	var Hml5AudioPlayer = function Hml5AudioPlayer(_ref) {
-		var src = _ref.src;
-		var player = _ref.player;
-		var play = _ref.play;
-		var pause = _ref.pause;
-		var end = _ref.end;
-
-		if (src.length && _src !== src) (0, _jquery2['default'])('body').toggleClass('streamLoading', true);
-
-		_src = player === "end" ? "" : src;
-
-		// console.info("player: ", player);
-
-		return _react2['default'].createElement(
-			'div',
-			{ id: 'playerWrapper' },
-			_react2['default'].createElement(
-				'div',
-				{ className: 'meter' },
-				_react2['default'].createElement('span', null)
-			),
-			_react2['default'].createElement('audio', { id: 'audio', src: src, controls: true,
-				autoPlay: player === 'play',
-				onPlay: play,
-				onPause: pause,
-				onEnded: end,
-				onCanPlayThrough: hideLoader })
-		);
-	};
+	var _partialsHml5AudioPlayerJsx2 = _interopRequireDefault(_partialsHml5AudioPlayerJsx);
 
 	var AudioPlayer = _react2['default'].createClass({
-		displayName: 'AudioPlayer',
+	    displayName: 'AudioPlayer',
 
-		componentDidMount: function componentDidMount() {
+	    componentDidMount: function componentDidMount() {
 
-			// 2. This code loads the IFrame Player API code asynchronously.
-			var tag = document.createElement('script');
+	        // 2. This code loads the IFrame Player API code asynchronously.
+	        var tag = document.createElement('script');
 
-			tag.src = "https://www.youtube.com/iframe_api";
-			var firstScriptTag = document.getElementsByTagName('script')[0];
-			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	        tag.src = "https://www.youtube.com/iframe_api";
+	        var firstScriptTag = document.getElementsByTagName('script')[0];
+	        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-			// 3. This function creates an <iframe> (and YouTube player)
-			//    after the API code downloads.
-			var player;
+	        // 3. This function creates an <iframe> (and YouTube player)
+	        //    after the API code downloads.
+	        var player;
 
-			function onYouTubeIframeAPIReady() {
-				player = new YT.Player('player', {
-					height: '360',
-					width: '640',
-					videoId: 'M7lc1UVf-VE',
-					events: {
-						'onReady': onPlayerReady,
-						'onStateChange': onPlayerStateChange
-					}
-				});
-			}
+	        function onYouTubeIframeAPIReady() {
+	            player = new YT.Player('player', {
+	                height: '360',
+	                width: '640',
+	                videoId: 'M7lc1UVf-VE',
+	                events: {
+	                    'onReady': onPlayerReady,
+	                    'onStateChange': onPlayerStateChange
+	                }
+	            });
+	        }
 
-			// 4. The API will call this function when the video player is ready.
-			function onPlayerReady(event) {
-				event.target.playVideo();
-			}
+	        // 4. The API will call this function when the video player is ready.
+	        function onPlayerReady(event) {
+	            event.target.playVideo();
+	        }
 
-			// 5. The API calls this function when the player's state changes.
-			//    The function indicates that when playing a video (state=1),
-			//    the player should play for six seconds and then stop.
-			var done = false;
+	        // 5. The API calls this function when the player's state changes.
+	        //    The function indicates that when playing a video (state=1),
+	        //    the player should play for six seconds and then stop.
+	        var done = false;
 
-			function onPlayerStateChange(event) {
-				if (event.data == YT.PlayerState.PLAYING && !done) {
-					setTimeout(stopVideo, 6000);
-					done = true;
-				}
-			}
+	        function onPlayerStateChange(event) {
+	            if (event.data == YT.PlayerState.PLAYING && !done) {
+	                setTimeout(stopVideo, 6000);
+	                done = true;
+	            }
+	        }
 
-			function stopVideo() {
-				player.stopVideo();
-			}
-		},
+	        function stopVideo() {
+	            player.stopVideo();
+	        }
+	    },
 
-		render: function render() {
+	    render: function render() {
 
-			var src = this.props.src,
-			    player = this.props.player,
-			    play = this.props.play,
-			    pause = this.props.pause,
-			    end = this.props.end;
+	        var src = this.props.src,
+	            player = this.props.player,
+	            play = this.props.play,
+	            pause = this.props.pause,
+	            end = this.props.end;
 
-			// console.info("src: ", src);
+	        if (!src.length) return _react2['default'].createElement(_partialsHml5AudioPlayerJsx2['default'], { src: src });
 
-			if (!src.length) return _react2['default'].createElement(Hml5AudioPlayer, { src: src });
+	        if (src.indexOf('www.youtube.com/embed') !== -1) return _react2['default'].createElement('iframe', { id: 'youtubePlayer', width: '250', height: '141',
+	            src: src + '?enablejsapi=1&autoplay=1' });
 
-			if (src.indexOf('www.youtube.com/embed') !== -1) return _react2['default'].createElement('iframe', { id: 'youtubePlayer', width: '250', height: '141', src: src + '?enablejsapi=1&autoplay=1' });
-
-			return _react2['default'].createElement(Hml5AudioPlayer, { src: src, player: player, play: play, pause: pause, end: end });
-		}
+	        return _react2['default'].createElement(_partialsHml5AudioPlayerJsx2['default'], { src: src, player: player, play: play, pause: pause, end: end });
+	    }
 	});
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
-		return {
-			src: state.source,
-			player: state.player
-		};
+	    return {
+	        src: state.source,
+	        player: state.player
+	    };
 	}, function (dispatch) {
-		return {
-			play: function play() {
-				dispatch({
-					type: 'PLAY'
-				});
-			},
-			pause: function pause() {
-				dispatch({
-					type: 'PAUSE'
-				});
-			},
-			end: function end() {
-				dispatch({
-					type: 'END'
-				});
-			}
-		};
+	    return {
+	        play: function play() {
+	            dispatch({
+	                type: 'PLAY'
+	            });
+	        },
+	        pause: function pause() {
+	            dispatch({
+	                type: 'PAUSE'
+	            });
+	        },
+	        end: function end() {
+	            dispatch({
+	                type: 'END'
+	            });
+	        }
+	    };
 	})(AudioPlayer);
 	module.exports = exports['default'];
 
@@ -48922,7 +48884,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -48934,45 +48896,45 @@
 	var _reactRouter = __webpack_require__(198);
 
 	String.prototype.removeLinks = function () {
-		return this.replace(/<a[^\>]+>[^\<]+<\/a>/ig, '');
+	    return this.replace(/<a[^\>]+>[^\<]+<\/a>/ig, '');
 	};
 
 	var setDefaultImage = function setDefaultImage(e) {
-		e.target.src = "/img/placeholder-image.png";
+	    e.target.src = "/img/placeholder-image.png";
 	};
 
 	var ArtistInfo = function ArtistInfo(_ref) {
-		var artist = _ref.artist;
+	    var artist = _ref.artist;
 
-		return _react2['default'].createElement(
-			'section',
-			{ className: 'artist-info short' },
-			_react2['default'].createElement(
-				_reactRouter.Link,
-				{ to: '/artist-bio/' + encodeURIComponent(artist.name), title: artist.name },
-				_react2['default'].createElement('img', { src: artist.image[2]['#text'], onError: setDefaultImage, className: 'artist-info__image--small' })
-			),
-			_react2['default'].createElement(
-				'div',
-				{ className: 'artist-info__description' },
-				_react2['default'].createElement(
-					'h2',
-					null,
-					artist.name
-				),
-				_react2['default'].createElement(
-					'p',
-					null,
-					artist.bio.summary.removeLinks(),
-					_react2['default'].createElement('br', null),
-					_react2['default'].createElement(
-						_reactRouter.Link,
-						{ to: '/artist-bio/' + encodeURIComponent(artist.name) },
-						'подробнее'
-					)
-				)
-			)
-		);
+	    return _react2['default'].createElement(
+	        'section',
+	        { className: 'artist-info short' },
+	        _react2['default'].createElement(
+	            _reactRouter.Link,
+	            { to: '/artist-bio/' + encodeURIComponent(artist.name), title: artist.name },
+	            _react2['default'].createElement('img', { src: artist.image[2]['#text'], onError: setDefaultImage, className: 'artist-info__image--small' })
+	        ),
+	        _react2['default'].createElement(
+	            'div',
+	            { className: 'artist-info__description' },
+	            _react2['default'].createElement(
+	                'h2',
+	                null,
+	                artist.name
+	            ),
+	            _react2['default'].createElement(
+	                'p',
+	                null,
+	                artist.bio.summary.removeLinks(),
+	                _react2['default'].createElement('br', null),
+	                _react2['default'].createElement(
+	                    _reactRouter.Link,
+	                    { to: '/artist-bio/' + encodeURIComponent(artist.name) },
+	                    'подробнее'
+	                )
+	            )
+	        )
+	    );
 	};
 
 	exports['default'] = ArtistInfo;
@@ -49043,7 +49005,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -49055,23 +49017,23 @@
 	var _reactRouter = __webpack_require__(198);
 
 	var StationItem = function StationItem(_ref) {
-		var station = _ref.station;
-		var index = _ref.index;
+	    var station = _ref.station;
+	    var index = _ref.index;
 
-		return _react2['default'].createElement(
-			'div',
-			{ className: 'station-item' },
-			_react2['default'].createElement(
-				'b',
-				null,
-				station.title
-			),
-			_react2['default'].createElement(
-				_reactRouter.Link,
-				{ to: '/radio-station/' + index },
-				_react2['default'].createElement('img', { src: 'images/' + station.img, alt: '' })
-			)
-		);
+	    return _react2['default'].createElement(
+	        'div',
+	        { className: 'station-item' },
+	        _react2['default'].createElement(
+	            'b',
+	            null,
+	            station.title
+	        ),
+	        _react2['default'].createElement(
+	            _reactRouter.Link,
+	            { to: '/radio-station/' + index },
+	            _react2['default'].createElement('img', { src: 'images/' + station.img, alt: '' })
+	        )
+	    );
 	};
 
 	exports['default'] = StationItem;
@@ -49529,7 +49491,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -49558,137 +49520,137 @@
 
 	var scrollToActiveItem = function scrollToActiveItem() {
 
-		var $item = (0, _jquery2['default'])('.sound-track.active'),
-		    index = $item.index() || 0,
-		    playlist = (0, _jquery2['default'])('#soundCloudPlaylist').parent(),
-		    offset = index * ($item.outerHeight(true) + 1) - (playlist.outerHeight(true) / 2 - 75);
+	    var $item = (0, _jquery2['default'])('.sound-track.active'),
+	        index = $item.index() || 0,
+	        playlist = (0, _jquery2['default'])('#soundCloudPlaylist').parent(),
+	        offset = index * ($item.outerHeight(true) + 1) - (playlist.outerHeight(true) / 2 - 75);
 
-		playlist.animate({
-			scrollTop: offset
-		}, 200);
+	    playlist.animate({
+	        scrollTop: offset
+	    }, 200);
 	};
 
 	var _playlist = {
-		current: 0,
-		data: [],
-		getAll: function getAll() {
-			return this.data;
-		},
-		getCurrent: function getCurrent() {
-			return this.data[this.current];
-		},
-		setCurrent: function setCurrent(index) {
-			return this.current = index;
-		},
-		play: function play() {
+	    current: 0,
+	    data: [],
+	    getAll: function getAll() {
+	        return this.data;
+	    },
+	    getCurrent: function getCurrent() {
+	        return this.data[this.current];
+	    },
+	    setCurrent: function setCurrent(index) {
+	        return this.current = index;
+	    },
+	    play: function play() {
 
-			(0, _jquery2['default'])('.sound-track.active').addClass('play');
-		},
-		pause: function pause() {
+	        (0, _jquery2['default'])('.sound-track.active').addClass('play');
+	    },
+	    pause: function pause() {
 
-			(0, _jquery2['default'])('.sound-track.active').removeClass('play');
-		},
-		getNext: function getNext() {
+	        (0, _jquery2['default'])('.sound-track.active').removeClass('play');
+	    },
+	    getNext: function getNext() {
 
-			var $item = (0, _jquery2['default'])('.sound-track.active');
-			var index = undefined;
+	        var $item = (0, _jquery2['default'])('.sound-track.active');
+	        var index = undefined;
 
-			if ($item.length) {
+	        if ($item.length) {
 
-				index = $item.removeClass('active play').next().addClass('active play').index();
+	            index = $item.removeClass('active play').next().addClass('active play').index();
 
-				this.current = index;
-				return this.data[index] || false;
-			}
+	            this.current = index;
+	            return this.data[index] || false;
+	        }
 
-			return this.data[++this.current] || false;
-		},
-		getPrev: function getPrev() {
-			return this.data[--this.current] || false;
-		}
+	        return this.data[++this.current] || false;
+	    },
+	    getPrev: function getPrev() {
+	        return this.data[--this.current] || false;
+	    }
 	};
 
 	var Playlist = _react2['default'].createClass({
-		displayName: 'Playlist',
+	    displayName: 'Playlist',
 
-		getInitialState: function getInitialState() {
-			return {
-				playlist: []
-			};
-		},
+	    getInitialState: function getInitialState() {
+	        return {
+	            playlist: []
+	        };
+	    },
 
-		componentWillMount: function componentWillMount() {
+	    componentWillMount: function componentWillMount() {
 
-			var _this = this,
-			    artist = this.props.params.artistName;
+	        var _this = this,
+	            artist = this.props.params.artistName;
 
-			// meta.getTopArtistTracks(artist, function (data) {
-			//
-			// 	_this.setState({
-			// 		playlist: data.toptracks.track
-			// 	});
-			// });
+	        // meta.getTopArtistTracks(artist, function (data) {
+	        //
+	        // 	_this.setState({
+	        // 		playlist: data.toptracks.track
+	        // 	});
+	        // });
 
-			_libsSoundCloud2['default'].get.tracks({ q: artist, offset: 0 }, function (data) {
-				_this.setState({ playlist: data.collection });
-				_playlist.data = data.collection;
-			});
-		},
+	        _libsSoundCloud2['default'].get.tracks({ q: artist, offset: 0 }, function (data) {
+	            _this.setState({ playlist: data.collection });
+	            _playlist.data = data.collection;
+	        });
+	    },
 
-		render: function render() {
+	    render: function render() {
 
-			if (!this.state.playlist.length) return _react2['default'].createElement('div', { className: 'loader' });
+	        if (!this.state.playlist.length) return _react2['default'].createElement('div', { className: 'loader' });
 
-			// Play
-			if (this.props.player === 'play') {
-				_playlist.play();
-			}
+	        // Play
+	        if (this.props.player === 'play') {
+	            _playlist.play();
+	        }
 
-			// Pause
-			if (this.props.player === 'pause') {
-				_playlist.pause();
-			}
+	        // Pause
+	        if (this.props.player === 'pause') {
+	            _playlist.pause();
+	        }
 
-			// Next track by 'end' event
-			if (this.props.player === 'end') {
+	        // Next track by 'end' event
+	        if (this.props.player === 'end') {
 
-				var uri = _playlist.getNext().uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId;
+	            var uri = _playlist.getNext().uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId;
 
-				this.props.setTrack(uri);
-				this.props.play();
-				scrollToActiveItem();
-			}
+	            this.props.setTrack(uri);
+	            this.props.play();
+	            scrollToActiveItem();
+	        }
 
-			return _react2['default'].createElement(
-				'div',
-				{ className: 'artist-info', id: 'soundCloudPlaylist' },
-				this.state.playlist.map(function (item, n) {
-					return _react2['default'].createElement(_partialsTrackSoundCloudJsx2['default'], { item: item, key: n, setCurrentIndex: _playlist.setCurrent.bind(_playlist) });
-				})
-			);
-		}
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'artist-info', id: 'soundCloudPlaylist' },
+	            this.state.playlist.map(function (item, n) {
+	                return _react2['default'].createElement(_partialsTrackSoundCloudJsx2['default'], { item: item, key: n, setCurrentIndex: _playlist.setCurrent.bind(_playlist) });
+	            })
+	        );
+	    }
 	});
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
-		return {
-			player: state.player,
-			source: state.source
-		};
+	    return {
+	        player: state.player,
+	        source: state.source
+	    };
 	}, function (dispatch) {
-		return {
-			setTrack: function setTrack(url) {
-				dispatch({
-					type: 'SET',
-					url: url
-				});
-			},
-			play: function play(url) {
-				dispatch({
-					type: 'PLAY',
-					url: url
-				});
-			}
-		};
+	    return {
+	        setTrack: function setTrack(url) {
+	            dispatch({
+	                type: 'SET',
+	                url: url
+	            });
+	        },
+	        play: function play(url) {
+	            dispatch({
+	                type: 'PLAY',
+	                url: url
+	            });
+	        }
+	    };
 	})(Playlist);
 	module.exports = exports['default'];
 
@@ -49787,7 +49749,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -49807,76 +49769,91 @@
 	var _jquery2 = _interopRequireDefault(_jquery);
 
 	var duration = function duration(millis) {
-		var minutes = Math.floor(millis / 60000);
-		var seconds = (millis % 60000 / 1000).toFixed(0);
-		return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+	    var minutes = Math.floor(millis / 60000);
+	    var seconds = (millis % 60000 / 1000).toFixed(0);
+	    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 	};
 
 	var TrackSoundCloud = function TrackSoundCloud(_ref) {
-		var item = _ref.item;
-		var setCurrentIndex = _ref.setCurrentIndex;
-		var setTrack = _ref.setTrack;
-		var play = _ref.play;
+	    var item = _ref.item;
+	    var setCurrentIndex = _ref.setCurrentIndex;
+	    var setTrack = _ref.setTrack;
+	    var player = _ref.player;
+	    var play = _ref.play;
+	    var pause = _ref.pause;
 
-		var uri = item.uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId;
+	    var uri = item.uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId;
 
-		var handler = function handler(e) {
-			(0, _jquery2['default'])('.sound-track').removeClass('active play');
-			var index = (0, _jquery2['default'])(e.target).closest('.sound-track').addClass('active play');
-			setCurrentIndex(index);
-			setTrack(uri);
-			play();
-		};
+	    var handler = function handler(e) {
 
-		return(
-			// <div className="sound-track">
-			// 	<div className="sound-track__play-pause" onClick={handler}></div>
-			// 	<div className="sound-track__artist-name">{item.artist.name} - {item.name}</div>
-			// 	<div className="sound-track__controls">
-			// 		<div className="sound-track__duration">123</div>
-			// 	</div>
-			// </div>
-			_react2['default'].createElement(
-				'div',
-				{ className: 'sound-track' },
-				_react2['default'].createElement('div', { className: 'sound-track__play-pause', onClick: handler }),
-				_react2['default'].createElement(
-					'div',
-					{ className: 'sound-track__artist-name' },
-					item.title
-				),
-				_react2['default'].createElement(
-					'div',
-					{ className: 'sound-track__controls' },
-					_react2['default'].createElement(
-						'div',
-						{ className: 'sound-track__duration' },
-						duration(item.duration)
-					)
-				)
-			)
-		);
+	        var $track = (0, _jquery2['default'])(e.target).closest('.sound-track');
+	        var index = $track.index();
+
+	        (0, _jquery2['default'])('.sound-track').not($track).removeClass('active play');
+
+	        $track.addClass('active');
+
+	        if ($track.hasClass('play')) {
+
+	            $track.removeClass('play', false);
+	            pause();
+	            return false;
+	        }
+
+	        setCurrentIndex(index);
+	        setTrack(uri);
+	        play();
+
+	        $track.addClass('play', true);
+	    };
+
+	    return _react2['default'].createElement(
+	        'div',
+	        { className: 'sound-track' },
+	        _react2['default'].createElement('div', { className: 'sound-track__play-pause', onClick: handler }),
+	        _react2['default'].createElement(
+	            'div',
+	            { className: 'sound-track__artist-name' },
+	            item.title
+	        ),
+	        _react2['default'].createElement(
+	            'div',
+	            { className: 'sound-track__controls' },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'sound-track__duration' },
+	                duration(item.duration)
+	            )
+	        )
+	    );
 	};
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
-		return {
-			url: state.source
-		};
+	    return {
+	        url: state.source,
+	        player: state.player
+	    };
 	}, function (dispatch) {
-		return {
-			setTrack: function setTrack(url) {
-				dispatch({
-					type: 'SET',
-					url: url
-				});
-			},
-			play: function play(url) {
-				dispatch({
-					type: 'PLAY',
-					url: url
-				});
-			}
-		};
+	    return {
+	        setTrack: function setTrack(url) {
+	            dispatch({
+	                type: 'SET',
+	                url: url
+	            });
+	        },
+	        play: function play(url) {
+	            dispatch({
+	                type: 'PLAY',
+	                url: url
+	            });
+	        },
+	        pause: function pause(url) {
+	            dispatch({
+	                type: 'PAUSE',
+	                url: url
+	            });
+	        }
+	    };
 	})(TrackSoundCloud);
 	module.exports = exports['default'];
 
@@ -56668,7 +56645,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -56684,44 +56661,44 @@
 	var _jquery2 = _interopRequireDefault(_jquery);
 
 	var Track = function Track(_ref) {
-		var item = _ref.item;
-		var setTrack = _ref.setTrack;
+	    var item = _ref.item;
+	    var setTrack = _ref.setTrack;
 
-		var uri = item.uri;
+	    var uri = item.uri;
 
-		var handler = function handler(e) {
-			(0, _jquery2['default'])('.sound-track').removeClass('active play');
-			(0, _jquery2['default'])(e.target).closest('.sound-track').addClass('active play');
-			setTrack(uri);
-		};
+	    var handler = function handler(e) {
+	        (0, _jquery2['default'])('.sound-track').removeClass('active play');
+	        (0, _jquery2['default'])(e.target).closest('.sound-track').addClass('active play');
+	        setTrack(uri);
+	    };
 
-		return _react2['default'].createElement(
-			'div',
-			{ className: 'sound-track' },
-			_react2['default'].createElement('div', { className: 'sound-track__play-pause', onClick: handler }),
-			_react2['default'].createElement(
-				'div',
-				{ className: 'sound-track__artist-name' },
-				item.artist.name,
-				' - ',
-				item.name
-			)
-		);
+	    return _react2['default'].createElement(
+	        'div',
+	        { className: 'sound-track' },
+	        _react2['default'].createElement('div', { className: 'sound-track__play-pause', onClick: handler }),
+	        _react2['default'].createElement(
+	            'div',
+	            { className: 'sound-track__artist-name' },
+	            item.artist.name,
+	            ' - ',
+	            item.name
+	        )
+	    );
 	};
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
-		return {
-			url: state.source
-		};
+	    return {
+	        url: state.source
+	    };
 	}, function (dispatch) {
-		return {
-			setTrack: function setTrack(url) {
-				dispatch({
-					type: 'SET',
-					url: url
-				});
-			}
-		};
+	    return {
+	        setTrack: function setTrack(url) {
+	            dispatch({
+	                type: 'SET',
+	                url: url
+	            });
+	        }
+	    };
 	})(Track);
 	module.exports = exports['default'];
 
@@ -57280,29 +57257,29 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 	exports['default'] = player;
 
 	function player(state, action) {
-		if (state === undefined) state = "play";
+	    if (state === undefined) state = "play";
 
-		if (action.type === 'PLAY') {
-			state = 'play';
-			return state;
-		}
+	    if (action.type === 'PLAY') {
+	        state = 'play';
+	        return state;
+	    }
 
-		if (action.type === 'PAUSE') {
-			state = 'pause';
-			return state;
-		}
+	    if (action.type === 'PAUSE') {
+	        state = 'pause';
+	        return state;
+	    }
 
-		if (action.type === 'END') {
-			state = 'end';
-			return state;
-		}
+	    if (action.type === 'END') {
+	        state = 'end';
+	        return state;
+	    }
 
-		return state;
+	    return state;
 	}
 
 	module.exports = exports['default'];
@@ -57314,22 +57291,22 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	    value: true
 	});
 	exports['default'] = source;
 
 	function source(state, action) {
-		if (state === undefined) state = "";
+	    if (state === undefined) state = "";
 
-		if (action.type === 'SET') {
-			if (state !== action.url) return state = action.url;
-		}
+	    if (action.type === 'SET') {
+	        if (state !== action.url) return state = action.url;
+	    }
 
-		if (action.type === 'GET') {
-			return state;
-		}
+	    if (action.type === 'GET') {
+	        return state;
+	    }
 
-		return state;
+	    return state;
 	}
 
 	module.exports = exports['default'];
@@ -57356,6 +57333,100 @@
 	}
 
 	module.exports = exports['default'];
+
+/***/ },
+/* 411 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _react = __webpack_require__(12);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(275);
+
+	var _jquery = __webpack_require__(311);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var Hml5AudioPlayer = _react2['default'].createClass({
+	    displayName: 'Hml5AudioPlayer',
+
+	    showLoader: function showLoader() {
+	        if (this.props.src.length) {
+	            (0, _jquery2['default'])('body').addClass('streamLoading');
+	        }
+	    },
+
+	    hideLoader: function hideLoader() {
+	        (0, _jquery2['default'])('body').removeClass('streamLoading');
+	    },
+
+	    render: function render() {
+
+	        if (this.props.src.length && this.props.player === 'play') {
+	            document.getElementById('audio').play();
+	        }
+
+	        if (this.props.player === 'pause') {
+	            document.getElementById('audio').pause();
+	        }
+
+	        return _react2['default'].createElement(
+	            'div',
+	            { id: 'playerWrapper' },
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'meter' },
+	                _react2['default'].createElement('span', null)
+	            ),
+	            _react2['default'].createElement('audio', { id: 'audio', src: this.props.src, controls: true,
+	                autoPlay: this.props.player === 'play',
+	                onPlay: this.props.play,
+	                onPause: this.props.pause,
+	                onEnded: this.props.end,
+	                onLoadStart: this.showLoader,
+	                onCanPlayThrough: this.hideLoader })
+	        );
+	    }
+	});
+
+	exports['default'] = (0, _reactRedux.connect)(function (state) {
+	    return {
+	        src: state.source,
+	        player: state.player
+	    };
+	}, function (dispatch) {
+	    return {
+	        play: function play() {
+	            dispatch({
+	                type: 'PLAY'
+	            });
+	        },
+	        pause: function pause() {
+	            dispatch({
+	                type: 'PAUSE'
+	            });
+	        },
+	        end: function end() {
+	            dispatch({
+	                type: 'END'
+	            });
+	        }
+	    };
+	})(Hml5AudioPlayer);
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("D:\\WebServers\\hosts\\radio.react\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "Hml5AudioPlayer.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }
 /******/ ]);

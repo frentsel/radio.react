@@ -1,127 +1,95 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import $ from 'jquery';
-
-const hideLoader = () => {
-	$('body').toggleClass('streamLoading', false);
-};
-
-// Current track
-let _src = "";
-
-const Hml5AudioPlayer = ({src, player, play, pause, end}) => {
-
-	if (src.length && _src !== src)
-		$('body').toggleClass('streamLoading', true);
-
-	_src = (player === "end") ? "" : src;
-
-	// console.info("player: ", player);
-
-	return (
-		<div id="playerWrapper">
-			<div className="meter">
-				<span></span>
-			</div>
-			<audio id="audio" src={src} controls
-				   autoPlay={player === 'play'}
-				   onPlay={play}
-				   onPause={pause}
-				   onEnded={end}
-				   onCanPlayThrough={hideLoader}></audio>
-		</div>
-	);
-};
+import Hml5AudioPlayer from './partials/Hml5AudioPlayer.jsx';
 
 const AudioPlayer = React.createClass({
 
-	componentDidMount(){
+    componentDidMount(){
 
-		// 2. This code loads the IFrame Player API code asynchronously.
-		var tag = document.createElement('script');
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
 
-		tag.src = "https://www.youtube.com/iframe_api";
-		var firstScriptTag = document.getElementsByTagName('script')[0];
-		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-		// 3. This function creates an <iframe> (and YouTube player)
-		//    after the API code downloads.
-		var player;
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
 
-		function onYouTubeIframeAPIReady() {
-			player = new YT.Player('player', {
-				height: '360',
-				width: '640',
-				videoId: 'M7lc1UVf-VE',
-				events: {
-					'onReady': onPlayerReady,
-					'onStateChange': onPlayerStateChange
-				}
-			});
-		}
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '360',
+                width: '640',
+                videoId: 'M7lc1UVf-VE',
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
 
-		// 4. The API will call this function when the video player is ready.
-		function onPlayerReady(event) {
-			event.target.playVideo();
-		}
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
 
-		// 5. The API calls this function when the player's state changes.
-		//    The function indicates that when playing a video (state=1),
-		//    the player should play for six seconds and then stop.
-		var done = false;
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        var done = false;
 
-		function onPlayerStateChange(event) {
-			if (event.data == YT.PlayerState.PLAYING && !done) {
-				setTimeout(stopVideo, 6000);
-				done = true;
-			}
-		}
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+        }
 
-		function stopVideo() {
-			player.stopVideo();
-		}
-	},
+        function stopVideo() {
+            player.stopVideo();
+        }
+    },
 
-	render(){
+    render(){
 
-		const src = this.props.src,
-			player = this.props.player,
-			play = this.props.play,
-			pause = this.props.pause,
-			end = this.props.end;
+        const src = this.props.src,
+            player = this.props.player,
+            play = this.props.play,
+            pause = this.props.pause,
+            end = this.props.end;
 
-		// console.info("src: ", src);
+        if (!src.length)
+            return <Hml5AudioPlayer src={src}/>;
 
-		if (!src.length)
-			return <Hml5AudioPlayer src={src}/>;
+        if (src.indexOf('www.youtube.com/embed') !== -1)
+            return <iframe id="youtubePlayer" width="250" height="141"
+                           src={src + '?enablejsapi=1&autoplay=1'}></iframe>;
 
-		if (src.indexOf('www.youtube.com/embed') !== -1)
-			return <iframe id="youtubePlayer" width="250" height="141" src={src + '?enablejsapi=1&autoplay=1'}></iframe>;
-
-		return <Hml5AudioPlayer src={src} player={player} play={play} pause={pause} end={end}/>;
-	}
+        return <Hml5AudioPlayer src={src} player={player} play={play} pause={pause} end={end}/>;
+    }
 });
 
 export default connect(
-	state => ({
-		src: state.source,
-		player: state.player
-	}),
-	dispatch => ({
-		play: () => {
-			dispatch({
-				type: 'PLAY'
-			});
-		},
-		pause: () => {
-			dispatch({
-				type: 'PAUSE'
-			});
-		},
-		end: () => {
-			dispatch({
-				type: 'END'
-			});
-		}
-	})
+    state => ({
+        src: state.source,
+        player: state.player
+    }),
+    dispatch => ({
+        play: () => {
+            dispatch({
+                type: 'PLAY'
+            });
+        },
+        pause: () => {
+            dispatch({
+                type: 'PAUSE'
+            });
+        },
+        end: () => {
+            dispatch({
+                type: 'END'
+            });
+        }
+    })
 )(AudioPlayer);
