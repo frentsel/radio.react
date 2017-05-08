@@ -49597,7 +49597,19 @@
 	        });
 	    },
 
+	    isActive: function isActive(item, n) {
+
+	        if (this.props.source.includes(item.uri)) {
+	            _playlist.setCurrent(n);
+	            scrollToActiveItem();
+	            return 'active';
+	        }
+
+	        return '';
+	    },
+
 	    render: function render() {
+	        var _this2 = this;
 
 	        if (!this.state.playlist.length) return _react2['default'].createElement('div', { className: 'loader' });
 
@@ -49625,7 +49637,8 @@
 	            'div',
 	            { className: 'artist-info', id: 'soundCloudPlaylist' },
 	            this.state.playlist.map(function (item, n) {
-	                return _react2['default'].createElement(_partialsTrackSoundCloudJsx2['default'], { item: item, key: n, setCurrentIndex: _playlist.setCurrent.bind(_playlist) });
+	                var _status = _this2.isActive(item, n);
+	                return _react2['default'].createElement(_partialsTrackSoundCloudJsx2['default'], { status: _status, source: _this2.props.source, item: item, key: n, setCurrentIndex: _playlist.setCurrent.bind(_playlist) });
 	            })
 	        );
 	    }
@@ -49769,69 +49782,71 @@
 	var _jquery2 = _interopRequireDefault(_jquery);
 
 	var duration = function duration(millis) {
-	    var minutes = Math.floor(millis / 60000);
-	    var seconds = (millis % 60000 / 1000).toFixed(0);
+
+	    var minutes = Math.floor(millis / 60000),
+	        seconds = (millis % 60000 / 1000).toFixed(0);
+
 	    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 	};
 
-	var TrackSoundCloud = function TrackSoundCloud(_ref) {
-	    var item = _ref.item;
-	    var setCurrentIndex = _ref.setCurrentIndex;
-	    var setTrack = _ref.setTrack;
-	    var player = _ref.player;
-	    var play = _ref.play;
-	    var pause = _ref.pause;
+	var TrackSoundCloud = _react2['default'].createClass({
+	    displayName: 'TrackSoundCloud',
 
-	    var uri = item.uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId;
+	    handler: function handler(e) {
 
-	    var handler = function handler(e) {
+	        var uri = this.props.item.uri + '/stream?client_id=' + _libsSoundCloud2['default'].clientId,
+	            $track = (0, _jquery2['default'])(e.target).closest('.sound-track'),
+	            index = $track.index();
 
-	        var $track = (0, _jquery2['default'])(e.target).closest('.sound-track');
-	        var index = $track.index();
+	        console.info("index: ", index);
 
-	        (0, _jquery2['default'])('.sound-track').not($track).removeClass('active play');
+	        (0, _jquery2['default'])('.sound-track:not(:eq(' + index + '))').removeClass('active play');
 
 	        $track.addClass('active');
 
 	        if ($track.hasClass('play')) {
 
-	            $track.removeClass('play', false);
-	            pause();
+	            $track.removeClass('play');
+	            this.props.pause();
 	            return false;
 	        }
 
-	        setCurrentIndex(index);
-	        setTrack(uri);
-	        play();
+	        console.info("$track: ", $track.hasClass('play'));
 
-	        $track.addClass('play', true);
-	    };
+	        $track.addClass('play');
 
-	    return _react2['default'].createElement(
-	        'div',
-	        { className: 'sound-track' },
-	        _react2['default'].createElement('div', { className: 'sound-track__play-pause', onClick: handler }),
-	        _react2['default'].createElement(
+	        this.props.setCurrentIndex(index);
+	        this.props.setTrack(uri);
+	        this.props.play();
+	    },
+
+	    render: function render() {
+
+	        return _react2['default'].createElement(
 	            'div',
-	            { className: 'sound-track__artist-name' },
-	            item.title
-	        ),
-	        _react2['default'].createElement(
-	            'div',
-	            { className: 'sound-track__controls' },
+	            { className: 'sound-track ' + this.props.status },
+	            _react2['default'].createElement('div', { className: 'sound-track__play-pause', onClick: this.handler }),
 	            _react2['default'].createElement(
 	                'div',
-	                { className: 'sound-track__duration' },
-	                duration(item.duration)
+	                { className: 'sound-track__artist-name' },
+	                this.props.item.title
+	            ),
+	            _react2['default'].createElement(
+	                'div',
+	                { className: 'sound-track__controls' },
+	                _react2['default'].createElement(
+	                    'div',
+	                    { className: 'sound-track__duration' },
+	                    duration(this.props.item.duration)
+	                )
 	            )
-	        )
-	    );
-	};
+	        );
+	    }
+	});
 
 	exports['default'] = (0, _reactRedux.connect)(function (state) {
 	    return {
-	        url: state.source,
-	        player: state.player
+	        url: state.source
 	    };
 	}, function (dispatch) {
 	    return {

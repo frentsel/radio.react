@@ -88,6 +88,17 @@ const Playlist = React.createClass({
             });
         },
 
+        isActive(item, n){
+
+            if(this.props.source.includes(item.uri)) {
+                _playlist.setCurrent(n);
+                scrollToActiveItem();
+                return 'active';
+            }
+
+            return '';
+        },
+
         render()
         {
 
@@ -116,8 +127,10 @@ const Playlist = React.createClass({
 
             return (
                 <div className="artist-info" id="soundCloudPlaylist">
-                    {this.state.playlist.map((item, n) =>
-                        <TrackSoundCloud item={item} key={n} setCurrentIndex={_playlist.setCurrent.bind(_playlist)}/>)}
+                    {this.state.playlist.map((item, n) => {
+                        const _status = this.isActive(item, n);
+                        return <TrackSoundCloud status={_status} source={this.props.source} item={item} key={n} setCurrentIndex={_playlist.setCurrent.bind(_playlist)}/>
+                    })}
                 </div>
             );
         }

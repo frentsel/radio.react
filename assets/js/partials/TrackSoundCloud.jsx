@@ -4,53 +4,60 @@ import soundCloud from '../libs/SoundCloud';
 import $ from 'jquery';
 
 const duration = (millis) => {
-    var minutes = Math.floor(millis / 60000);
-    var seconds = ((millis % 60000) / 1000).toFixed(0);
+
+    var minutes = Math.floor(millis / 60000),
+        seconds = ((millis % 60000) / 1000).toFixed(0);
+
     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
 };
 
-const TrackSoundCloud = ({item, setCurrentIndex, setTrack, player, play, pause}) => {
+const TrackSoundCloud = React.createClass({
 
-    const uri = item.uri + '/stream?client_id=' + soundCloud.clientId;
+    handler(e){
 
-    const handler = (e) => {
+        let uri = this.props.item.uri + '/stream?client_id=' + soundCloud.clientId,
+            $track = $(e.target).closest('.sound-track'),
+            index = $track.index();
 
-        const $track = $(e.target).closest('.sound-track');
-        const index = $track.index();
+        console.info("index: ", index);
 
-        $('.sound-track').not($track).removeClass('active play');
+        $('.sound-track:not(:eq('+index+'))').removeClass('active play');
 
         $track.addClass('active');
 
         if ($track.hasClass('play')) {
 
-            $track.removeClass('play', false);
-            pause();
+            $track.removeClass('play');
+            this.props.pause();
             return false;
         }
 
-        setCurrentIndex(index);
-        setTrack(uri);
-        play();
+        console.info("$track: ", $track.hasClass('play'));
 
-        $track.addClass('play', true);
-    };
+        $track.addClass('play');
 
-    return (
-        <div className="sound-track">
-            <div className="sound-track__play-pause" onClick={handler}></div>
-            <div className="sound-track__artist-name">{item.title}</div>
-            <div className="sound-track__controls">
-                <div className="sound-track__duration">{duration(item.duration)}</div>
+        this.props.setCurrentIndex(index);
+        this.props.setTrack(uri);
+        this.props.play();
+    },
+
+    render(){
+
+        return (
+            <div className={'sound-track '+this.props.status}>
+                <div className="sound-track__play-pause" onClick={this.handler}></div>
+                <div className="sound-track__artist-name">{this.props.item.title}</div>
+                <div className="sound-track__controls">
+                    <div className="sound-track__duration">{duration(this.props.item.duration)}</div>
+                </div>
             </div>
-        </div>
-    );
-};
+        );
+    }
+});
 
 export default connect(
     state => ({
-        url: state.source,
-        player: state.player,
+        url: state.source
     }),
     dispatch => ({
         setTrack: (url) => {
