@@ -5,17 +5,17 @@ import Sidebar from './partials/Sidebar.jsx';
 import AudioPlayer from './AudioPlayer.jsx';
 import Search from './partials/search.jsx';
 
-const Layout = ({src, children}) => {
+const Layout = ({children}) => {
 
     return (
         <div id="wrapper">
             <nav>
                 <div className="nav-section-left">
-                    <Link to={'/'}>Home</Link>
                     <ul>
+                        <li><Link to={'/'}>Home</Link></li>
                         <li><Link to={'/about'}>About</Link></li>
                         <li><Link to={'/contact'}>Contact</Link></li>
-                        <li><Link to={'https://github.com/frentsel/radio.react'} target={'_blank'}>GitHub</Link></li>
+                        <li><Link to={'/news'}>News</Link></li>
                     </ul>
                 </div>
                 <Search />

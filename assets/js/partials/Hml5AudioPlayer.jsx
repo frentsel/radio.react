@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import $ from 'jquery';
+import toastr from 'toastr';
 
 const Hml5AudioPlayer = React.createClass({
 
@@ -12,6 +13,21 @@ const Hml5AudioPlayer = React.createClass({
 
     hideLoader() {
         $('body').removeClass('streamLoading');
+    },
+
+    errorHandler(e) {
+
+        if(!e.target.src.includes(window.location.origin)) {
+
+            toastr.remove();
+            toastr.options.progressBar = true;
+            toastr.error("MediaError, code: 4", 'Error', {
+                closeButton: true,
+                progressBar: true,
+            });
+
+            this.hideLoader();
+        }
     },
 
     render(){
@@ -34,6 +50,7 @@ const Hml5AudioPlayer = React.createClass({
                        onPlay={this.props.play}
                        onPause={this.props.pause}
                        onEnded={this.props.end}
+                       onError={this.errorHandler}
                        onLoadStart={this.showLoader}
                        onCanPlayThrough={this.hideLoader} />
             </div>
