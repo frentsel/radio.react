@@ -6,6 +6,7 @@ const http = {
     },
     cache: {},
     getJSON: function (path, params) {
+        path = path.replace(/^http:/, 'https:');
         return this.get(path, params, 'json');
     },
     get: function (path, _params, type) {
@@ -21,9 +22,7 @@ const http = {
                 return false;
             }
 
-            if (window.location.protocol === 'https') {
-                path = path.replace(/^http:/, 'https:');
-            }
+            path = path.replace(/^http:/, 'https:');
 
             params.t = new Date() * 1;
 

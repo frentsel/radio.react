@@ -48693,6 +48693,7 @@
 	    },
 	    cache: {},
 	    getJSON: function getJSON(path, params) {
+	        path = path.replace(/^http:/, 'https:');
 	        return this.get(path, params, 'json');
 	    },
 	    get: function get(path, _params, type) {
@@ -48708,9 +48709,7 @@
 	                return false;
 	            }
 
-	            if (window.location.protocol === 'https') {
-	                path = path.replace(/^http:/, 'https:');
-	            }
+	            path = path.replace(/^http:/, 'https:');
 
 	            params.t = new Date() * 1;
 
