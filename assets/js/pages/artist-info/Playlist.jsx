@@ -5,16 +5,35 @@ import TrackSoundCloud from '../../partials/TrackSoundCloud.jsx';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 
-const scrollToActiveItem = function () {
+const scrollToActiveItem = function (n) {
 
-    const $item = $('.sound-track.active'),
-        index = $item.index() || 0,
+    let $track = $('.sound-track.active'),
+        $tracks = $('.sound-track');
+
+    if(!$track.length) {
+        $track = $tracks.eq(n);
+    }
+
+    const index = $track.index() || 0,
         playlist = $('#soundCloudPlaylist').parent(),
-        offset = index * ($item.outerHeight(true) + 1) - (playlist.outerHeight(true) / 2 - 75);
+        offset = index * ($track.outerHeight(true) + 1) - (playlist.outerHeight(true) / 2 - 75);
 
     playlist.animate({
         scrollTop: (offset)
     }, 200);
+};
+
+const setActiveItem = function (n) {
+
+    let $tracks = $('.sound-track'),
+        $audio = $('#audio'),
+        $activeTrack = $tracks.eq(n);
+
+    $tracks.removeClass('active');
+    $activeTrack.addClass('active');
+
+    if(!$audio[0].paused)
+        $activeTrack.addClass('play');
 };
 
 let _playlist = {
@@ -88,15 +107,17 @@ const Playlist = React.createClass({
             });
         },
 
-        isActive(item, n){
+        componentDidUpdate() {
 
-            if(this.props.source.includes(item.uri)) {
-                _playlist.setCurrent(n);
-                scrollToActiveItem();
-                return 'active';
-            }
+            this.state.playlist.map((item, n) => {
 
-            return '';
+                if(this.props.source.includes(item.uri)) {
+
+                    _playlist.setCurrent(n);
+                    scrollToActiveItem(n);
+                    setActiveItem(n);
+                }
+            });
         },
 
         render()
@@ -127,10 +148,9 @@ const Playlist = React.createClass({
 
             return (
                 <div className="artist-info" id="soundCloudPlaylist">
-                    {this.state.playlist.map((item, n) => {
-                        const _status = this.isActive(item, n);
-                        return <TrackSoundCloud status={_status} source={this.props.source} item={item} key={n} setCurrentIndex={_playlist.setCurrent.bind(_playlist)}/>
-                    })}
+                    {this.state.playlist.map((item, n) =>
+                        <TrackSoundCloud currentIndex={_playlist.getCurrent()} source={this.props.source} item={item} key={n} setCurrentIndex={_playlist.setCurrent.bind(_playlist)}/>
+                    )}
                 </div>
             );
         }

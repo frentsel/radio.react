@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import $ from 'jquery';
-import toastr from 'toastr';
+import toastr from '../libs/toastr.min';
 
 const Hml5AudioPlayer = React.createClass({
 

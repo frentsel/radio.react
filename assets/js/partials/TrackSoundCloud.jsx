@@ -19,8 +19,6 @@ const TrackSoundCloud = React.createClass({
             $track = $(e.target).closest('.sound-track'),
             index = $track.index();
 
-        console.info("index: ", index);
-
         $('.sound-track:not(:eq('+index+'))').removeClass('active play');
 
         $track.addClass('active');
@@ -32,19 +30,17 @@ const TrackSoundCloud = React.createClass({
             return false;
         }
 
-        console.info("$track: ", $track.hasClass('play'));
-
-        $track.addClass('play');
-
         this.props.setCurrentIndex(index);
         this.props.setTrack(uri);
         this.props.play();
+
+        $track.addClass('play');
     },
 
     render(){
 
         return (
-            <div className={'sound-track '+this.props.status}>
+            <div className="sound-track">
                 <div className="sound-track__play-pause" onClick={this.handler}></div>
                 <div className="sound-track__artist-name">{this.props.item.title}</div>
                 <div className="sound-track__controls">
