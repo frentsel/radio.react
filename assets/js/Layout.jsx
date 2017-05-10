@@ -15,6 +15,7 @@ const Layout = ({src, children}) => {
                     <ul>
                         <li><Link to={'/about'}>About</Link></li>
                         <li><Link to={'/contact'}>Contact</Link></li>
+                        <li><Link to={'https://github.com/frentsel/radio.react'} target={'_blank'}>GitHub</Link></li>
                     </ul>
                 </div>
                 <Search />
