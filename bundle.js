@@ -40928,7 +40928,7 @@
 	        }
 	    },
 
-	    render: function render() {
+	    componentDidMount: function componentDidMount() {
 
 	        if (this.props.src.length && this.props.player === 'play') {
 	            document.getElementById('audio').play();
@@ -40937,6 +40937,9 @@
 	        if (this.props.player === 'pause') {
 	            document.getElementById('audio').pause();
 	        }
+	    },
+
+	    render: function render() {
 
 	        return _react2['default'].createElement(
 	            'div',
@@ -52237,6 +52240,7 @@
 	        $activeTrack = $tracks.eq(n);
 
 	    $tracks.removeClass('active');
+
 	    $activeTrack.addClass('active');
 
 	    if (!$audio[0].paused) $activeTrack.addClass('play');

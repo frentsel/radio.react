@@ -30,7 +30,7 @@ const Hml5AudioPlayer = React.createClass({
         }
     },
 
-    render(){
+    componentDidMount(){
 
         if (this.props.src.length && this.props.player === 'play') {
             document.getElementById('audio').play();
@@ -39,6 +39,9 @@ const Hml5AudioPlayer = React.createClass({
         if (this.props.player === 'pause') {
             document.getElementById('audio').pause();
         }
+    },
+
+    render(){
 
         return (
             <div id="playerWrapper">

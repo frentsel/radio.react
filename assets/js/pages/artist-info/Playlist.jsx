@@ -30,6 +30,7 @@ const setActiveItem = function (n) {
         $activeTrack = $tracks.eq(n);
 
     $tracks.removeClass('active');
+
     $activeTrack.addClass('active');
 
     if(!$audio[0].paused)
@@ -154,8 +155,7 @@ const Playlist = React.createClass({
                 </div>
             );
         }
-    })
-    ;
+    });
 
 export default connect(
     state => ({
